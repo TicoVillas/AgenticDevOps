@@ -1,0 +1,9 @@
+{
+  "profile": "REVIEW",
+  "sections": {
+    "DECISION": "REQUIRES_SPEC_REWORK",
+    "FINDINGS": "One material authority boundary is not represented.",
+    "MISSING_EVIDENCE": "A negative transition fixture is required.",
+    "NEXT_PHASE": "Return to the original engineering-author session."
+  }
+}

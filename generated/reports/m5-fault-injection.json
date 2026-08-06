@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "milestone": "M5.4/M5.8",
+  "result": "PASS",
+  "boundaries": [
+    "before-intent",
+    "after-intent",
+    "before-write",
+    "after-stage-write",
+    "before-sync",
+    "after-sync",
+    "before-rename",
+    "after-rename",
+    "after-write",
+    "before-receipt",
+    "after-receipt"
+  ],
+  "outcomes": [
+    "NO_EFFECT",
+    "PARTIAL_KNOWN",
+    "PARTIAL",
+    "UNKNOWN"
+  ],
+  "automatic_retry": false,
+  "test": "tests/lifecycle/engine-integration.test.mjs"
+}

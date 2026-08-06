@@ -1,0 +1,12 @@
+schema_version: 1
+trust_store_id: release-trust-test-only
+version: 1
+generated_at: '2026-08-02T00:00:00Z'
+key_events_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+keys:
+  - key_id: release-test-only-01
+    algorithm: Ed25519
+    fingerprint_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    public_key_spki_base64: VEVTVF9PTkxZX1BVQkxJQ19LRVk=
+    valid_from: '2026-08-02T00:00:00Z'
+    status: ACTIVE

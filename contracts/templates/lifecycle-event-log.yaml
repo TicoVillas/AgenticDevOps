@@ -1,0 +1,16 @@
+schema_version: 1
+operation_id: install-test-only-001
+operation_class: INSTALL
+sanitized: true
+events:
+  - sequence: 1
+    event_id: event-test-only-001
+    timestamp: '2026-08-05T00:00:00Z'
+    type: PLAN
+    status: PASS
+    reason_code: null
+    causal_event_id: null
+    artifact_hashes:
+      plan: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+limitations: [TEST_ONLY synthetic template.]
+operations_not_authorized: [REAL_GLOBAL_WRITE, HOME_ACCESS, NETWORK, GIT]

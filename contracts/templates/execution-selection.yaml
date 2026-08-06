@@ -1,0 +1,24 @@
+version: 1
+selection_guidance:
+  recommended:
+    family: preferred-capability-family
+    model: preferred-capability-tier
+    effort: HIGH
+    agent_workflow: engineering-execution
+    mode: agentic
+    rationale: Best fit for the authorized scope and required capabilities.
+  fallback_guidance:
+    family: equivalent-capability-family
+    model: equivalent-capability-tier
+    effort: HIGH
+    condition: Use when the recommended selection is unavailable or continuity requires an equivalent option.
+effective_selection:
+  family: preferred-capability-family
+  model: preferred-capability-tier
+  effort: HIGH
+  agent_workflow: engineering-execution
+  mode: agentic
+  alternative_used: false
+  fallback_used: false
+  recorded_before_preflight: true
+comparison_result: MATCH

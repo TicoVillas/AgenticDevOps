@@ -1,0 +1,25 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:lifecycle-cli-result:3.0
+$comment: schema-version-3.1.0; safe structured CLI output
+type: object
+additionalProperties: false
+required: [schema_version, command, ok, status, reason_code, exit_code, operation_id, result, errors, sanitized]
+properties:
+  schema_version: { const: 1 }
+  command: { enum: [install, update, reconcile, resume, rollback, uninstall, inspect-plan, inspect-state, help] }
+  ok: { type: boolean }
+  status: { enum: [COMPLETED, NO_CHANGE, READY, BLOCKED, PARTIAL_KNOWN, PARTIAL, UNKNOWN, USAGE_ERROR, INTERNAL_ERROR] }
+  reason_code: { type: [string, 'null'], pattern: '^[A-Z][A-Z0-9_]*$' }
+  exit_code: { type: integer, minimum: 0, maximum: 8 }
+  operation_id: { type: [string, 'null'], pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+  result: { type: [object, 'null'] }
+  errors:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [code, message]
+      properties:
+        code: { type: string, pattern: '^[A-Z][A-Z0-9_]*$' }
+        message: { type: string, minLength: 1, maxLength: 512 }
+  sanitized: { const: true }

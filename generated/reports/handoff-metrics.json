@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "baseline_manual_handoffs": 21,
+  "v3_required_handoffs": 7,
+  "handoffs_removed_only_on_guarded_automatic_edges": 14,
+  "guarded_automatic_transitions": 14,
+  "human_checkpoints_preserved": 7,
+  "inferred_authorizations": 0,
+  "topology_violations": 0,
+  "checkpoint_bypasses": 0
+}

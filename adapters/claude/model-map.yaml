@@ -1,0 +1,13 @@
+version: 1
+adapter: Claude
+mappings:
+  - capability: high_reliability_assurance
+    minimum_capabilities: [critical_review, evidence_cross_check, long_context]
+    effort: HIGH
+    preferred_model: Claude Opus 4.8
+    fallback_model: Claude Opus 4.7
+  - capability: standard_independent_assurance
+    minimum_capabilities: [independent_review, test_analysis]
+    effort: HIGH
+    preferred_model: Claude Sonnet 4.6
+    fallback_model: Claude Opus 4.6

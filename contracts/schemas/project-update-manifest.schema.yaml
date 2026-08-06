@@ -1,0 +1,36 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:project-update-manifest:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, manifest_id, project_root, snapshot_sha256, source_release_sha256, allowed_prefixes, migrations]
+properties:
+  schema_version: { const: 1 }
+  manifest_id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+  project_root: { type: string, pattern: '^/' }
+  snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  source_release_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  allowed_prefixes: { type: array, minItems: 1, uniqueItems: true, items: { const: .agentic/ } }
+  files:
+    type: array
+    uniqueItems: true
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, path, ownership, content_utf8]
+      properties:
+        id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        path: { type: string, pattern: '^\.agentic/(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        ownership: { enum: [FRAMEWORK_MANAGED, USER_OWNED] }
+        content_utf8: { type: string }
+  migrations:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, version, preconditions, reversible]
+      properties:
+        id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        version: { type: integer, minimum: 1 }
+        preconditions: { type: array, minItems: 1, items: { type: string, minLength: 1 } }
+        reversible: { type: boolean }

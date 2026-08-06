@@ -1,0 +1,119 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:distribution-manifest:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, framework_version, adapter, manifest_id, source_root, destination_root, expected_managed_files, source_catalog, managed_items, legacy_retirements, operation]
+properties:
+  schema_version: { const: 1 }
+  framework_version: { type: string, pattern: '^3\.0\.0$' }
+  adapter: { type: string, pattern: '^[a-z][a-z0-9-]*$' }
+  manifest_id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+  source_root: { const: FRAMEWORK_ROOT }
+  destination_root: { type: string, pattern: '^[A-Z][A-Z0-9_]*_ROOT$' }
+  release_binding:
+    type: object
+    additionalProperties: false
+    required: [version, tag, release_id, commit_sha, manifest_sha256]
+    properties:
+      version: { type: string, pattern: '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' }
+      tag: { type: string, pattern: '^v(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' }
+      release_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$' }
+      commit_sha: { type: string, pattern: '^[a-f0-9]{40}$' }
+      manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  destination_classes:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items: { enum: [GLOBAL_MANAGED, PROJECT_TEMPLATE, STATE_EXTERNAL, STAGING_EPHEMERAL] }
+  payload_policy:
+    type: object
+    additionalProperties: false
+    required: [allowlist_only, governance_excluded, operational_state_excluded]
+    properties:
+      allowlist_only: { const: true }
+      governance_excluded: { const: true }
+      operational_state_excluded: { const: true }
+  expected_managed_files: { const: 64 }
+  source_catalog:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, path, version, class, adapter_scope, hash_mode]
+      properties:
+        id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        path: { type: string, minLength: 1, pattern: '^(?!/)(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        version: { const: 3.0.0 }
+        class: { enum: [GLOBAL_KIRO_MANAGED, SOURCE_ONLY, PROJECT_TEMPLATE, GENERATED_PACKAGE_CONTENT, BUILD_TEST_ONLY] }
+        adapter_scope: { type: string, pattern: '^[a-z][a-z0-9-]*$' }
+        hash_mode: { enum: [LOCKED_SHA256, FRAMEWORK_LOCK_EXTERNAL] }
+        sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+        generated_from:
+          type: array
+          uniqueItems: true
+          items: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+      allOf:
+        - if:
+            properties: { hash_mode: { const: LOCKED_SHA256 } }
+          then:
+            required: [sha256]
+            properties: { sha256: { type: string, pattern: '^[a-f0-9]{64}$' } }
+        - if:
+            properties: { hash_mode: { const: FRAMEWORK_LOCK_EXTERNAL } }
+          then:
+            properties:
+              sha256: false
+        - if:
+            properties: { class: { const: GENERATED_PACKAGE_CONTENT } }
+          then:
+            required: [generated_from]
+            properties: { generated_from: { type: array, minItems: 1 } }
+  managed_items:
+    type: array
+    minItems: 64
+    maxItems: 64
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, source_id, destination, owner, group, mode, apply_phase, depends_on, self_update, loader_role]
+      properties:
+        id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        source_id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        destination: { type: string, minLength: 1, pattern: '^(?!/)(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        owner: { const: INSTALLING_USER }
+        group: { const: INSTALLING_PRIMARY_GROUP }
+        mode: { const: '0644' }
+        apply_phase: { enum: [SUPPORT, ADAPTER, SKILL_REFERENCE, SKILL, ENTRYPOINT, SELF_UPDATE] }
+        depends_on:
+          type: array
+          uniqueItems: true
+          items: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        self_update: { type: boolean }
+        loader_role: { enum: [NONE, ROUTER, SKILL, STEERING_ENTRYPOINT] }
+  legacy_retirements:
+    type: array
+    minItems: 9
+    maxItems: 9
+    items:
+      type: object
+      additionalProperties: false
+      required: [path, baseline_sha256, required_state, backup_required, remove_only_if_exact]
+      properties:
+        path: { type: string, minLength: 1, pattern: '^steering/(?:workflow-core\.md|contracts/[A-Za-z][A-Za-z0-9]+\.md)$' }
+        baseline_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+        required_state: { const: LEGACY_ACTIVE_CONFLICT }
+        backup_required: { const: true }
+        remove_only_if_exact: { const: true }
+  operation:
+    type: object
+    additionalProperties: false
+    required: [self_update_item, restart_status, directory_mode, stage_a, stage_b]
+    properties:
+      self_update_item: { const: skill-bootstrap }
+      restart_status: { const: RESTART_REQUIRED }
+      directory_mode: { const: '0755' }
+      stage_a: { const: PRE_RESTART_APPLY }
+      stage_b: { const: POST_RESTART_VALIDATION }

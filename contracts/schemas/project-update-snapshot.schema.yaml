@@ -1,0 +1,45 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:project-update-snapshot:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, project_root, project_root_sha256, entries, profile, git, operations_not_authorized]
+properties:
+  schema_version: { const: 1 }
+  project_root: { type: string, pattern: '^/' }
+  project_root_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  entries:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [path, type, size, sha256]
+      properties:
+        path: { type: string, pattern: '^\.agentic/(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        type: { enum: [FILE, DIRECTORY] }
+        size: { type: integer, minimum: 0 }
+        sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+  profile:
+    type: object
+    additionalProperties: false
+    required: [path, presence, sha256, content_utf8]
+    properties:
+      path: { const: .agentic/application-profile.yaml }
+      presence: { enum: [PRESENT, ABSENT] }
+      sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+      content_utf8: { type: [string, 'null'] }
+  git:
+    type: object
+    additionalProperties: false
+    required: [read_only, initialized, branch, head, status]
+    properties:
+      read_only: { const: true }
+      initialized: { type: boolean }
+      branch: { type: [string, 'null'] }
+      head: { type: [string, 'null'] }
+      status: { type: array, items: { type: string } }
+  operations_not_authorized:
+    type: array
+    minItems: 9
+    uniqueItems: true
+    items: { enum: [GIT_INIT, GIT_STAGE, GIT_COMMIT, GIT_CHECKOUT, GIT_RESET, GIT_CLEAN, GIT_PUSH, GIT_BRANCH, GIT_TAG] }

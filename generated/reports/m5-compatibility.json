@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "milestone": "M5.1",
+  "result": "PASS",
+  "lifecycle_engine": [
+    "tools/lib/distribution.mjs",
+    "tools/lib/installation.mjs"
+  ],
+  "orchestration_only": [
+    "tools/lib/lifecycle/",
+    "adapters/lifecycle/node-filesystem.mjs"
+  ],
+  "second_engine_detected": false,
+  "regression_tests": [
+    "tests/distribution/installation-artifacts.test.mjs",
+    "tests/distribution/installation-apply.test.mjs",
+    "tests/distribution/installation-recovery.test.mjs",
+    "tests/distribution/bootstrap-flow.test.mjs"
+  ],
+  "evidence_command": "node --test tests/distribution/installation-artifacts.test.mjs tests/distribution/installation-apply.test.mjs tests/distribution/installation-recovery.test.mjs tests/distribution/bootstrap-flow.test.mjs"
+}

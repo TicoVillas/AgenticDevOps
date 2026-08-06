@@ -1,0 +1,83 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:release-manifest:3.0
+$comment: schema-version-3.1.0; migrated from the compatible 3.0 draft by release-manifest-v1-bindings
+type: object
+additionalProperties: false
+required: [schema_version, release_id, version, tag, commit_sha, repository, assets, asset_inventory_sha256, checksums, signing, sbom, lock_sha256, runtime, platform_support, build_identity, validation_status]
+properties:
+  schema_version: { const: 1 }
+  release_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$' }
+  version: { type: string, pattern: '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' }
+  tag: { type: string, pattern: '^v(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' }
+  commit_sha: { type: string, pattern: '^[a-f0-9]{40}$' }
+  repository: { type: string, pattern: '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$' }
+  assets:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [name, sha256, size, media_type, class]
+      properties:
+        name: { type: string, pattern: '^(?!/)(?!.*(?:^|/)\.\.(?:/|$))[^\\]+$' }
+        sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+        size: { type: integer, minimum: 0 }
+        media_type: { type: string, minLength: 1 }
+        class: { enum: [RUNTIME, MANIFEST, METADATA, CHECKSUMS, SIGNATURE, SBOM, TRUST, ATTESTATION] }
+  asset_inventory_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  checksums:
+    type: object
+    additionalProperties: false
+    required: [name, sha256, algorithm, serialization]
+    properties:
+      name: { const: SHA256SUMS }
+      sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      algorithm: { const: SHA-256 }
+      serialization: { const: 'LOWERCASE_HEX_TWO_SPACES_NAME_LF' }
+  signing:
+    type: object
+    additionalProperties: false
+    required: [algorithm, key_id, fingerprint_sha256, manifest_signature, checksums_signature]
+    properties:
+      algorithm: { const: Ed25519 }
+      key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+      fingerprint_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      manifest_signature:
+        type: object
+        additionalProperties: false
+        required: [name, encoding]
+        properties:
+          name: { type: string, pattern: '^release-manifest-[A-Za-z0-9._-]+\.json\.sig$' }
+          encoding: { const: base64 }
+      checksums_signature:
+        type: object
+        additionalProperties: false
+        required: [name, encoding]
+        properties:
+          name: { const: SHA256SUMS.sig }
+          encoding: { const: base64 }
+  sbom: { $ref: 'urn:agentic-devops:release-sbom-reference:3.0' }
+  lock_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  runtime:
+    type: object
+    additionalProperties: false
+    required: [node_major, package_manager]
+    properties:
+      node_major: { const: 24 }
+      package_manager: { const: npm }
+  platform_support:
+    type: array
+    minItems: 1
+    items: { type: string, pattern: '^[a-z0-9]+-[a-z0-9-]+$' }
+  platform_capability: { $ref: 'urn:agentic-devops:platform-capability:3.0' }
+  build_identity: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._:-]{7,255}$' }
+  validation_status: { enum: [DRAFT, VALIDATED, BLOCKED] }
+  metadata_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  sbom_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+allOf:
+  - if: { required: [validation_status], properties: { validation_status: { const: VALIDATED } } }
+    then:
+      required: [metadata_sha256, sbom_sha256]
+      properties:
+        metadata_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+        sbom_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }

@@ -1,0 +1,12 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:release-sbom-reference:3.0
+$comment: schema-version-3.1.0
+type: object
+additionalProperties: false
+required: [schema_version, name, format, media_type, sha256]
+properties:
+  schema_version: { const: 1 }
+  name: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._/-]*\.(?:json|xml)$' }
+  format: { enum: [SPDX_JSON, SPDX_XML, CYCLONEDX_JSON, CYCLONEDX_XML] }
+  media_type: { enum: [application/spdx+json, application/spdx+xml, application/vnd.cyclonedx+json, application/vnd.cyclonedx+xml] }
+  sha256: { type: string, pattern: '^[a-f0-9]{64}$' }

@@ -1,0 +1,53 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:distribution-backup-manifest:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, operation_id, manifest_sha256, snapshot_sha256, created_at, destination_root_id, entries, verified]
+properties:
+  schema_version: { const: 1 }
+  operation_id: { type: string, pattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]{7,127}$' }
+  manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  created_at: { type: string, format: date-time }
+  destination_root_id: { const: KIRO_GLOBAL_ROOT }
+  retention_class: { enum: [INSTALLATION_ORIGINAL, SUCCESSFUL_VERSION, POST_UNINSTALL, LEGAL_HOLD] }
+  origin_operation:
+    type: object
+    additionalProperties: false
+    required: [operation_id, operation_class]
+    properties:
+      operation_id: { type: string, pattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]{7,127}$' }
+      operation_class: { enum: [INSTALL, UPDATE, ROLLBACK, UNINSTALL] }
+  legal_hold:
+    type: object
+    additionalProperties: false
+    required: [active, reason]
+    properties:
+      active: { type: boolean }
+      reason: { enum: [NONE, UNKNOWN, PARTIAL, UNRECONCILED, MANUAL] }
+    allOf:
+      - if: { properties: { active: { const: false } } }
+        then: { properties: { reason: { const: NONE } } }
+      - if: { properties: { active: { const: true } } }
+        then: { properties: { reason: { enum: [UNKNOWN, PARTIAL, UNRECONCILED, MANUAL] } } }
+  entries:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [item_id, path, pre_state, backup_path, sha256, size, file_type, mode, uid, gid, verified]
+      properties:
+        item_id: { type: string, minLength: 1 }
+        path: { type: string, minLength: 1 }
+        pre_state: { enum: [MANAGED_OUTDATED, LEGACY_ACTIVE_CONFLICT, METADATA_DIVERGENT] }
+        backup_path: { type: string, minLength: 1 }
+        sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+        size: { type: integer, minimum: 0 }
+        file_type: { const: REGULAR_FILE }
+        mode: { type: [string, 'null'], pattern: '^[0-7]{4}$' }
+        uid: { type: [integer, 'null'], minimum: 0 }
+        gid: { type: [integer, 'null'], minimum: 0 }
+        verified: { const: true }
+  verified: { const: true }

@@ -1,0 +1,9 @@
+version: 1
+type: REQUIREMENTS
+status: DRAFT
+metadata:
+  project: example
+  slug: example-change
+  phase: spec
+sections:
+  objective: Replace with observable intent.

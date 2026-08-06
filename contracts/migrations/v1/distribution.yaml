@@ -1,0 +1,13 @@
+id: distribution-v1-release-payload
+target_schema: urn:agentic-devops:distribution-manifest:3.0
+from_version: 1
+to_version: 1
+required_context: [release_binding]
+operations:
+  - { op: copy_context, field: release_binding }
+  - op: set_if_absent
+    field: destination_classes
+    value: [GLOBAL_MANAGED]
+  - op: set_if_absent
+    field: payload_policy
+    value: { allowlist_only: true, governance_excluded: true, operational_state_excluded: true }

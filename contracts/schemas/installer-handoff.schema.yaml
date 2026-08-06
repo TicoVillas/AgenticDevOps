@@ -1,0 +1,78 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:installer-handoff:3.0
+$comment: schema-version-3.1.0; platform-neutral verified installer handoff
+type: object
+additionalProperties: false
+required: [schema_version, adapter, platform_validation, status, release_identity, verification, operation, lifecycle, bindings, decisions, stops, receipt_semantics]
+properties:
+  schema_version: { const: 1 }
+  adapter: { enum: [BASH, POWERSHELL] }
+  platform_validation: { enum: [SYNTHETICALLY_VALIDATED, PROJECTED] }
+  status: { const: READY_FOR_INSPECT_AND_PLAN }
+  release_identity:
+    type: object
+    additionalProperties: false
+    required: [release_id, version, tag, commit_sha, repository]
+    properties:
+      release_id: { type: string, minLength: 3 }
+      version: { type: string, pattern: '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$' }
+      tag: { type: string, pattern: '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$' }
+      commit_sha: { type: string, pattern: '^[a-f0-9]{40}$' }
+      repository: { type: string, minLength: 3 }
+  verification:
+    type: object
+    additionalProperties: false
+    required: [method, release_identity_sha256, manifest_sha256, payload_root, file_count, staging_root]
+    properties:
+      method: { const: VERIFY_BEFORE_EXTRACT }
+      release_identity_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      payload_root: { type: string, minLength: 1 }
+      file_count: { type: integer, minimum: 1 }
+      staging_root: { type: string, minLength: 1 }
+  operation: { enum: [install, update] }
+  lifecycle:
+    type: object
+    additionalProperties: false
+    required: [cli, inspect_argv, plan_argv, apply_argv]
+    properties:
+      cli: { const: tools/lifecycle-cli.mjs }
+      inspect_argv: { type: array, minItems: 2, items: { type: string, minLength: 1 } }
+      plan_argv: { type: array, minItems: 2, items: { type: string, minLength: 1 } }
+      apply_argv:
+        anyOf:
+          - { type: 'null' }
+          - { type: array, minItems: 2, items: { type: string, minLength: 1 } }
+  bindings:
+    type: object
+    additionalProperties: false
+    required: [release_identity_sha256, source, destination, state, cache, temp, operation_id]
+    properties:
+      release_identity_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      source: { type: string, minLength: 1 }
+      destination: { type: string, minLength: 1 }
+      state: { type: string, minLength: 1 }
+      cache: { type: string, minLength: 1 }
+      temp: { type: string, minLength: 1 }
+      operation_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+  decisions:
+    type: object
+    additionalProperties: false
+    required: [exact_release, payload_verification_required, apply_authorized, wrapper_executes_apply, direct_global_write]
+    properties:
+      exact_release: { const: true }
+      payload_verification_required: { const: true }
+      apply_authorized: { type: boolean }
+      wrapper_executes_apply: { const: false }
+      direct_global_write: { const: false }
+  stops:
+    type: array
+    const: [VERIFY_BEFORE_EXTRACT, LIFECYCLE_INSPECT, LIFECYCLE_PLAN, EXPLICIT_APPLY_AUTHORIZATION]
+  receipt_semantics:
+    type: object
+    additionalProperties: false
+    required: [producer, namespace, finalization]
+    properties:
+      producer: { const: tools/lifecycle-cli.mjs }
+      namespace: { const: GLOBAL_LIFECYCLE }
+      finalization: { const: LIFECYCLE_ENGINE_ONLY }

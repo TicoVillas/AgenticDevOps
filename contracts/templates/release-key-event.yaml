@@ -1,0 +1,9 @@
+schema_version: 1
+event_id: key-event-test-only-rotation-01
+event_type: ROTATION
+effective_at: '2026-08-02T00:00:00Z'
+authorization_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+authenticated_metadata_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+previous_key_id: release-test-only-01
+new_key_id: release-test-only-02
+overlap_until: '2026-09-02T00:00:00Z'

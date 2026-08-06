@@ -1,0 +1,2908 @@
+schema_version: 1
+framework_version: 3.0.0
+adapter: kiro
+manifest_id: kiro-global-v3
+source_root: FRAMEWORK_ROOT
+destination_root: KIRO_GLOBAL_ROOT
+expected_managed_files: 64
+
+# The catalog is authoritative for source purpose. framework.lock remains the
+# external integrity authority, including this manifest's own digest.
+source_catalog:
+  - id: source-agentic-application-profile
+    path: .agentic/application-profile.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: cf67b838689e14a799a82ef599f3acdb9fc7a06d37acb725e085c44edd00cce7
+  - id: source-github-workflows-pr
+    path: .github/workflows/pr.yml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9ad376ed1e7b1b86fe37f282a8393b52048595f80b8b791f08485bf3da04d6d2
+  - id: source-github-workflows-release
+    path: .github/workflows/release.yml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: aa7db435cffb7915a2736f4c0e7e4dfabeadfae585b9b7bde5e38320fff1d7d1
+  - id: source-kiro-specs-framework-governance-and-portability-execution
+    path: .kiro/specs/framework-governance-and-portability/EXECUTION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3f0068f97d1a689a6c9314fee488d8d85a38d6a5384ff221a041362565235db4
+  - id: source-kiro-specs-framework-governance-and-portability-contract-review
+    path: .kiro/specs/framework-governance-and-portability/contract-review.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 8521e2d409bae8a0d8b10e2fce4c90d15fba0a9c413dba8dad7919ec6a894b57
+  - id: source-kiro-specs-framework-governance-and-portability-design
+    path: .kiro/specs/framework-governance-and-portability/design.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 46532b9e7e43ff7626bbedc1e040dbf6af1e343502b99b5242d52e31146cd056
+  - id: source-kiro-specs-framework-governance-and-portability-discovery
+    path: .kiro/specs/framework-governance-and-portability/discovery.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d9b40cdcab92dd01bea55918beff7ceb8e164a49b455471fa6a54f5d8ef0be77
+  - id: source-kiro-specs-framework-governance-and-portability-execution-brief
+    path: .kiro/specs/framework-governance-and-portability/execution-brief.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a3a0381107a3b529e35948609ed2b47034f7c82330c826ba5e82d5acc1a21d95
+  - id: source-kiro-specs-framework-governance-and-portability-m3-archive-finalization-resume-02
+    path: .kiro/specs/framework-governance-and-portability/m3-archive-finalization-resume-02.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 745a1848eb613a517b588311f7f016fcccad59f7c9c7208a98bd700d8519b8ab
+  - id: source-kiro-specs-framework-governance-and-portability-m9-migration-manifest
+    path: .kiro/specs/framework-governance-and-portability/m9-migration-manifest.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: aaa7b26406fbd0c59255c5ef576a1ddcb75a0dfd85ae96bb6056270f72d67260
+  - id: source-kiro-specs-framework-governance-and-portability-requirements
+    path: .kiro/specs/framework-governance-and-portability/requirements.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: fe83db42aa19de992ceb90291d5db4caa69fcbf35e315e9d1fc1692ff4598aa2
+  - id: source-kiro-specs-framework-governance-and-portability-tasks
+    path: .kiro/specs/framework-governance-and-portability/tasks.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3e18e3d22902bf96befa9440f354fd21690bb0828de4a9b69c9514db6b45797c
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-corrections-round-02-correction-spec
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/corrections/round-02/correction-spec.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 78c400a10c1f1c1746207a2ccc78d5a626af373bea7361cd174d8dd830c3c337
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-design
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/design.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 391900d3f6e83ce3dfd74e110ab9646ddc5b509a7326911c59997e1c60f0c8f4
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-discovery
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/discovery.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7962ef844253f6f011c7b3ebe816b22f65066b1dfd892dc60b07a7a98b02b8c5
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-evidence-correction-round-02-execution
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/evidence/correction/round-02/EXECUTION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1af2e53ba4d3c0d9e5b90f398d4a38c1062370ef3483691b179926ec10843724
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-evidence-execution-round-01-execution
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/evidence/execution/round-01/EXECUTION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ff45fa06292c78485582e069c7444a30e54a20209026a79da068b80c91715620
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-evidence-revalidation-round-02-validation
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/evidence/revalidation/round-02/VALIDATION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 40b9af1d008896fc41dcdbe0be304dab25c66141affe2ff4857d094eed8a97db
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-evidence-validation-round-01-validation
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/evidence/validation/round-01/VALIDATION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7df233af040f11bf38c6535bf5dfae8fba3ac294fbd7bc13f6e04b34151d5d93
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-evidence-validation-round-02-validation
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/evidence/validation/round-02/VALIDATION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3053dca9711864a27bd0694707eeecde019c6e98799a66c08b558175b375ff1f
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-execution-brief
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/execution-brief.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 45f4a7233507c8507245a8834921c48b01cb25a00ce8ec07fba27dc0198416a7
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-requirements
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/requirements.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3e2c2ac208023fd9ff5abd719498b25ddeb7a38dc67e869e0574a020938fb968
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-reviews-contract-review
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/reviews/contract-review.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3d1a6ef03fdd8c7a7ab28048dabcf4d846f60c458435cfce1bf95d32999fbb6c
+  - id: source-kiro-specs-framework-v3-global-bootstrap-layout-tasks
+    path: .kiro/specs/framework-v3-global-bootstrap-layout/tasks.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 11ffb190e43e1bf16e80a8ca25c05682878cf2aa0ca3f26dc9580fbe27f3cea6
+  - id: source-kiro-specs-framework-v3-design
+    path: .kiro/specs/framework-v3/design.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ac9c7dc17208b520d9a77c8291eea19d368ca070497e8662949f8b2b1279a4a4
+  - id: source-kiro-specs-framework-v3-discovery
+    path: .kiro/specs/framework-v3/discovery.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d8ccdce63cd1bdf78ee53c1f3159c0ee06d67790fd0618d6fc49fb06b7b3eceb
+  - id: source-kiro-specs-framework-v3-evidence-execution-round-01-execution
+    path: .kiro/specs/framework-v3/evidence/execution/round-01/EXECUTION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 20232df034d53dcc735edbfe50d8ecedd67494731500d46ef4d5c4a08cbf0acc
+  - id: source-kiro-specs-framework-v3-evidence-validation-round-01-validation
+    path: .kiro/specs/framework-v3/evidence/validation/round-01/VALIDATION.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 057e1909161aca0b93524a22b3db5fcd0a3208358752703b3648356c1fcf697d
+  - id: source-kiro-specs-framework-v3-execution-brief
+    path: .kiro/specs/framework-v3/execution-brief.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: e9fe0da8afb33eafd1593818694786fd154985907bf03f478d962598fc8839da
+  - id: source-kiro-specs-framework-v3-requirements
+    path: .kiro/specs/framework-v3/requirements.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 90c2aee94454c25fe1aeebc7582cbe2e203e63e2cae8356aa9da478316071867
+  - id: source-kiro-specs-framework-v3-reviews-contract-review
+    path: .kiro/specs/framework-v3/reviews/contract-review.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 0f0372d6013088cdb21665e4205e5f58f461c62611dd2d55bb4969cf3548bbf6
+  - id: source-kiro-specs-framework-v3-tasks
+    path: .kiro/specs/framework-v3/tasks.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b880d6f7f3c34530dee762bd0aa5c6378ed3caff0032cc2a17dcbd8e0e1f6698
+  - id: source-agents
+    path: AGENTS.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 97e6249adece8e205439847ebc03cd5c3fcaaca794ae33d75e0a26e2590e6d55
+  - id: source-private-use-license
+    path: PRIVATE-USE-LICENSE.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4815dd78995e7932384976be56bee61ea50227923b22c8a3742f8f5cdf6c15a6
+  - id: source-chatgpt-project-instructions
+    path: adapters/chatgpt/ProjectInstructions.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 118e1180e6730bc18c02d0c04d4cdf2c8ca4e7a866854570706011cf2877b8dd
+  - id: source-chatgpt-adapter
+    path: adapters/chatgpt/adapter.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 33cf97625a6a6fbdb4b760774ae51374ec66c4c442bedf4d7add6d8f8e2729fa
+  - id: source-chatgpt-response-profiles
+    path: adapters/chatgpt/response-profiles.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 08e74711c429e6ac814a463d9f7469b846ed115e599c46700621c4d9d381c579
+  - id: source-claude-adapter
+    path: adapters/claude/adapter.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 60d3a2972644b1ebe59037618a71d9edbcf83922e4d98ca3e6687f11e394261a
+  - id: source-claude-model-map
+    path: adapters/claude/model-map.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 64c7b3a92a31147fd9998d7d96d5fb842bce231dbc2e189a86f4d490f36ecc4e
+  - id: source-codex-adapter
+    path: adapters/codex/adapter.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 5f2ef0b761a14be01381ec64fadea883022e3c426bf731c02913329d3a457078
+  - id: source-codex-model-map
+    path: adapters/codex/model-map.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c1e539ca108ddc915cd8bb49a48b58517429e447f5e60f422b46cab519056fbb
+  - id: adapter-kiro
+    path: adapters/kiro/adapter.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: kiro
+    hash_mode: LOCKED_SHA256
+    sha256: c90fad1b93f5fbdc52d2ff27dafa54e17dd77e34ccee6679435ba91e285f9589
+  - id: adapter-kiro-lifecycle
+    path: adapters/kiro/compatibility-lifecycle.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: kiro
+    hash_mode: LOCKED_SHA256
+    sha256: e42f04e382c5e75dae9d945c10303d41b5c5105c1036576c9cb05f0e72654408
+  - id: distribution-manifest
+    path: adapters/kiro/distribution-manifest.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: kiro
+    hash_mode: FRAMEWORK_LOCK_EXTERNAL
+  - id: adapter-kiro-router-alias
+    path: adapters/kiro/generated/DiscoveryRouter.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: kiro
+    hash_mode: LOCKED_SHA256
+    sha256: ef4036ab95cedf83470f1ea7ce14c3cbadafaffa580afd6f6fb829467e704248
+    generated_from:
+      - core-workflow-router
+      - adapter-kiro
+      - adapter-kiro-lifecycle
+  - id: adapter-kiro-steering
+    path: adapters/kiro/generated/agentic-workflow.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: kiro
+    hash_mode: LOCKED_SHA256
+    sha256: f5c5ccafbf5671c8b25873e1107017cd3c1d5b953bed14ce9767bd7519f37987
+    generated_from:
+      - adapter-kiro-steering-template
+      - core-workflow-router
+      - adapter-kiro
+  - id: adapter-kiro-steering-template
+    path: adapters/kiro/templates/agentic-workflow.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: kiro
+    hash_mode: LOCKED_SHA256
+    sha256: 984f1839ebc6286d2ad9c02742d401562b1ce69ce911daaa9ae0c68f1bd63102
+  - id: source-adapters-lifecycle-node-filesystem
+    path: adapters/lifecycle/node-filesystem.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 37cf0fac1174dbbc9920a715bfeefd5b773e8d70e374a709da7c7b663682bbb2
+  - id: contract-artifact
+    path: contracts/ArtifactContract.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 71b9f233b95b8f8d426553b5508c5dc874f3217ab83f78cf0d27304144415327
+  - id: contract-evidence
+    path: contracts/EvidenceAndFeedbackContract.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: d799a36d10ae3a2d2ad181844e9b83c05735b40bc58a9d26aa4b8891499d6fa0
+  - id: migration-project-update-catalog
+    path: contracts/migrations/project-update/catalog.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: efb8bbd5fb4846f95afffecbb3de02e2f583c6c9a744bb61b9dad85baf745ff8
+  - id: migration-project-update-fixtures-forward-expected
+    path: contracts/migrations/project-update/fixtures/forward-expected.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: fabb6f77083f95d2dcba482dfee357b78884af5c6858b16164425413aa028319
+  - id: migration-project-update-fixtures-forward-input
+    path: contracts/migrations/project-update/fixtures/forward-input.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9772e304d24c88a2dd2c467b686a04a43453294556da6b101dab8f45a15024e0
+  - id: migration-project-update-fixtures-rollback-context
+    path: contracts/migrations/project-update/fixtures/rollback-context.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 2d05f1308140dffdb843767aa74cf04ea0c5c81c7dfb08559c7996fb7766131f
+  - id: migration-project-update-project-profile-v1-to-v2
+    path: contracts/migrations/project-update/project-profile-v1-to-v2.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 4fcdff6c665549dd7b63287049251dafbbe63f65187b4a8e73d0d11461d493df
+  - id: migration-v1-artifact
+    path: contracts/migrations/v1/artifact.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: a35cc95109661369d692dac83faf424d4fdd48b10c8c4c091bb9ae5b4f221d41
+  - id: migration-v1-backup
+    path: contracts/migrations/v1/backup.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 534b4c982c7203f5ab211fe6e0bf9c79c003dc8c2d29e56bc8d18e62d9c0a627
+  - id: migration-v1-distribution
+    path: contracts/migrations/v1/distribution.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 00cc410cf41fb3609280bcc11b6289487b4b4cfccb1a98edd14fc9c977a09419
+  - id: migration-v1-journal
+    path: contracts/migrations/v1/journal.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: b575f54a9d3c0bb18977868a64b43fdb9a594ceece9efd582f49ba433f8cf523
+  - id: migration-v1-receipt
+    path: contracts/migrations/v1/receipt.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 3dae5dde477a512fb576946edbcae41637533929db42e9e0058531a29a59a124
+  - id: migration-v1-release-manifest
+    path: contracts/migrations/v1/release-manifest.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c2c65426ab9179c6c0069f2613ab5fac68f335709c0b9ef5b41dd4c148f75f20
+  - id: migration-v1-transition
+    path: contracts/migrations/v1/transition.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 0dddf05056d5a25de94069f10a036edf486ad15ff84dbbf4df89f1e657e185d3
+  - id: schema-profile-override
+    path: contracts/schemas/application-profile.override.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: ffc6dd514eeca7878a140bc973e3a6b18d102418397d49c79d9090a4804d956a
+  - id: schema-profile
+    path: contracts/schemas/application-profile.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9eaed94187d70911dfa84e6d31a1c0b068b342299834d1f6926874fa86811669
+  - id: schema-archive-provenance-manifest
+    path: contracts/schemas/archive-provenance-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c37db26bf9115a8d40424ac78ce7108b6f31fceeda9571184eff1a655e25d5d9
+  - id: schema-artifact
+    path: contracts/schemas/artifact.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 0bc34c3a4d9ed8d07fb0e9c344c5f53465d34a63f25a752dde06e30cd080ba0f
+  - id: schema-authorization-envelope
+    path: contracts/schemas/authorization-envelope.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: e4a1fbf475b5ec13693da57c2ef2bf18f4cdc2390ec193f90110ddccd3eef467
+  - id: schema-ci-evidence-index
+    path: contracts/schemas/ci-evidence-index.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 77ce5263f6f6789b9b4a0d8855b6728159f0d118bcdc4cc7efb981cb1fe8577f
+  - id: schema-core-roles
+    path: contracts/schemas/core/roles.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 0f8cb2f19486732ba78ff9bd19139e79fe887849f608f60f0be44b4a8bae8af3
+  - id: schema-core-statuses
+    path: contracts/schemas/core/statuses.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 70f97424e43dac56d8bfb395f7c77ab496ff23025cea0f15e3d28900567f839f
+  - id: schema-core-workflow
+    path: contracts/schemas/core/workflow.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 343b26e2c65a0374b8cbb755cb53c21ee85c30902f8ae379f6700eada90036d5
+  - id: schema-design
+    path: contracts/schemas/design.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 787c2c38884507c189efbd892fb6094103e3a2c70f640e8389defe8d800fb70c
+  - id: schema-distribution-backup
+    path: contracts/schemas/distribution-backup-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 77eb3e78726b57f656d5dc5347f6b961401ab62425c607897ee0aa78303ce443
+  - id: schema-distribution-manifest
+    path: contracts/schemas/distribution-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 7db965703af4119805edbd0eb319a9011e950d436b11b7153728ab0835ab7eb2
+  - id: schema-dry-run
+    path: contracts/schemas/dry-run-manifest.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5488696e9c68b1fa7af8154719bfa6060bdd7866bf0f85af3bb3357028a5927a
+  - id: schema-evidence-envelope
+    path: contracts/schemas/evidence-envelope.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1489964f40b634a8eb11843be5c3de075e97a105c8b09fde8a1023f40d0fd869
+  - id: schema-evidence-index
+    path: contracts/schemas/evidence-index.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6f054752556056dbc990844ab6d0bc4ba9f61e1ea70f6550635b6844eacc3583
+  - id: schema-evidence
+    path: contracts/schemas/evidence.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6163e7755276e698279c942a09394ef86150d7622fa9d1036899d7bf9ff363b3
+  - id: schema-execution-brief
+    path: contracts/schemas/execution-brief.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9413448375c071c03e8e7bf1e9a313868b4cad975d961b84adf6a2112f571263
+  - id: schema-execution-selection
+    path: contracts/schemas/execution-selection.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c741633e104fdd687089bae7cd0e95168ed110ef826cb1eb3c20a96af9bbf0bb
+  - id: schema-finding
+    path: contracts/schemas/finding.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 4d760b07a839af2ca0effc4d27809cb5a4d80a9871a87c5d4c90a048d0bb8f96
+  - id: schema-installation-journal
+    path: contracts/schemas/installation-journal.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: e7d12b262f5351b27b827f27e7296530e2006725df9137c9004b321fda5fbddc
+  - id: schema-installation-receipt
+    path: contracts/schemas/installation-receipt.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1a8733f5630bc091e1e56809804fc387a08e6c93b9129f0131342b255be3c7f5
+  - id: schema-installer-handoff
+    path: contracts/schemas/installer-handoff.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 8a4cb66e8eba8a194ca6cfdcb42c5b5f5db0500f7a5f4ea349538c40dcba0f77
+  - id: schema-lifecycle-cli-result
+    path: contracts/schemas/lifecycle-cli-result.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: b492b9a9306c33fdf601ed6cbe79cc22fae246c3c8ba80dfd89396ee0516df67
+  - id: schema-lifecycle-event-log
+    path: contracts/schemas/lifecycle-event-log.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 63f4884a68fa3108d17f3bc0cdf37224985f6c369b8231f939a77fc7fe817ce9
+  - id: schema-operation-lock
+    path: contracts/schemas/operation-lock.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 0fd94b9d7b04a844d798c7789078be0239ff40e571c92c1881e88d8b5861c286
+  - id: schema-operation-plan
+    path: contracts/schemas/operation-plan.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5c74f96558cf6db68b839388c7413abcd6bb1b8126cb73d087e9f1e2b8f85bf6
+  - id: schema-operation-tombstone
+    path: contracts/schemas/operation-tombstone.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5f2cc0fbaf6ef120ca51e5e0b3cfac51005ae006498112e13d321ffede3626be
+  - id: schema-platform-capability
+    path: contracts/schemas/platform-capability.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 65bbc8db66078472b5d32a4dc709a53b218752335a1a1aca5db09f6b049cd507
+  - id: schema-project-update-authorization
+    path: contracts/schemas/project-update-authorization.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c0188c7e2277a53255b30c6e829a8f0609f554d35ef1341a74c308b1a8c035db
+  - id: schema-project-update-backup-manifest
+    path: contracts/schemas/project-update-backup-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 868cf24f8313902236b33e7c472be99d6bb5c3caccb512b617a3a9577c1c6290
+  - id: schema-project-update-checkpoint
+    path: contracts/schemas/project-update-checkpoint.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6255aec375614a1e87b4c2234bc2ebae3a7ff8133112981947a00642eb12a42c
+  - id: schema-project-update-journal
+    path: contracts/schemas/project-update-journal.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 2e5c37a399ebb653379e6d98363c71fd0699dc87b4fa70a79e7cdf1a735c31f0
+  - id: schema-project-update-manifest
+    path: contracts/schemas/project-update-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 8dccc061a9b9499c6acfa5b009bed761598c80f0d4576393fa05dfd828efc3e6
+  - id: schema-project-update-migration
+    path: contracts/schemas/project-update-migration.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: b69a9743fe75a75b172aa7c0c60be1d3bcfc957531c9185c4a872c0f0577b47d
+  - id: schema-project-update-plan
+    path: contracts/schemas/project-update-plan.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 59b47849c37fdbee186665cfc1f5f8dd2d33e366a1d4c7ea5090e39c0bb21918
+  - id: schema-project-update-receipt
+    path: contracts/schemas/project-update-receipt.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 77ed0bd7e2a1cde1ff8076cbc1802866d5dd38b23801deecc7ee36aad2c32d79
+  - id: schema-project-update-snapshot
+    path: contracts/schemas/project-update-snapshot.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: a69fab62beeb6844a874d4ba870bf2dfeb6d649605594d9870c5534e4be59040
+  - id: schema-release-asset-inventory
+    path: contracts/schemas/release-asset-inventory.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 061645d514fb2c2406a3f003659eca79c60a8ff9b8b0b8e5e5e605b3f7bd30e9
+  - id: schema-release-compensating-control
+    path: contracts/schemas/release-compensating-control.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: f978e549dc66f543585b99cff2f04c54caed4a949e1ddccd7691ba134f5bc21b
+  - id: schema-release-immutability-decision
+    path: contracts/schemas/release-immutability-decision.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 612e235c4dc6b3ee0a29dda00301ea6ea54133e61f99bde4fa804d6f9f1e6b6f
+  - id: schema-release-key-event
+    path: contracts/schemas/release-key-event.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1d0482289ed0fe3cece1fbcf3558a0dd95d34f0796d90790689d00da2fc8c5b3
+  - id: schema-release-key-incident
+    path: contracts/schemas/release-key-incident.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: ceb2d027ecc397d20d29c54b0e11ea1a22ef352e344d17b3754ac4ebd9336291
+  - id: schema-release-manifest
+    path: contracts/schemas/release-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5827ecb7c5e689d3b539e7bef835327c538d2f8e00de509d47eb8e35a68a5e44
+  - id: schema-release-metadata
+    path: contracts/schemas/release-metadata.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5e4b05ba3df19b06ca7c7852a949e87e94f47843a66073a9f7a195ac5da8c3b2
+  - id: schema-release-sbom-reference
+    path: contracts/schemas/release-sbom-reference.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: a34dff164a9f6c163f3496141e454cd8467a9bc77270485fdb935a4a08c96dda
+  - id: schema-release-signature
+    path: contracts/schemas/release-signature.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 2933d4a7227b8781c1e1c0fa944c77a3313152e2b718cfb732356ec3a3dcec41
+  - id: schema-release-trust-store
+    path: contracts/schemas/release-trust-store.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: e86c8901fa81d5faca9348e3bae1e103d9b09b56a88ac3193f113a8b1ab6bd7b
+  - id: schema-requirements
+    path: contracts/schemas/requirements.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 056fb886c80929cba038a0e0f81a11207247a33a1390978bf7cd8e98c78d9b69
+  - id: schema-review
+    path: contracts/schemas/review.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: d09bedf7d882f9a9ad034aebabcc08a1e07baf1aae7f21af0140d88981267a96
+  - id: schema-tasks
+    path: contracts/schemas/tasks.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: d8ae29d4b38bfa6f3a6c7ac4d7283543917f9735a5da135495a60b017d4dc5d2
+  - id: schema-transition
+    path: contracts/schemas/transition-manifest.schema.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9b3bdf14a428265d8dc620fa22466b005e1d6bbf7e711de3eac8ba5d3eb4c3b6
+  - id: schema-uninstall-manifest
+    path: contracts/schemas/uninstall-manifest.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: f8c44f0c82c6c77a0d3453043ab1c0756aea583c6ba1208b2c92f6bd9e1df623
+  - id: schema-validation-binding-contract
+    path: contracts/schemas/validation-binding-contract.schema.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1f275da72cfac909eebaad9ab77bc7e0953fba509ce896aa5a87349e59ea2559
+  - id: template-profile-override
+    path: contracts/templates/application-profile.override.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c8598d3cb8811c77b833a7963e7c738544e45b00f8fa1fe8928ab38f26edd1f5
+  - id: template-profile
+    path: contracts/templates/application-profile.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 59d7d167cd58886a6f1b8e171142f6df9cd4f40da1af9236e04c7c8e4b0b28bc
+  - id: template-artifact
+    path: contracts/templates/artifact.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 862ee56048ae2120e363c00e0d10f5edcabee4e550902c1e1c380cf2179894df
+  - id: template-authorization-envelope
+    path: contracts/templates/authorization-envelope.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 4664059fdd82fd501bd8f01f981b73b72da66fd55c98c20d81d367571c1c6df8
+  - id: template-ci-evidence-index
+    path: contracts/templates/ci-evidence-index.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 2aa9725a874ec2a0027527d57d2d4876419009ed46935ce64c5a01d08d386ff1
+  - id: template-dry-run
+    path: contracts/templates/dry-run-manifest.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 787dc348727115325fbaae23ee30515f71b678cf67c73d4cd9ce52bc0fda25bb
+  - id: template-evidence-envelope
+    path: contracts/templates/evidence-envelope.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1043b441e4a389e4640f000545f0de3815851dda0bbab4009aa347c387d10750
+  - id: template-execution-selection
+    path: contracts/templates/execution-selection.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1fbc11fe7308b2b4403d94584664281da7a9ab09665375c21066fe169fb8077f
+  - id: template-finding
+    path: contracts/templates/finding.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: ff7233bff933afbe6c1c9b463dd4e6b00eb264acdd732ee33509302bd393a0b4
+  - id: template-installer-handoff
+    path: contracts/templates/installer-handoff.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: bcae90f3771b8e7768d24eaa8b2c6a09823d4df5054690f85c86bdb4df7779e5
+  - id: template-lifecycle-cli-result
+    path: contracts/templates/lifecycle-cli-result.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 01676cec93133d90631107d6074009db3d05026db6654c7670d7a6b84374fae1
+  - id: template-lifecycle-event-log
+    path: contracts/templates/lifecycle-event-log.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6bff8708d7f7c45aae657d471de2bb9846a05c8cac18d64ddd9dc55c939f9ba5
+  - id: template-project-update-authorization
+    path: contracts/templates/project-update-authorization.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 411c5e5560b5e7c7e5ca9658fab4d902671764e3212e7d002af98ac1ab3e465b
+  - id: template-project-update-checkpoint
+    path: contracts/templates/project-update-checkpoint.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 764d049ab690347554dc2a8d558bb37747df47d0deceac8956e7ede3a418ccfa
+  - id: template-release-asset-inventory
+    path: contracts/templates/release-asset-inventory.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9d19f436aa837ebdefa9da5e876f904fdbe5e118bc3980923fa05e3af28a8dd7
+  - id: template-release-compensating-control
+    path: contracts/templates/release-compensating-control.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 46aa1d9c50f3f8be9bc1efad5fc74a4e31b87bf5b112aff9c4cec3faab569b26
+  - id: template-release-immutability-decision
+    path: contracts/templates/release-immutability-decision.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9388cae75b04b7996fb36c0762f30e129c561116a28701cc8d8268e8fd8a0f21
+  - id: template-release-key-event
+    path: contracts/templates/release-key-event.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 4cdccefc5bea6c0a80fb5995e2af0fffc3e07c97c140af7ca2fd926ee6261fae
+  - id: template-release-key-incident
+    path: contracts/templates/release-key-incident.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 95ce7822a759c0d1b708c834c99a1539b0734776eb23164caf29b554e050b6e3
+  - id: template-release-manifest
+    path: contracts/templates/release-manifest.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 01e3e8c4a9507b306ac103e9e4326f342a28c12e18ceafdbf3b2f2588ec237af
+  - id: template-release-metadata
+    path: contracts/templates/release-metadata.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 4fafeee368f295d2865723560c45b9e00682b4eb35ab4f0e16416cdcb54f3b29
+  - id: template-release-sbom-reference
+    path: contracts/templates/release-sbom-reference.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 8737bcda9a828ba4f5b88065ae06643d6229a5e159be6855c0bdd00d0714c38e
+  - id: template-release-signature
+    path: contracts/templates/release-signature.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c1cf65df37ec0959fd346668c29806dd957e6ba730e79896af5dc236c30d931e
+  - id: template-release-trust-store
+    path: contracts/templates/release-trust-store.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 9895aba2124ecceeb2734bab1ab42eb1a94e0254390040fc8391f53ce55634d7
+  - id: template-transition
+    path: contracts/templates/transition-manifest.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 0d640db946fe4ada565397902172158a6c14a8ec03e2faf35fa5d84541c901e0
+  - id: source-contracts-validation-bindings
+    path: contracts/validation-bindings.yaml
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: a2edd93ce76c9bf8c81b26b3c906cca14c1f23a278320c115f3b876e3b4c9597
+  - id: core-workflow-router
+    path: core/WorkflowRouter.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 2a91204003d3cdbdda213c55cf7ed26b81f5e75f3c3ee62abf5d999e9279ad08
+  - id: core-roles
+    path: core/roles.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 572fc3053b6feebc4dfa4db6ece923b883887fb322b895a56b90789647b94c65
+  - id: core-statuses
+    path: core/statuses.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 1ce69ac121c2e97374de991931f83bc1ab438eaf36a95090f2d7c6c19761d371
+  - id: core-workflow-core
+    path: core/workflow-core.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6ae220c7f7249c78c9161e8c6b7e134eab55a7b4a074ba387953c32a872307cc
+  - id: core-workflow
+    path: core/workflow.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6f4688426e8907ade3ff05d48a8bb315745bb612fc59260c33f7183c3f8636b7
+  - id: decision-session-topology
+    path: decisions/DEC-001-session-topology.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 518ad0b4cf81d0ae34405785bd55ce030969e1bdd704f469c11351de5b2d1a66
+  - id: decision-autopilot-default
+    path: decisions/DEC-002-autopilot-default.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 22d298b9051598f867e4cf6e79c5b6b7a9c22ab8d63d31176e7ff189db312e91
+  - id: decision-role-mapping
+    path: decisions/DEC-003-role-mapping.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 94e8f02c585370aa636726fd6cd42218aba7c94f20fc67039180f822c38aa4c0
+  - id: decision-tool-neutral-core
+    path: decisions/DEC-004-tool-neutral-core.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: e2bfb143f21e531e6d26776e589fac5378483af1a27bb8f4678f17f85cddb81c
+  - id: example-project-profile
+    path: examples/project/.agentic/application-profile.yaml
+    version: 3.0.0
+    class: PROJECT_TEMPLATE
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 59d7d167cd58886a6f1b8e171142f6df9cd4f40da1af9236e04c7c8e4b0b28bc
+  - id: example-project-profile-override
+    path: examples/project/.agentic/specs/example-change/application-profile.override.yaml
+    version: 3.0.0
+    class: PROJECT_TEMPLATE
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5b9401640d9eb08ee5fbca58dc14b8e79873d3a74a26702aae4102fe1ea3efba
+  - id: generated-report-equivalence
+    path: generated/reports/equivalence-v2.4-v3.0.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2c40a1ba38eed8fd8bf91ca38dda39f391b51c4b52835a007810962b31b1d0c2
+    generated_from:
+      - core-workflow
+      - adapter-kiro-lifecycle
+  - id: generated-report-governance-traceability
+    path: generated/reports/framework-governance-and-portability-traceability.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    generated_from:
+      - tool-generate-spec-traceability
+      - tool-lib-spec-traceability
+    hash_mode: LOCKED_SHA256
+    sha256: 7aa35bd2100b6108055350f28aa7650b9b61ce49559b99be1c1544a0b42a8ef4
+  - id: generated-report-handoff
+    path: generated/reports/handoff-metrics.json
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a9085f4631c1aaf7c648aca4a2c53e14d56b618fac59171c128410a937f96c54
+    generated_from:
+      - core-workflow
+  - id: source-generated-reports-m5-compatibility
+    path: generated/reports/m5-compatibility.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c21c843dd794261e9224609cb6156e40a162265d086d2c1e1c0678cd84f76574
+  - id: source-generated-reports-m5-fault-injection
+    path: generated/reports/m5-fault-injection.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c3200d5fa94239efc25d0ec16dc48330366f0ec77a7fbf3c1624ab7e5413cd79
+  - id: source-generated-reports-m5-journal-reconcile
+    path: generated/reports/m5-journal-reconcile.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 88c5895ce504ed1b9c8ed998d9192a724103106c65fb732de220abdd59426664
+  - id: source-generated-reports-m5-retention-consumption
+    path: generated/reports/m5-retention-consumption.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 0e26badd6e4c475b1fe4aa3a36a67fd9633389d2912e0109d6e8268c4407a887
+  - id: source-generated-reports-m5-snapshot-divergence
+    path: generated/reports/m5-snapshot-divergence.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b8a1e0ed79eb479b47319d14710ed16ddfd2435ea64b7fcb2bd99b81ffd26874
+  - id: source-generated-reports-m6-project-update
+    path: generated/reports/m6-project-update.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 6fdde0232e25ad6bf0bb3e3af0b7bc20ff0857bedd5fa2835798e58d4fb865ac
+  - id: source-generated-reports-m7-installers
+    path: generated/reports/m7-installers.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 70c9a0f5e966d41ddac34d3eed643178f9f3ec5995e7de3886f37a4a1c78b171
+  - id: source-generated-reports-m8-ci-release
+    path: generated/reports/m8-ci-release.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a6f074cf04d1d26cd955d5aa5900aa51d83576bff13346515f30421087c710cd
+  - id: generated-report-traceability
+    path: generated/reports/requirement-traceability.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 99cfe91c2834006cc7cba910a02933668ddfe5bd969601daac257128b6552854
+    generated_from:
+      - core-workflow
+  - id: generated-skill-bug-fix
+    path: generated/skills/bug-fix.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 96f1058bf7fb98768aa4cb98c4e8b14a1a96d960015f265c2cf9c8bdaf77cbad
+    generated_from:
+      - skill-bug-fix
+      - skill-bug-fix-ref
+  - id: generated-skill-contract-review
+    path: generated/skills/contract-review.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 8558374c241d579dce4b1ed7f1f925261f0cbcf2a3628d7714b8268146228445
+    generated_from:
+      - skill-contract-review
+      - skill-contract-review-ref
+  - id: generated-skill-correction
+    path: generated/skills/correct-from-validation.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1a0d02cb9a2253f22a213354d75b17108c05cee7af6211363ebc40ef8aa81715
+    generated_from:
+      - skill-correction
+      - skill-correction-ref
+  - id: generated-skill-closeout
+    path: generated/skills/delivery-closeout.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a1340e9c79951fbc1310ccb0ebff6b4146d8de65615ec2ef1e25883d16796c02
+    generated_from:
+      - skill-closeout
+      - skill-closeout-ref
+  - id: generated-skill-execute
+    path: generated/skills/execute-contract.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 484a7ff8b22347624200983f69e7d1ea3de7ebf1f2eac0e4bd807bdecd64e869
+    generated_from:
+      - skill-execute
+      - skill-execute-ref
+  - id: generated-skill-discovery
+    path: generated/skills/low-level-discovery.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c08d7200ef0ab5227a1d80b45a3331ce72ef3add79ed8a4970aaedd597edbb06
+    generated_from:
+      - skill-discovery
+      - skill-discovery-ref
+  - id: generated-skill-quick-spec
+    path: generated/skills/quick-spec.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ca4caef3ae859a1f97a1213103d63b2692ae32df0ce15e68c19ad537a6e0726b
+    generated_from:
+      - skill-quick-spec
+      - skill-quick-spec-ref
+  - id: generated-skill-spec
+    path: generated/skills/spec.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c23dd5c6f8864f3e353937dc62e9178bbc533d31641783a24e83afe2a65b15cb
+    generated_from:
+      - skill-spec
+      - skill-spec-ref
+  - id: generated-skill-validation
+    path: generated/skills/validate-delivery.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 58422b11feb06c565049eb45e1b8d028eb3da79c15b19efac077f00e0340ac12
+    generated_from:
+      - skill-validation
+      - skill-validation-ref
+  - id: generated-skill-bootstrap
+    path: generated/skills/workflow-bootstrap.md
+    version: 3.0.0
+    class: GENERATED_PACKAGE_CONTENT
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: f1ba94aa2387758e81f8b70c3d233468c62f182b6a9e275d4bf84ad504ba0806
+    generated_from:
+      - skill-bootstrap
+      - skill-bootstrap-ref
+  - id: source-installers-install-ps1
+    path: installers/install.ps1
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4b08bcb0e7ef9b79f8d790479f8b7bd1cc9e246eb89d8e7174e7626a37b7f579
+  - id: source-installers-install-sh
+    path: installers/install.sh
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2fe82eaffe32ecac29b3e61e570b25658e51e644147fb0a0631729bcd9a44129
+  - id: package-lock
+    path: package-lock.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9a860bf5d476022d77d645c12423bcaae4e84772c1cca08a74fb6c60debe86d8
+  - id: package-manifest
+    path: package.json
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: bd54ba37e610501bf6f43b6fece842d21f612b74607124f820bb22ed7adbe53e
+  - id: policy-capability
+    path: policies/CapabilitySelectionPolicy.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: e98de855aeaf99a3c49e725082b73ed0d4ca5ddd8c8a1b3bb5475e212b8d038b
+  - id: policy-context
+    path: policies/ContextPolicy.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 8870b74f8ea15fd1d3b4ea1d99c6c7143288b4e1d45cbc7820dac98c253fe304
+  - id: policy-environment
+    path: policies/ExecutionEnvironmentPolicy.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 88c8d7682b872dd5032fd438a88976afd89bd4b51806567fae02eeef408582b8
+  - id: policy-git
+    path: policies/GitSafetyPolicy.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: f113a8966abc2cdf0f62cb63e67f89dad5c7a8ffbfb1df6ecddc213f5ba4c1a6
+  - id: policy-high-risk
+    path: policies/HighRiskOverlay.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 273b377cd25f5a934156234cdb4fab468703c5a25a380ed73f74f6dd6923cd8b
+  - id: policy-operational-retention
+    path: policies/OperationalRetentionPolicy.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 065e5279d9bb5caa0bb840f5e2a14621c6768b08149e189bcb495c8508464bc8
+  - id: policy-releasesigningincidentpolicy
+    path: policies/ReleaseSigningIncidentPolicy.md
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 8410e687c44d9bedea6e96b5807704e104e2550b382e870d6977a202bb8481e0
+  - id: policy-security
+    path: policies/SecureDevelopmentPolicy.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 18639849a4f56f10d9e8e4627b7e0b2d589f19cc483b9a4973df366a93bcb8e6
+  - id: policy-profile-matrix
+    path: policies/application-profile-matrix.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 45bbf0e324c91d5362e6f075ea9f2e3d16e72ce11e1df69a296394703456c8c5
+  - id: policy-dry-run
+    path: policies/dry-run-rules.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: f298319e411bf02fff25cfc9f7674538944503a0ce9e3d046ab0a48311f71f24
+  - id: policy-ownership
+    path: policies/ownership.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 58df78f61191dc946de2df59f504de5ea0c0d7fb3a7036ef5aecccee788bad6f
+  - id: policy-security-outcomes
+    path: policies/security-outcomes.yaml
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 061f23188e39c76eb8a8b98a8c2f83fef70722140b7c67403b6c7a8a64464588
+  - id: skill-bug-fix
+    path: skills/bug-fix/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 343b59f0bb2d4c4f98d59161e55da54e56b44567829c2799b07ea1ae962f9150
+  - id: skill-bug-fix-ref
+    path: skills/bug-fix/references/causality.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: f5d2c7a70df14426f24bee8d67c9863adc7ce3c7e1f0f02891d4a979f953db13
+  - id: skill-contract-review
+    path: skills/contract-review/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: eef8eb79fe6e0b0fd42f686aa90faca9c0ea4e09f2e2a8ee4bf997ba08095120
+  - id: skill-contract-review-ref
+    path: skills/contract-review/references/ledger.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 7aa8cb0aae63959c67a26f89bae471022764f6f7c47bc053f6a558fe74527031
+  - id: skill-correction
+    path: skills/correct-from-validation/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6017d1808b024aaf92c312b2a0810cd814a053e48ee46994890b1f921ce94281
+  - id: skill-correction-ref
+    path: skills/correct-from-validation/references/correction.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 4d3da66ac459cc612979b21748374b8dadf606cd56e8c2b7e427bd9228a0a57e
+  - id: skill-closeout
+    path: skills/delivery-closeout/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: af19db8e3f32fb57882f356537593a952a821b1503805b2079ebaf66cb208512
+  - id: skill-closeout-ref
+    path: skills/delivery-closeout/references/remote.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 6219a266569e9a019a4c70c91337535104950e2c8b6309ae96287cd418fe3819
+  - id: skill-execute
+    path: skills/execute-contract/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 2cdef0b9bbdbdb68a9b2c58177bf8b926f3e3bd386cbe6bd653e22df48d4d270
+  - id: skill-execute-ref
+    path: skills/execute-contract/references/checkpoints.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 83ad8718a4bcee4a545b18214bd6e3c2dcc4ecdb5a5e59aee29248d5271fe52c
+  - id: skill-discovery
+    path: skills/low-level-discovery/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 401de17d0f03146befb77f891e8520d83e453cc582586c85b0c2ab05a4e06c4d
+  - id: skill-discovery-ref
+    path: skills/low-level-discovery/references/investigation.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 5fd1c46b69eecd9480604d3a0db4bf9dee2859acdde78723ce5438656b133b18
+  - id: skill-quick-spec
+    path: skills/quick-spec/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: dfdeaf97bf70b1149d737315be387ca4a554516f9ad780eb7f61a2dd4237b095
+  - id: skill-quick-spec-ref
+    path: skills/quick-spec/references/proportionality.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: a6012528df247e839890964908fb201d08954902d289b161e038f17c15f94eae
+  - id: skill-spec
+    path: skills/spec/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 33785021836bfd8005635c8458fc8b6befca47b35b4faa59a7db09c21c1cd9aa
+  - id: skill-spec-ref
+    path: skills/spec/references/architecture.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 15ba3efe9e74642c7114adf00e7c05e41b7310fa94da416da3302680b0dd4e1a
+  - id: skill-validation
+    path: skills/validate-delivery/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: ee87519ec405acb831eaa279e8a0c3618f5389f4ce36668ce4d231b9da19b8e9
+  - id: skill-validation-ref
+    path: skills/validate-delivery/references/evidence.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: b8badc2d9ec4e345f104b37c79ae050a4767ef7a158310dfa43f3ef728347b9f
+  - id: skill-bootstrap
+    path: skills/workflow-bootstrap/SKILL.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: caede0f0f52ac0a71a65f1e3861424aaf9bd6a0832692e701e6e3dc4594a6d73
+  - id: skill-bootstrap-ref
+    path: skills/workflow-bootstrap/references/migration.md
+    version: 3.0.0
+    class: GLOBAL_KIRO_MANAGED
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 738dac99a6ccbd50ddc7f33f8748f5df14a26cda83fb3c7d01714e46505d6f4f
+  - id: test-adapter-acc-015
+    path: tests/adapters/acc-015.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 0bff2cb9ddddf75034c325340629283ebb5aa7d349bc950bf41db62086f72b43
+  - id: test-adapters
+    path: tests/adapters/adapters.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c696c6b3f5dee463c0bdaeb787f98949facdae59b01631165b1c5b4e027d88b3
+  - id: test-adapter-snapshot-delta
+    path: tests/adapters/snapshots/delta.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9b5803c564211900f484f18f2e8a361dcd85d90fe33bf39791bef72da4cc5848
+  - id: test-adapter-snapshot-handoff
+    path: tests/adapters/snapshots/handoff.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 418863ae963284d14c541a64d2305f964fb48159431abd5866828e4d83fb452c
+  - id: test-adapter-snapshot-review
+    path: tests/adapters/snapshots/review.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: fe872b66106db3156ddf2f17a28f7e37ff99243303191dfa9248881dade51ec3
+  - id: test-archive-archive-local
+    path: tests/archive/archive-local.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ddce99dd111f9e633d08e4c9c5783010eb3dedb348f75c6a3e30154e9e21329f
+  - id: test-archive-archive-restore
+    path: tests/archive/archive-restore.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 923195642a94642b65d8174600c2d24cca724285d177957e4cd39e020c7c75c0
+  - id: test-ci-package-policy
+    path: tests/ci/package-policy.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 17715078097ab7823cbd8821b6221880ff5d2823f57e7ef7674a84b42a3ac400
+  - id: test-ci-release-gates
+    path: tests/ci/release-gates.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 5598e2801359b0cd608aa4f5747a1f60ce52692b9b9e14f5ca474a3e451a97de
+  - id: test-ci-workflows
+    path: tests/ci/workflows.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: e9bc04bfc8fe92712e31c62f3237f2b0743d493879bebef71d15e6cd9896a18f
+  - id: test-compatibility
+    path: tests/compatibility/compatibility.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: fc5930e4522f16b6de84908a9c4eb87382fffdc06108a7455825a9c6fd138948
+  - id: test-contracts-canonical-json
+    path: tests/contracts/canonical-json.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 96cd2e22e610f139aa2b224fbe798d863f722654ab5a268ab7e419dc037eca6c
+  - id: test-contracts
+    path: tests/contracts/contracts.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1b017d08f76ca1b079d94e96f5ea089709e676e8721b472dfb63933f25db267f
+  - id: test-contracts-evidence-checks
+    path: tests/contracts/evidence-checks.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: eb20503e433ccb45e2ae7a7910f9a3823a43586f4f69735681fd55ed7a39d305
+  - id: test-contracts-m2-schemas
+    path: tests/contracts/m2-schemas.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 79e26ebdb4c21f7fa4d681f0382293879dd17ccb691cab32db5b7c1b858898d9
+  - id: test-contracts-migrations
+    path: tests/contracts/migrations.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a12a19a219ce82e9c9c036d659a09b24f46bdc73dad0a84cdd180403efb326f7
+  - id: test-source-lock
+    path: tests/contracts/source-lock.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d8072790d81897e9f6e0a4dd699e82ed48703877b700047356c79a2a27e6e4ad
+  - id: test-contracts-spec-traceability
+    path: tests/contracts/spec-traceability.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9d5d53ddce2b44bed0589e98656976c9f7d62b8a839b382de38ece6ff866be85
+  - id: test-contracts-validation-bindings
+    path: tests/contracts/validation-bindings.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 5057d3c7645499fc329343b61cc0c39549cfeb49c90244c5e36761385a1f3e58
+  - id: test-bootstrap-flow
+    path: tests/distribution/bootstrap-flow.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: df0a2ee1e7816c492347f4ec26dd8250a0d1082066bc7aa4677ad00c6dcc1a48
+  - id: test-distribution-contracts
+    path: tests/distribution/contracts.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 72118183c3997f4b347e8ab277697b4611c2305c660143979c72ba379824155a
+  - id: test-installation-apply
+    path: tests/distribution/installation-apply.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a2df88ce964a3c063506dc096827e7f0b2e19b5e33e867d89ab4284e7607da02
+  - id: test-installation-artifacts
+    path: tests/distribution/installation-artifacts.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 071ced9d51dc6da367cea4b52e08f8d10309943d65b6ad6386f728fedc369297
+  - id: test-installation-recovery
+    path: tests/distribution/installation-recovery.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: de84ad7fe68078debca5310b5f0dbac77d3bff902b87a81dd5ef82fcbe40958f
+  - id: test-distribution-manifest
+    path: tests/distribution/manifest.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 34d01bb6844726f59a8357358e89b3b98303ceb860753d11a3ddbad37c28d205
+  - id: test-distribution-planner
+    path: tests/distribution/planner.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 338f2b865151f45bf9d5503bc897a29d50fb00997b71a5bd3aac609d5e4ef10a
+  - id: test-distribution-snapshot
+    path: tests/distribution/snapshot.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2f933967ed239e0da1a1968a893296a9429ce9ef060b1e2cb5166a7b1d98845b
+  - id: test-distribution-steering
+    path: tests/distribution/steering.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3498370650745cd86c9350022b658d0304a7a4c41472b870a98a4ac3d2b8c995
+  - id: test-distribution-validator
+    path: tests/distribution/validator.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4b0cc746e5b3abddb25b286ab965439b7e7e9db0a0ccca6b51ac90b277e822a5
+  - id: test-fixture-evidence-br-002
+    path: tests/fixtures/evidence/br-002.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 24b0863cbdd8eefa3cccbabb3c50607ae7bb4e55088f95c0557e2f895592951f
+  - id: test-fixture-evidence-br-004
+    path: tests/fixtures/evidence/br-004.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9ffea2def2c939f9ad71e2d1a016cb28f086345bcc0898b94fd9883430962c61
+  - id: test-fixture-migrations-artifact-expected
+    path: tests/fixtures/migrations/artifact.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: bb9dfc234a822c58605846f00e91bb413e888642ee110e3d9c54cb3a83051bcc
+  - id: test-fixture-migrations-artifact-legacy
+    path: tests/fixtures/migrations/artifact.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 53aa39dc9cb22fe01af75e38b517829a8507982c963b7265670fdc8c2199ee33
+  - id: test-fixture-migrations-backup-expected
+    path: tests/fixtures/migrations/backup.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 17fa875a5e70b8928e0ee04611c55b8584ceb81aae624407ddfdf8531f2bdc4f
+  - id: test-fixture-migrations-backup-legacy
+    path: tests/fixtures/migrations/backup.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 453397c20f477b45d31d10bacd9d8a1435573be6cb63c727d9e95a60ff223d2f
+  - id: test-fixture-migrations-distribution-expected
+    path: tests/fixtures/migrations/distribution.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 01d3d9eceef9df1db6ffaba76444bcc531485a8b31417ef59b76d281728bdbde
+  - id: test-fixture-migrations-distribution-legacy
+    path: tests/fixtures/migrations/distribution.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7ca8bccc83692b131ec01ca0222ead6c38c3388a55abc192570895bc0dc77683
+  - id: test-fixture-migrations-journal-expected
+    path: tests/fixtures/migrations/journal.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 082beb2d1a53976c7c55c7fbde51271102fa033611f7fe7e653035d4307c8b47
+  - id: test-fixture-migrations-journal-legacy
+    path: tests/fixtures/migrations/journal.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 635ee14b6c9e2da5efcee9b074090a2b09810dfa18ec4f599dfae1b1b3c7edb2
+  - id: test-fixture-migrations-receipt-expected
+    path: tests/fixtures/migrations/receipt.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: de8294525ae3c03ed2cca8c51611dad69ad894162bd7d240fc3e5e88e14e8b28
+  - id: test-fixture-migrations-receipt-legacy
+    path: tests/fixtures/migrations/receipt.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 453397c20f477b45d31d10bacd9d8a1435573be6cb63c727d9e95a60ff223d2f
+  - id: test-fixture-migrations-release-manifest-expected
+    path: tests/fixtures/migrations/release-manifest.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7cb06e7ca78f1b133bc7630e20883aa15a8a24d19f7584efc7a1db391cbe850a
+  - id: test-fixture-migrations-release-manifest-legacy
+    path: tests/fixtures/migrations/release-manifest.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 060b451fac6b0281618e516bd994cbfdc4ae8b962456a2e0ddcf80fc07e212eb
+  - id: test-fixture-migrations-transition-expected
+    path: tests/fixtures/migrations/transition.expected.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 10aebb1ca872b04c07b18bac9d55b445845fda5af4f617bf5840c936292b9ace
+  - id: test-fixture-migrations-transition-legacy
+    path: tests/fixtures/migrations/transition.legacy.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 401317ba83f91e9ec7925d7a8ab06e31c155f0de0d85cdde38e797f14171d68d
+  - id: test-fixture-release-crypto-test-only
+    path: tests/fixtures/release-crypto/TEST_ONLY.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4ee8f4c5e9915fb13b1be13dbd82debd9e471b7813ebd484c1b6115b20739982
+  - id: test-fixture-release-crypto-asset-alpha-txt
+    path: tests/fixtures/release-crypto/asset-alpha.txt
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 268c9daec9e5fdb520246b2556fe6e4242f417e73b7d86c1e0d3874034589718
+  - id: test-fixture-release-crypto-immutability-control
+    path: tests/fixtures/release-crypto/immutability-control.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1937937b8836c675dc6a2d4bea6aca855042afa95706c37d6b41a3cbea345176
+  - id: test-fixture-release-crypto-key-incident
+    path: tests/fixtures/release-crypto/key-incident.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 118f1fb1414010ee082f5d361655a18dba23fcaf9ee5850dbb6e5c130dec1a68
+  - id: test-fixture-release-crypto-sbom-spdx
+    path: tests/fixtures/release-crypto/sbom.spdx.json
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: dd1702639b9176bf892a354872cd644461f5ef7321ed53cef8444273196151d9
+  - id: test-installers-bootstrap-contract
+    path: tests/installers/bootstrap-contract.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 8acf47e3e95acafa0cda0756c56d0cbba718b94ad2d7ddec7881b640d16f3c98
+  - id: test-installers-downloader
+    path: tests/installers/downloader.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 6a5b6ecc91ae8175d40adc0a8db11f3856676c669b3440e6f65bf2e18139d7c7
+  - id: test-installers-harness
+    path: tests/installers/harness.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: cf65aca8f2366836c853ee3d52fd3d18a5b42883d5e3d6a3cf19f5ce55bc9a3c
+  - id: test-installers-verify-extract-security
+    path: tests/installers/verify-extract-security.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 0fed6ef2c2136a989c7c47b8864a23bf9eb2eb7e09c66dd786d38e78e06750b7
+  - id: test-lifecycle-cli-paths
+    path: tests/lifecycle/cli-paths.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 65779f008315cd8ae49c1232f1693d881f7c568b166a4803eb1fba4d6f69587c
+  - id: test-lifecycle-durability-reconcile
+    path: tests/lifecycle/durability-reconcile.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 6b46c3ba144e3c0e1367998aa5a58cbe4bea5e2a3249d4de5365d892510763a4
+  - id: test-lifecycle-engine-integration
+    path: tests/lifecycle/engine-integration.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: fa1d2d1e06893aa4850f1c269d963f81bfae45191822f4decb0d38a35a0cdad1
+  - id: test-lifecycle-harness
+    path: tests/lifecycle/harness.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 56d0ed863852cd5c3ded75b08520b14789b2a6515609f1be4e00704f4a39a0b8
+  - id: test-lifecycle-uninstall-retention-evidence
+    path: tests/lifecycle/uninstall-retention-evidence.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 512bde02a4e9556b6fedbd3bab9231b6ef53d640096a1d9af848a65d519cff3a
+  - id: test-context-loader
+    path: tests/policies/context-loader.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7bc8089115331a150ebb62dc77acf409250d12a761113ae4c1167a5d149423af
+  - id: test-dry-run
+    path: tests/policies/dry-run.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d0ebeac649454ee3fd735d2cd99764e879875ef90cad8b5ac0ab0cd2fcb14093
+  - id: test-policies
+    path: tests/policies/policies.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a5917f0c23cf7c009b1992009fffcf4e0958f2164439d5ae3f5eada3ff9f266d
+  - id: test-profile
+    path: tests/policies/profile.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9c204aadd9d345a9bb5b13776b45c11472a05536d18ac00189268987909efbe7
+  - id: test-policies-retention
+    path: tests/policies/retention.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2e6964d5a966ca7bacfea38ab8cdf3397bc9d9e56c006f2aee1cd90247703920
+  - id: test-project-update-authorization-apply
+    path: tests/project-update/authorization-apply.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a4d463b3cde072e0590a175aa96d2ca7e04e93b9877f64868703f2f609b6baf4
+  - id: test-project-update-harness
+    path: tests/project-update/harness.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3506f78f38bd8484a24b71b1c36e34861a6322b2194455e75bc574f2f6332947
+  - id: test-project-update-migration-rollback-isolation
+    path: tests/project-update/migration-rollback-isolation.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1b3a5f727c367f3aaa4948be3254edab0a2cf95836f03c2d4f9725391b943009
+  - id: test-project-update-paths-snapshot-planner
+    path: tests/project-update/paths-snapshot-planner.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: dc16e0db4f2e34b559960e33e0f7053e36aa46c35aa8d0c8fbe6581dbcabf2fb
+  - id: test-release-helpers
+    path: tests/release/helpers.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3692ad000d930d48e3c11175783adda3042a6a34c58d6f04ce18ba98eb72f40b
+  - id: test-release-release-contracts
+    path: tests/release/release-contracts.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3732df6018ca3b841ff937ab7ad13892abfbe62c38e577c9585176e37e146794
+  - id: test-release-release-crypto
+    path: tests/release/release-crypto.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7a151710e4e26677972b4220bd70261101e99bb39c91dfd45f19c73ba0ff5381
+  - id: test-release-release-security
+    path: tests/release/release-security.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 128816d81e4e17ae2cfd271d0f90f0cec0aec102372d976a8ca35e6a633fece7
+  - id: test-framework-evals
+    path: tests/scenarios/framework-evals.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: aa978ec486f474fb2e9424f60baf630b9f93f0480ff7d3f3e6df49f1d858f04a
+  - id: test-reports
+    path: tests/scenarios/reports.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b0b8c87f68b6a877cab580a1df707eb466d5db46140a076ee7df609d4d14a8bb
+  - id: test-selection-boundaries
+    path: tests/selection/boundaries.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 843f1f5c1e5b195cd639473fb35440043f43165bc10852888ab94e2210c36135
+  - id: test-selection-fixtures-fallback-used
+    path: tests/selection/fixtures/fallback-used.yaml
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: da3a022428567abc7ca60b608d67540c9f8bac56697e8c256ba608bb63370aa8
+  - id: test-selection-fixtures-invalid-comparison
+    path: tests/selection/fixtures/invalid-comparison.yaml
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ac8913555a84b995080b067ca3c79e929974d8ca42f3ab27c4ca2da202a67024
+  - id: test-selection-fixtures-invalid-structure
+    path: tests/selection/fixtures/invalid-structure.yaml
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 98efbd7f07754cd6f8b124018456b5d339e253ffd1c635d8c83c4be7857b0d40
+  - id: test-selection-fixtures-match
+    path: tests/selection/fixtures/match.yaml
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 8eda8adae2831b54ed441fc8049ead162146feb84a36e7f7ee63a154c4de8059
+  - id: test-selection-fixtures-not-reported
+    path: tests/selection/fixtures/not-reported.yaml
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1124bad4a66efda9d289d441811be6080d7a37d484cf2ab1ad97a1e6a699c091
+  - id: test-selection-fixtures-user-selected-alternative
+    path: tests/selection/fixtures/user-selected-alternative.yaml
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 76635466ed997c7cdff21c7c5731bc8d3264a34a1be4b9541517db497c84c5d2
+  - id: test-selection-independence
+    path: tests/selection/independence.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 44e6c4ebd8dc9b0f60bd7ed0d30c7fa17ea4e936e527db66c062291ad10f52fd
+  - id: test-selection-manifest-reference
+    path: tests/selection/manifest-reference.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: f340382ca3c4d1beab1136d10b5754fe1b7f64b8fdd48ab21fd16423d0540a4b
+  - id: test-selection-selection
+    path: tests/selection/selection.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 48de1c58ca498958ca244497cdd87e9260950a866756713a237427202dd2338d
+  - id: test-skills
+    path: tests/skills/skills.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 84464a54b4f34855b611c3a47af37c2000aedcd8a943912aa90b540524583249
+  - id: test-workflow-runtime
+    path: tests/workflow/runtime.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2dbb79a3396a2a7a6812a3d265d299d29dfbacf4c248266b7470248c69bcbf1a
+  - id: test-workflow-transition
+    path: tests/workflow/transition.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 078c509e3db84d2d64376d12a1b8501276592b32480e98fd370398271050719d
+  - id: test-workflow
+    path: tests/workflow/workflow.test.mjs
+    version: 3.0.0
+    class: BUILD_TEST_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a9a08c796b4177fe907df2130db52ea61cb73677ef80b7ae1c1007342e52e2fa
+  - id: tool-archive-local
+    path: tools/archive-local.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 50fabdd7b66427cffbd3960c4ce03993717af97d873a4640ce66e03c2ec8b0af
+  - id: tool-archive-restore
+    path: tools/archive-restore.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2616a3a3b5c91076c2e7029107d89d19866eb82f744bf77e8b5c8ca8b573026d
+  - id: tool-detect-duplicate-rules
+    path: tools/detect-duplicate-rules.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7606cfbe48a19b6b2b376d5cd7c9a8fc702b9c764a673e48180d4d84e29992c4
+  - id: tool-evaluate-m8-release-gate
+    path: tools/evaluate-m8-release-gate.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 360e13f11e98c07aefe62785b2016caa5d9daf16cf49a1db65305d3ad6826a05
+  - id: tool-generate-agentic-workflow
+    path: tools/generate-agentic-workflow.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: kiro
+    hash_mode: LOCKED_SHA256
+    sha256: 19f3cc5856a0c704f6fb85190cc71352bfea988503db65821ee8a425a24c2045
+  - id: tool-generate-compatibility
+    path: tools/generate-compatibility.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: cbbbc60bcf85a42b328ac77de413a4d6b91e59a7248310a71895a846b8a709bb
+  - id: tool-generate-lock
+    path: tools/generate-lock.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b9df960ae89191a8d26b1c2a58ffb7b146d51f74c161d181fa97c6c8ede695a3
+  - id: tool-generate-m5-reports
+    path: tools/generate-m5-reports.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a6cad106f8b10d280f0453a889bf7f80419cf6a45ae29b97b1cc519d999bb4f2
+  - id: tool-generate-m6-project-update-report
+    path: tools/generate-m6-project-update-report.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: cb1540bb8984a7cf2abef9b47f2797754bc5e8ba4001abbaaa9c8c11fb784f9a
+  - id: tool-generate-m7-installers-report
+    path: tools/generate-m7-installers-report.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b76344c3d750dd8a18ff25631cf08cfc66cf9c9a0fcdfb3d503dbdc0c7c49379
+  - id: tool-generate-m8-ci-report
+    path: tools/generate-m8-ci-report.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 65a2af9800e3f73fa0beef874a93a5a7f5acb86e32be5c8a8ab5cf214dc89ff2
+  - id: tool-generate-reports
+    path: tools/generate-reports.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4aeefbc2ec9b371ae519728cde0dfe80ab1ca0abd087078edd4818470720e20c
+  - id: tool-generate-skills
+    path: tools/generate-skills.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 535e028e8a691837cb770acb520b63e8e3dd8a54d4d51d6851b65e99ac5393cb
+  - id: tool-generate-source-catalog
+    path: tools/generate-source-catalog.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 39a445e3ee9dff7f33f6cee85e1eba36dc3210523829fe6abd5db2f30ec2dc65
+  - id: tool-generate-spec-traceability
+    path: tools/generate-spec-traceability.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 0d94b279f34945af63920664b9b429c359f623eeeee898b1557cbd92efa525a7
+  - id: tool-installer-bootstrap
+    path: tools/installer-bootstrap.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ce6809845b01742b34e242859db8ae65618f3b3ea3ed165b2a99b8ce5ae83e62
+  - id: tool-lib-adapters
+    path: tools/lib/adapters.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 60cca71898954c3f712ef9b01aa6daea44211dd01c0fc7403232b7ae08ccf688
+  - id: tool-lib-archive-restore
+    path: tools/lib/archive-restore.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 24e65d43d334f825390a17bcacc21e5d146132ca71fa28e8aa2a7047e1dc9b4f
+  - id: tool-lib-archive
+    path: tools/lib/archive.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 62ced5934d8bd00bb730a7f1026cec9fe10252e0638a0d56ff69de80be6c6bb5
+  - id: tool-lib-artifacts
+    path: tools/lib/artifacts.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1396e451583f63543ed4f6e0d6751db63a6cd3a0d6cafe35b8ee6568455cb300
+  - id: tool-lib-canonical-json
+    path: tools/lib/canonical-json.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b675d5f7f12d5fcd9bf15400f8c6c028421688bbe1dc909ba59c0561de5b0e25
+  - id: tool-lib-ci-m8-report
+    path: tools/lib/ci/m8-report.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4fd079ba2a8fcb64ca3ad537f49066f55481ecc85c6c7103b541f32fccbc9d76
+  - id: tool-lib-ci-policy
+    path: tools/lib/ci/policy.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 8b6492f14f54f22cdc61f3966772e00b423aff03124eb9bc9da994bee2de618e
+  - id: tool-lib-compatibility
+    path: tools/lib/compatibility.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ba654b1902ddb338fae40a7f51b597aa0536ed56994df8cc972f30d36c89d702
+  - id: tool-lib-context-loader
+    path: tools/lib/context-loader.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d5a170622d1e5c8b8d2b458fadc38b3f0cdaf524622570bc96dddc34675b1a5a
+  - id: tool-lib-distribution
+    path: tools/lib/distribution.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: c3898ff8b5fc1b2cade8220ce1ba76c0dd65dbca017228fd6b3fa24ae1abf575
+  - id: tool-lib-dry-run
+    path: tools/lib/dry-run.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: bfc0dd6fd0520ce5b471253538f211882c0f1556bf5ec16a660be3c94473ef2f
+  - id: tool-lib-evidence-checks
+    path: tools/lib/evidence-checks.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 218f8422a2a3b6d8c506ff1e87d55b94b8ee2aa2547df26853498303dbbea27d
+  - id: tool-lib-installation
+    path: tools/lib/installation.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 18233c872bca2f20769d4ff1c370b302c18b34debe1cf3db5428da8f75700032
+  - id: tool-lib-installer-bootstrap
+    path: tools/lib/installer/bootstrap.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2f5a85f56ac301cae978f419e2259b1a7c823a6495f9752f129b65e0466d23e2
+  - id: tool-lib-installer-downloader
+    path: tools/lib/installer/downloader.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1573cdeebbeefa2f719f01afe4fa49e82a3d0d88f185fc499634e38346560435
+  - id: tool-lib-installer-m7-report
+    path: tools/lib/installer/m7-report.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 2c48ab3388a76d1b22348d4fa49bcfeebc93021eeb536c9a3e0a497206a77c42
+  - id: tool-lib-installer-staging
+    path: tools/lib/installer/staging.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: f777c3fc722568b705f59453841ced6950f26daaf7e1ef56117910aa0e3ada6e
+  - id: tool-lib-io
+    path: tools/lib/io.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 18b9121aa078ac430e03d06d6968eb83d0c7bc293323cfb25db17c4990d8d915
+  - id: tool-lib-lifecycle-atomic-writer
+    path: tools/lib/lifecycle/atomic-writer.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c9abaf0a7d7d7f50f4347e503763eeaa5a0903fba4fffb42dd94209bd50226da
+  - id: tool-lib-lifecycle-authorization
+    path: tools/lib/lifecycle/authorization.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 6ff4e57a88d8dceaa100171ae754c3a0a37a0cf890fa030e2a7baa061b26d288
+  - id: tool-lib-lifecycle-cli
+    path: tools/lib/lifecycle/cli.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 7aedadba43ba3fe919678d0bbd0139232fc499bd1563013cc27de69973c92571
+  - id: tool-lib-lifecycle-engine
+    path: tools/lib/lifecycle/engine.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: be41d445526b8896272e712d9b046ddce41bf02ad932fcfce72dc48b06364ccd
+  - id: tool-lib-lifecycle-event-evidence
+    path: tools/lib/lifecycle/event-evidence.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 12ec659c3c4b25af776fc0f4952f09a6243b448665874f975ff0635e1c0bff80
+  - id: tool-lib-lifecycle-m5-reports
+    path: tools/lib/lifecycle/m5-reports.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ef092a458485f0e11fadfbcd817aadb6ed009a8566627e6e039711f4a83add94
+  - id: tool-lib-lifecycle-paths
+    path: tools/lib/lifecycle/paths.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 672952645abddca9273215053930e97660ddaec8348743cded8082df582a7248
+  - id: tool-lib-lifecycle-reconcile
+    path: tools/lib/lifecycle/reconcile.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: e71b028d46c6d4b01541b2622b743d2c1c65a4830fd3ad7e7993fa0020a1ccd9
+  - id: tool-lib-lifecycle-retention-planner
+    path: tools/lib/lifecycle/retention-planner.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1410acf3071a834b4bb00f10dd3a3874802a2ccb8b8f1bd88358384243e6f0fa
+  - id: tool-lib-lifecycle-state-store
+    path: tools/lib/lifecycle/state-store.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 5092ed0cfbeb443e693054539fbfecd2372e05e8be7a435800e4d345b02dd0f9
+  - id: tool-lib-lifecycle-uninstall
+    path: tools/lib/lifecycle/uninstall.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 45d3b2f93d6469bfcfdaea3d4e9635b79297ee9ff343b90b3c2c5231384a59fc
+  - id: tool-lib-m2-contracts
+    path: tools/lib/m2-contracts.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d1fd3f8b988851adaccc41ddff1a47ebfd7ebfbaa1cb06b7bba485d83242c5dd
+  - id: tool-lib-migrations
+    path: tools/lib/migrations.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: e19cd0fed35edede16764144676c23e28d0019ec53542fffc7caa1338da03cff
+  - id: tool-lib-policies
+    path: tools/lib/policies.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ec79ed1fc4d14e003782f10e1d2dc7a182a109a8cad22b713fdb0802d2fa5f3e
+  - id: tool-lib-profile
+    path: tools/lib/profile.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c46ea175c3b928aff15064de16665a26d12a5c37df1a8c12f039ab878313b3b7
+  - id: tool-lib-project-update-authorization
+    path: tools/lib/project-update/authorization.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c94f94587bb2f2622a48e59dcdccc517272da5a281bc59697bbd6e18e3f7e0a0
+  - id: tool-lib-project-update-engine
+    path: tools/lib/project-update/engine.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b0250b941769efbdf9d3fe1420e2e58f3a53790dbc8b5b910795deac18e469b0
+  - id: tool-lib-project-update-m6-report
+    path: tools/lib/project-update/m6-report.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3fb46d90bf4bef9d494470f251fcf17959bf4d622d0591ab06b2eb8eb4c71b91
+  - id: tool-lib-project-update-migrations
+    path: tools/lib/project-update/migrations.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d650386be949b05d185f463b0c7cc608407f6f563ad4e39968fe8700a4c61170
+  - id: tool-lib-project-update-paths
+    path: tools/lib/project-update/paths.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 627b4b69189398e07943039187d8adb100b062c04e7ee44e99c9649d2ab953bc
+  - id: tool-lib-project-update-planner
+    path: tools/lib/project-update/planner.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 78d305c3272d9a1d86366f72e8b37cef6ed35871c9263f750c24051d2d5db53d
+  - id: tool-lib-project-update-reconcile
+    path: tools/lib/project-update/reconcile.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: aad31a6f54bfa2740c7bf7026dadeeb7e5200f53b74a1d88ad6f3bb9781def14
+  - id: tool-lib-project-update-snapshot
+    path: tools/lib/project-update/snapshot.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 864d16d2ea7a64ab14298a08b8f9c32111f0f29808d3e386f7d4ded66e4d1d78
+  - id: tool-lib-release-security
+    path: tools/lib/release-security.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 77504e433ed88c9a671e7fabea333699dc24e7943cff21f948483b6f9f16b838
+  - id: tool-lib-release-trust
+    path: tools/lib/release-trust.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3141ef7bf4369a39874988aaaeb57aed9df146a87099bd4e0a08e26790c23140
+  - id: tool-lib-release
+    path: tools/lib/release.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: b001b69f59f800c96ff9861934bf8885e7772d780233af29dd5591bea0189dae
+  - id: tool-lib-reports
+    path: tools/lib/reports.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 5421d5aafee9ee7c377a75b234eae8b2082a5d1daed8fe5cb931ca4383aad633
+  - id: tool-lib-retention
+    path: tools/lib/retention.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: bdf3e60d1fcbf72da6ea7fceb91e9080ba69685c2cf8de8875c5a93b15c11bc1
+  - id: tool-lib-runtime
+    path: tools/lib/runtime.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: cb268c28ae56b9c88c419e3ca570b11389f67822c3c826da65fbf3cdffa0eaa0
+  - id: tool-lib-schema
+    path: tools/lib/schema.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d834e4fd841cbc44d7c10208ae55819c089c35d9f7d8594adb23fd79cf9b0210
+  - id: tool-lib-selection
+    path: tools/lib/selection.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 11f97d2c2852638a7ff1d349f0e45c6f0ec62a3eb730164556a5c610ba25264e
+  - id: tool-lib-skills
+    path: tools/lib/skills.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 43c7d10d6b4b8ab01803c79695d0a2ae022568e817fe6872534dd5295236af38
+  - id: tool-lib-source-lock
+    path: tools/lib/source-lock.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4bd9e12e06a160b32ce15b6ef2dcc55e8f17b569293575f92afff618076d5146
+  - id: tool-lib-sources
+    path: tools/lib/sources.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 5ae5ae21aa8877123d9a60f36163f4dea7f6cc9367a938673781e2268210367d
+  - id: tool-lib-spec-traceability
+    path: tools/lib/spec-traceability.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 187b041867e2d24917a544b1b45548cfc9af08091c78460cbe9b74ff6859051c
+  - id: tool-lib-transition
+    path: tools/lib/transition.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3c67aff933663ede30ccd2fbf6081f373ea9756bfe46f1fab9efb13632c42baf
+  - id: tool-lib-validation-bindings
+    path: tools/lib/validation-bindings.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 14b88e167f907b561d53cc19ee36d9aca6c534f095547c608229873a91f05b69
+  - id: tool-lib-workflow
+    path: tools/lib/workflow.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 1fb8f2b476bd74cb17d44a6cbddeaf0aace978b4141f9ba7b409eb234a145fb7
+  - id: tool-lifecycle-cli
+    path: tools/lifecycle-cli.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a98655e5bbd6916feccfe49f774af3affc61c7ac5ef7f97c4d4a8f84ac7b6db9
+  - id: tool-preflight
+    path: tools/preflight.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3124a9d35c767ada4f246d8e1208557cc25b02e7833ac1bbd2f6aa128d519a93
+  - id: tool-scan-release-sensitive
+    path: tools/scan-release-sensitive.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 150a38cd37b697082663fb28ce92a09b75ba4df8d8896d3d1711bd7839fecd6b
+  - id: tool-validate-adapters
+    path: tools/validate-adapters.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: a8a3a37bfa805ed622c04c6deb973f0fe8768c3a1985b8caff55b8c83a271a8d
+  - id: tool-validate-all
+    path: tools/validate-all.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9ed4523f0bbb007151e7726fc0f42208577b4540838a7e0f6079e9f6187c0c15
+  - id: tool-validate-profile
+    path: tools/validate-application-profile.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9d70d72f57c47a932c885df9de40a8a4b87e358dd1316efc89c81dde516e407c
+  - id: tool-validate-artifacts
+    path: tools/validate-artifacts.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 9e4f8912eb17f6e4fc6ac347daedfe531a3168816bd7ab60350fcdd1f1e934e2
+  - id: tool-validate-distribution
+    path: tools/validate-distribution.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: universal
+    hash_mode: LOCKED_SHA256
+    sha256: 953eb488c6197abcd50ce471885a6e7801b7baa446d4115a258db6e98c82806c
+  - id: tool-validate-dry-run
+    path: tools/validate-dry-run.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 09d183e5b20bad2bb9f9181d49dc72b6e0f1bdf4bc3d09fe6838513b33b5458a
+  - id: tool-validate-handoff
+    path: tools/validate-handoff.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: cc0ab75c18d8fb00fffceadea9ebb16afd3d002b94ea9987649b24026c5837f6
+  - id: tool-validate-m2-contracts
+    path: tools/validate-m2-contracts.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 352733999c708038c0b329f249307404396aa48cdb74309cd157538a56906365
+  - id: tool-validate-m4-release
+    path: tools/validate-m4-release.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 825d6d4e7dba73154feaecf04cf489c504fdc0907b5d4adebabe069480a701b7
+  - id: tool-validate-m5-lifecycle
+    path: tools/validate-m5-lifecycle.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 473c231c6ca5b16f931071681d8216e50699daea3e2d758d2165d5609d7c1d11
+  - id: tool-validate-m6-project-update
+    path: tools/validate-m6-project-update.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: c6e985320b8fe7c0d99d77676bb61a0c412a4090da9315dcd80faafb50e229cc
+  - id: tool-validate-m7-installers
+    path: tools/validate-m7-installers.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 72d0d7da4a0ca383466fcd64cf50590e0ef36dc4f981e30f0093b30528069316
+  - id: tool-validate-m8-ci
+    path: tools/validate-m8-ci.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 02413b72ee341aca11e5f186722551b9f6e1b0513d61c3252137559446e91a08
+  - id: tool-validate-policies
+    path: tools/validate-policies.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4cef0de80d153d03176e40909ddbb7429ab0193ab9aa6adb743db7b92265feee
+  - id: tool-validate-reports
+    path: tools/validate-reports.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: d1f04f7a91b11f7d06e2ab5636211ec4186bf598c3e4202887bf161bbbfe9505
+  - id: tool-validate-retention
+    path: tools/validate-retention.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 64d11334c66415883b3ce29f85cd4ad59aa46be9aa21dacc7dbb218a6416ec08
+  - id: tool-validate-selection-boundaries
+    path: tools/validate-selection-boundaries.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 3a1735bb993caab8b2bb8674e6abbf0c69a59a1fc04e66c09d674003888d23b3
+  - id: tool-validate-skills
+    path: tools/validate-skills.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 05b0767c0e24cd49055c5d1307c8591ebd073ae73efaea30f0a400ee3f0c98fe
+  - id: tool-validate-sources
+    path: tools/validate-sources.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 87dcfe17a70a1d76c2ae98b9eed4710fe3dd2d7298467982598509ee708f1dc4
+  - id: tool-validate-spec-traceability
+    path: tools/validate-spec-traceability.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: ddf625adbec983faabedd69dda7deb7b33bf0dce46e57dcf695c7169c3d2a104
+  - id: tool-validate-transition
+    path: tools/validate-transition.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: f971ce6a70ce66d30f002178a148847e23271cdc67c73f55bfdb0d290b169f51
+  - id: tool-validate-workflow
+    path: tools/validate-workflow.mjs
+    version: 3.0.0
+    class: SOURCE_ONLY
+    adapter_scope: none
+    hash_mode: LOCKED_SHA256
+    sha256: 4b53ad54c23f21d7e868cdcf9479ed9d99d0ed8b549e4849b30a326f7f610250
+
+# Destinations are explicit and never inferred from source paths.
+managed_items:
+  - { id: core-workflow-router, source_id: core-workflow-router, destination: core/WorkflowRouter.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: ROUTER }
+  - { id: core-roles, source_id: core-roles, destination: core/roles.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: core-statuses, source_id: core-statuses, destination: core/statuses.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: core-workflow-core, source_id: core-workflow-core, destination: core/workflow-core.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: core-workflow, source_id: core-workflow, destination: core/workflow.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-capability, source_id: policy-capability, destination: policies/CapabilitySelectionPolicy.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-context, source_id: policy-context, destination: policies/ContextPolicy.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-environment, source_id: policy-environment, destination: policies/ExecutionEnvironmentPolicy.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-git, source_id: policy-git, destination: policies/GitSafetyPolicy.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-high-risk, source_id: policy-high-risk, destination: policies/HighRiskOverlay.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-security, source_id: policy-security, destination: policies/SecureDevelopmentPolicy.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-profile-matrix, source_id: policy-profile-matrix, destination: policies/application-profile-matrix.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-dry-run, source_id: policy-dry-run, destination: policies/dry-run-rules.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-ownership, source_id: policy-ownership, destination: policies/ownership.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: policy-security-outcomes, source_id: policy-security-outcomes, destination: policies/security-outcomes.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: contract-artifact, source_id: contract-artifact, destination: contracts/ArtifactContract.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: contract-evidence, source_id: contract-evidence, destination: contracts/EvidenceAndFeedbackContract.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-profile-override, source_id: schema-profile-override, destination: contracts/schemas/application-profile.override.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-profile, source_id: schema-profile, destination: contracts/schemas/application-profile.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-artifact, source_id: schema-artifact, destination: contracts/schemas/artifact.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-core-roles, source_id: schema-core-roles, destination: contracts/schemas/core/roles.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-core-statuses, source_id: schema-core-statuses, destination: contracts/schemas/core/statuses.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-core-workflow, source_id: schema-core-workflow, destination: contracts/schemas/core/workflow.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-design, source_id: schema-design, destination: contracts/schemas/design.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-dry-run, source_id: schema-dry-run, destination: contracts/schemas/dry-run-manifest.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-evidence-envelope, source_id: schema-evidence-envelope, destination: contracts/schemas/evidence-envelope.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-evidence, source_id: schema-evidence, destination: contracts/schemas/evidence.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-execution-brief, source_id: schema-execution-brief, destination: contracts/schemas/execution-brief.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-finding, source_id: schema-finding, destination: contracts/schemas/finding.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-requirements, source_id: schema-requirements, destination: contracts/schemas/requirements.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-review, source_id: schema-review, destination: contracts/schemas/review.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-tasks, source_id: schema-tasks, destination: contracts/schemas/tasks.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: schema-transition, source_id: schema-transition, destination: contracts/schemas/transition-manifest.schema.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-profile-override, source_id: template-profile-override, destination: contracts/templates/application-profile.override.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-profile, source_id: template-profile, destination: contracts/templates/application-profile.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-artifact, source_id: template-artifact, destination: contracts/templates/artifact.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-dry-run, source_id: template-dry-run, destination: contracts/templates/dry-run-manifest.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-evidence-envelope, source_id: template-evidence-envelope, destination: contracts/templates/evidence-envelope.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-finding, source_id: template-finding, destination: contracts/templates/finding.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: template-transition, source_id: template-transition, destination: contracts/templates/transition-manifest.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SUPPORT, depends_on: [], self_update: false, loader_role: NONE }
+  - { id: skill-bug-fix-ref, source_id: skill-bug-fix-ref, destination: skills/bug-fix/references/causality.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-bug-fix, source_id: skill-bug-fix, destination: skills/bug-fix/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-bug-fix-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-contract-review-ref, source_id: skill-contract-review-ref, destination: skills/contract-review/references/ledger.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-contract-review, source_id: skill-contract-review, destination: skills/contract-review/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-contract-review-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-correction-ref, source_id: skill-correction-ref, destination: skills/correct-from-validation/references/correction.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-correction, source_id: skill-correction, destination: skills/correct-from-validation/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-correction-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-closeout-ref, source_id: skill-closeout-ref, destination: skills/delivery-closeout/references/remote.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-closeout, source_id: skill-closeout, destination: skills/delivery-closeout/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-closeout-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-execute-ref, source_id: skill-execute-ref, destination: skills/execute-contract/references/checkpoints.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-execute, source_id: skill-execute, destination: skills/execute-contract/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-execute-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-discovery-ref, source_id: skill-discovery-ref, destination: skills/low-level-discovery/references/investigation.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-discovery, source_id: skill-discovery, destination: skills/low-level-discovery/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-discovery-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-quick-spec-ref, source_id: skill-quick-spec-ref, destination: skills/quick-spec/references/proportionality.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-quick-spec, source_id: skill-quick-spec, destination: skills/quick-spec/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-quick-spec-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-spec-ref, source_id: skill-spec-ref, destination: skills/spec/references/architecture.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-spec, source_id: skill-spec, destination: skills/spec/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-spec-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-validation-ref, source_id: skill-validation-ref, destination: skills/validate-delivery/references/evidence.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-validation, source_id: skill-validation, destination: skills/validate-delivery/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL, depends_on: [ skill-validation-ref, contract-artifact, contract-evidence, policy-context, policy-environment, policy-git, policy-security ], self_update: false, loader_role: SKILL }
+  - { id: skill-bootstrap-ref, source_id: skill-bootstrap-ref, destination: skills/workflow-bootstrap/references/migration.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SKILL_REFERENCE, depends_on: [ core-workflow-router ], self_update: false, loader_role: NONE }
+  - { id: skill-bootstrap, source_id: skill-bootstrap, destination: skills/workflow-bootstrap/SKILL.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: SELF_UPDATE, depends_on: [ core-workflow-router, core-roles, core-statuses, core-workflow-core, core-workflow, policy-capability, policy-context, policy-environment, policy-git, policy-high-risk, policy-security, policy-profile-matrix, policy-dry-run, policy-ownership, policy-security-outcomes, contract-artifact, contract-evidence, schema-profile-override, schema-profile, schema-artifact, schema-core-roles, schema-core-statuses, schema-core-workflow, schema-design, schema-dry-run, schema-evidence-envelope, schema-evidence, schema-execution-brief, schema-finding, schema-requirements, schema-review, schema-tasks, schema-transition, template-profile-override, template-profile, template-artifact, template-dry-run, template-evidence-envelope, template-finding, template-transition, skill-bug-fix-ref, skill-bug-fix, skill-contract-review-ref, skill-contract-review, skill-correction-ref, skill-correction, skill-closeout-ref, skill-closeout, skill-execute-ref, skill-execute, skill-discovery-ref, skill-discovery, skill-quick-spec-ref, skill-quick-spec, skill-spec-ref, skill-spec, skill-validation-ref, skill-validation, skill-bootstrap-ref, adapter-kiro, adapter-kiro-lifecycle, adapter-kiro-router-alias, adapter-kiro-steering ], self_update: true, loader_role: SKILL }
+  - { id: adapter-kiro, source_id: adapter-kiro, destination: adapters/kiro/adapter.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: ADAPTER, depends_on: [ core-workflow-router, core-workflow, policy-capability ], self_update: false, loader_role: NONE }
+  - { id: adapter-kiro-lifecycle, source_id: adapter-kiro-lifecycle, destination: adapters/kiro/compatibility-lifecycle.yaml, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: ADAPTER, depends_on: [ adapter-kiro ], self_update: false, loader_role: NONE }
+  - { id: adapter-kiro-router-alias, source_id: adapter-kiro-router-alias, destination: adapters/kiro/generated/DiscoveryRouter.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: ADAPTER, depends_on: [ core-workflow-router, adapter-kiro-lifecycle ], self_update: false, loader_role: ROUTER }
+  - { id: adapter-kiro-steering, source_id: adapter-kiro-steering, destination: steering/agentic-workflow.md, owner: INSTALLING_USER, group: INSTALLING_PRIMARY_GROUP, mode: '0644', apply_phase: ENTRYPOINT, depends_on: [ core-workflow-router, adapter-kiro, adapter-kiro-router-alias, skill-bug-fix, skill-contract-review, skill-correction, skill-closeout, skill-execute, skill-discovery, skill-quick-spec, skill-spec, skill-validation ], self_update: false, loader_role: STEERING_ENTRYPOINT }
+
+legacy_retirements:
+  - { path: steering/workflow-core.md, baseline_sha256: 436e15f4d6dcdea25d9f60280567970e45ab0dd304ebf8bd21ebe3ea33e25af1, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/ArtifactContract.md, baseline_sha256: 9f8d3c9536a9c4eba09f24dcc1fc036c8cb336e31f4a73c7c784760a489678cc, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/ContextPolicy.md, baseline_sha256: ba883239f416776f0179e212b23f315f2f00addc434078c9a8eb38f6729c097f, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/EvidenceAndFeedbackContract.md, baseline_sha256: 72f8338c58d97d98995cc5a5c7924607dc03a472e6b15a5217497dcbcdfae377, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/ExecutionEnvironmentPolicy.md, baseline_sha256: c05e20cad7ff3f28e88b5cbb95c8dcca4cb2ea6c355699642e4fd02425154739, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/GitSafetyPolicy.md, baseline_sha256: dabfafbe300695ab6036b87f1f3099f300ab33222e9f18175dc8624c9089829d, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/HighRiskOverlay.md, baseline_sha256: e5063c9d533e7ee3d8e994a36b076d5b5130fa58fda93ec7138324bd6a639ba4, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/ModelSelectionPolicy.md, baseline_sha256: b027955c14dd8c7a471558fe5c3fef79202ec5999d2f930b750630c55e4fadec, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+  - { path: steering/contracts/SecureDevelopmentPolicy.md, baseline_sha256: 7a6ca819b078faffeee1e43ebf35a3e833b0526fea7fc499136bca7059f692b4, required_state: LEGACY_ACTIVE_CONFLICT, backup_required: true, remove_only_if_exact: true }
+
+operation:
+  self_update_item: skill-bootstrap
+  restart_status: RESTART_REQUIRED
+  directory_mode: '0755'
+  stage_a: PRE_RESTART_APPLY
+  stage_b: POST_RESTART_VALIDATION

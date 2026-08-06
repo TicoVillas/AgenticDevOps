@@ -1,0 +1,9 @@
+version: 1
+adapter: codex
+surface: engineering
+core_semantics: PRESERVE
+workflow_source: ../../core/workflow.yaml
+selection_contract: ../../contracts/schemas/execution-selection.schema.yaml
+role_mapping:
+  - ENGINEERING_AUTHOR
+capability_map: model-map.yaml

@@ -1,0 +1,53 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:project-update-plan:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, operation_id, manifest_sha256, project_snapshot_sha256, decision, checkpoint_required, actions]
+properties:
+  schema_version: { const: 1 }
+  operation_id: { type: string, pattern: '^project-(?!(?:checkpoint|authorization|receipt)-)[A-Za-z0-9._-]{1,120}$' }
+  manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  project_root_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  project_snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  profile_before_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+  decision: { enum: [PROPOSAL, NO_CHANGE, BLOCKED] }
+  checkpoint_required: { type: boolean }
+  operations_not_authorized:
+    type: array
+    uniqueItems: true
+    items: { enum: [GIT_INIT, GIT_STAGE, GIT_COMMIT, GIT_CHECKOUT, GIT_RESET, GIT_CLEAN, GIT_PUSH, GIT_BRANCH, GIT_TAG] }
+  authorization_binding:
+    type: object
+    additionalProperties: false
+    required: [operation_id, plan_sha256, snapshot_sha256]
+    properties:
+      operation_id: { type: string, pattern: '^project-(?!(?:checkpoint|authorization|receipt)-)[A-Za-z0-9._-]{1,120}$' }
+      plan_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  actions:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [sequence, path, action, before_sha256, after_sha256]
+      properties:
+        sequence: { type: integer, minimum: 1 }
+        item_id: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+        path: { type: string, pattern: '^\.agentic/(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        action: { enum: [CREATE, UPDATE, PRESERVE, MERGE_PROPOSAL] }
+        ownership: { enum: [FRAMEWORK_MANAGED, USER_OWNED] }
+        before_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+        after_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+        content_utf8: { type: string }
+        merge_proposal:
+          type: object
+          additionalProperties: false
+          required: [strategy, changed_paths, preserved_unknown_paths]
+          properties:
+            strategy: { const: FIELD_AWARE_PRESERVE_UNKNOWN }
+            changed_paths: { type: array, minItems: 1, uniqueItems: true, items: { type: string } }
+            preserved_unknown_paths: { type: array, uniqueItems: true, items: { type: string } }
+allOf:
+  - if: { properties: { decision: { const: PROPOSAL } } }
+    then: { properties: { checkpoint_required: { const: true }, actions: { type: array, minItems: 1 } } }

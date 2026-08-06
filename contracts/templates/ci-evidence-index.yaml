@@ -1,0 +1,12 @@
+schema_version: 1
+workflow: pr
+commit_sha: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+generated_at: 2026-08-05T00:00:00Z
+jobs:
+  - id: pr-validation
+    result: PASS
+    evidence_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+artifacts: []
+limitations: [LOCAL_WORKFLOW_NOT_ACTIVATED, NO_REMOTE_OPERATION]
+authorization_granted: false
+sanitized: true

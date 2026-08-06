@@ -1,0 +1,112 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:validation-binding-contract:3.1
+$comment: schema-version-3.1.0
+type: object
+additionalProperties: false
+required: [schema_version, contract_id, active_context, contexts]
+properties:
+  schema_version: { const: 1 }
+  contract_id: { const: m5-m8-validation-bindings-v1 }
+  active_context: { enum: [HISTORICAL_MILESTONE_BINDING, CANONICAL_CHECKOUT_BINDING] }
+  contexts:
+    type: object
+    additionalProperties: false
+    required: [HISTORICAL_MILESTONE_BINDING, CANONICAL_CHECKOUT_BINDING]
+    properties:
+      HISTORICAL_MILESTONE_BINDING: { $ref: '#/$defs/historicalContext' }
+      CANONICAL_CHECKOUT_BINDING: { $ref: '#/$defs/canonicalContext' }
+$defs:
+  sha256:
+    type: string
+    pattern: '^[a-f0-9]{64}$'
+  milestones:
+    type: array
+    minItems: 4
+    maxItems: 4
+    uniqueItems: true
+    items: { enum: [M5, M6, M7, M8] }
+  fixedArtifact:
+    type: object
+    additionalProperties: false
+    required: [path, hash_mode, sha256]
+    properties:
+      path: { type: string, pattern: '^(?!/)(?!.*(?:^|/)\.\.(?:/|$))[^\\]+$' }
+      hash_mode: { const: FIXED_SHA256 }
+      sha256: { $ref: '#/$defs/sha256' }
+  lockEntryArtifact:
+    type: object
+    additionalProperties: false
+    required: [path, hash_mode]
+    properties:
+      path: { const: DISTRIBUTION_MANIFEST }
+      hash_mode: { const: FRAMEWORK_LOCK_ENTRY }
+  recomputedLockArtifact:
+    type: object
+    additionalProperties: false
+    required: [path, hash_mode, algorithm]
+    properties:
+      path: { const: framework.lock }
+      hash_mode: { const: RECOMPUTED_CONTENT_SET }
+      algorithm: { const: sha256 }
+  historicalContext:
+    type: object
+    additionalProperties: false
+    required: [context_version, context, milestones, root_binding, artifacts, historical_evidence]
+    properties:
+      context_version: { const: 1 }
+      context: { const: HISTORICAL_MILESTONE_BINDING }
+      milestones: { $ref: '#/$defs/milestones' }
+      root_binding:
+        type: object
+        additionalProperties: false
+        required: [kind, logical_source_root, package_name, package_version]
+        properties:
+          kind: { const: HISTORICAL_MILESTONE_ROOT }
+          logical_source_root: { const: framework }
+          package_name: { const: '@agentic-devops/framework-v3' }
+          package_version: { const: 3.0.0 }
+      artifacts:
+        type: object
+        additionalProperties: false
+        required: [package_json, package_lock, distribution_manifest, framework_lock]
+        properties:
+          package_json: { $ref: '#/$defs/fixedArtifact' }
+          package_lock: { $ref: '#/$defs/fixedArtifact' }
+          distribution_manifest: { $ref: '#/$defs/fixedArtifact' }
+          framework_lock: { $ref: '#/$defs/fixedArtifact' }
+      historical_evidence:
+        type: object
+        additionalProperties: false
+        required: [path, record_type, schema_version, source_inventory_sha256]
+        properties:
+          path: { const: M9_MIGRATION_MANIFEST }
+          record_type: { const: M9_MIGRATION_MANIFEST }
+          schema_version: { const: 1 }
+          source_inventory_sha256: { $ref: '#/$defs/sha256' }
+  canonicalContext:
+    type: object
+    additionalProperties: false
+    required: [context_version, context, milestones, root_binding, artifacts]
+    properties:
+      context_version: { const: 1 }
+      context: { const: CANONICAL_CHECKOUT_BINDING }
+      milestones: { $ref: '#/$defs/milestones' }
+      root_binding:
+        type: object
+        additionalProperties: false
+        required: [kind, logical_source_root, package_name, package_version, repository]
+        properties:
+          kind: { const: CANONICAL_CHECKOUT_ROOT }
+          logical_source_root: { const: '.' }
+          package_name: { const: '@agentic-devops/framework-v3' }
+          package_version: { const: 3.1.0 }
+          repository: { const: TicoVillas/AgenticDevOps }
+      artifacts:
+        type: object
+        additionalProperties: false
+        required: [package_json, package_lock, distribution_manifest, framework_lock]
+        properties:
+          package_json: { $ref: '#/$defs/fixedArtifact' }
+          package_lock: { $ref: '#/$defs/fixedArtifact' }
+          distribution_manifest: { $ref: '#/$defs/lockEntryArtifact' }
+          framework_lock: { $ref: '#/$defs/recomputedLockArtifact' }

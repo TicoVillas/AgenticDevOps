@@ -1,0 +1,61 @@
+schema_version: 1
+contract_id: m5-m8-validation-bindings-v1
+active_context: CANONICAL_CHECKOUT_BINDING
+contexts:
+  HISTORICAL_MILESTONE_BINDING:
+    context_version: 1
+    context: HISTORICAL_MILESTONE_BINDING
+    milestones: [M5, M6, M7, M8]
+    root_binding:
+      kind: HISTORICAL_MILESTONE_ROOT
+      logical_source_root: framework
+      package_name: '@agentic-devops/framework-v3'
+      package_version: 3.0.0
+    artifacts:
+      package_json:
+        path: package.json
+        hash_mode: FIXED_SHA256
+        sha256: 134cff442f8d764c9fdb07c0ad81e0ef95e2031e1e21350a412c8afcba44a86b
+      package_lock:
+        path: package-lock.json
+        hash_mode: FIXED_SHA256
+        sha256: 3a5a335b5c5250443608441eeb45353793e1a58393515e14e975d70de6e58846
+      distribution_manifest:
+        path: DISTRIBUTION_MANIFEST
+        hash_mode: FIXED_SHA256
+        sha256: ce3c5d76cef8df0571fa6249c219438d7ced7051f2418be4102fe9b2844edc91
+      framework_lock:
+        path: framework.lock
+        hash_mode: FIXED_SHA256
+        sha256: ae777deaf34428aa48934e8ba74ddd09ace18453fe9c0c3a429f19421e1bb932
+    historical_evidence:
+      path: M9_MIGRATION_MANIFEST
+      record_type: M9_MIGRATION_MANIFEST
+      schema_version: 1
+      source_inventory_sha256: 31e3818fb36cc20d8c3e540e04e7dcac0621c281bec2be186d8ed5327c17dbe5
+  CANONICAL_CHECKOUT_BINDING:
+    context_version: 1
+    context: CANONICAL_CHECKOUT_BINDING
+    milestones: [M5, M6, M7, M8]
+    root_binding:
+      kind: CANONICAL_CHECKOUT_ROOT
+      logical_source_root: '.'
+      package_name: '@agentic-devops/framework-v3'
+      package_version: 3.1.0
+      repository: TicoVillas/AgenticDevOps
+    artifacts:
+      package_json:
+        path: package.json
+        hash_mode: FIXED_SHA256
+        sha256: bd54ba37e610501bf6f43b6fece842d21f612b74607124f820bb22ed7adbe53e
+      package_lock:
+        path: package-lock.json
+        hash_mode: FIXED_SHA256
+        sha256: 9a860bf5d476022d77d645c12423bcaae4e84772c1cca08a74fb6c60debe86d8
+      distribution_manifest:
+        path: DISTRIBUTION_MANIFEST
+        hash_mode: FRAMEWORK_LOCK_ENTRY
+      framework_lock:
+        path: framework.lock
+        hash_mode: RECOMPUTED_CONTENT_SET
+        algorithm: sha256

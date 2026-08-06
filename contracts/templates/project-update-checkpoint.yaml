@@ -1,0 +1,13 @@
+schema_version: 1
+checkpoint_id: project-checkpoint-synthetic-0001
+operation_id: project-update-synthetic-0001
+issued_at: '2026-08-05T12:00:00.000Z'
+expires_at: '2026-08-05T13:00:00.000Z'
+status: EXPLICITLY_CHECKPOINTED
+provenance: DIRECT_USER_CHECKPOINT
+synthetic_only: true
+bindings:
+  plan_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  snapshot_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  project_root_sha256: cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+operations: [APPLY]

@@ -1,0 +1,40 @@
+version: 1
+exposure: LOCAL_ISOLATED
+impact: HIGH
+context:
+  environments:
+    - local
+  identities:
+    - local-engineering-author
+    - kiro-default-agent
+  data_classes: []
+  integrations:
+    - global-kiro-workflow
+  operational_dependencies:
+    - protected-history
+    - global-kiro-installation
+controls:
+  baseline:
+    - validate-boundaries
+    - least-privilege
+    - protect-secrets
+    - safe-errors-and-defaults
+    - minimize-data
+    - review-dependencies
+    - sanitize-logs
+    - review-diff-and-scope
+    - applicable-negative-tests
+  contextual:
+    - preserve-protected-history
+    - read-only-preflight
+    - explicit-write-checkpoint
+    - one-writer-per-worktree
+    - rollback-created-profile-only
+assurance_recommendation: HIGH_RISK
+rationale:
+  - Self-referential workflow framework with protected historical sources and a
+    completed global Kiro installation dependency.
+source_evidence:
+  - AGENTS.md
+  - repository-state
+  - global-operation:bootstrap-v3-20260802190634116-571d1a1f

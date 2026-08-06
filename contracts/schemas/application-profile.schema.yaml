@@ -1,0 +1,30 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:application-profile:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [version, exposure, impact, context, controls, assurance_recommendation, rationale, source_evidence]
+properties:
+  version: { const: 1 }
+  exposure: { enum: [LOCAL_ISOLATED, INTERNAL_RESTRICTED, EXTERNAL_RESTRICTED, PUBLIC] }
+  impact: { enum: [LOW, MODERATE, HIGH, CRITICAL] }
+  context:
+    type: object
+    additionalProperties: false
+    required: [environments, identities, data_classes, integrations, operational_dependencies]
+    properties:
+      environments: { type: array, uniqueItems: true, items: { type: string } }
+      identities: { type: array, uniqueItems: true, items: { type: string } }
+      data_classes: { type: array, uniqueItems: true, items: { type: string } }
+      integrations: { type: array, uniqueItems: true, items: { type: string } }
+      operational_dependencies: { type: array, uniqueItems: true, items: { type: string } }
+  controls:
+    type: object
+    additionalProperties: false
+    required: [baseline, contextual]
+    properties:
+      baseline: { type: array, minItems: 1, uniqueItems: true, items: { type: string } }
+      contextual: { type: array, uniqueItems: true, items: { type: string } }
+  assurance_recommendation: { enum: [LIGHT, STANDARD, HIGH_RISK] }
+  rationale: { type: array, minItems: 1, items: { type: string, minLength: 1 } }
+  source_evidence: { type: array, minItems: 1, items: { type: string, minLength: 1 } }

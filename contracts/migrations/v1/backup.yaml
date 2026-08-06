@@ -1,0 +1,11 @@
+id: backup-v1-retention-origin
+target_schema: urn:agentic-devops:distribution-backup-manifest:3.0
+from_version: 1
+to_version: 1
+required_context: [origin_operation]
+operations:
+  - { op: set_if_absent, field: retention_class, value: SUCCESSFUL_VERSION }
+  - { op: copy_context, field: origin_operation }
+  - op: set_if_absent
+    field: legal_hold
+    value: { active: false, reason: NONE }

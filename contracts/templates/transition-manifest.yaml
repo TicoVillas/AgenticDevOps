@@ -1,0 +1,45 @@
+version: 1
+origin: transition-validator
+executor_role: ENGINEERING
+phase: execute-contract
+authorization: { reference: next-phase-authorization, operations: [transition] }
+scope: { resources: [delivery] }
+timestamps: { created_at: '2026-07-28T12:00:00Z' }
+hashes: {}
+classification: CONFIRMED_DIRECTLY
+sanitization: { secrets_removed: true, personal_data_minimized: true }
+results: []
+limitations: []
+references: []
+from_phase: contract-review
+to_phase: execute-contract
+from_skill: contract-review
+to_skill: execute-contract
+authorization_current: true
+artifact_final: true
+artifact_hashes: { execution-brief: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa }
+selection_ref:
+  reference: contracts/selections/current.yaml
+  sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+hashes_match: true
+guard_results: [{ name: approved, passed: true, evidence: review }]
+assurance_satisfied: true
+evidence_sufficient: true
+checkpoint_pending: false
+session:
+  line: engineering
+  strategy: ORIGINAL_AUTHOR
+  current_identity: contract-reviewer
+  destination_identity: engineering-author
+independence_required: false
+pending_decision: false
+authority:
+  scope_unchanged: true
+  paths_unchanged: true
+  permissions_unchanged: true
+  git_actions_requested: false
+  git_actions_authorized: false
+  remote_actions_requested: false
+  remote_actions_authorized: false
+actions_not_executed: [commit, push, merge]
+decision: CHAINED

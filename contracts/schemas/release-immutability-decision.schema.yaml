@@ -1,0 +1,40 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:release-immutability-decision:3.0
+$comment: schema-version-3.1.0; fail-closed publication gate input
+type: object
+additionalProperties: false
+required: [schema_version, release_id, observed_at, provider_capability, mode, native_immutable, result, publish_authorized, checkpoint_required]
+properties:
+  schema_version: { const: 1 }
+  release_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$' }
+  observed_at: { type: string, format: date-time }
+  provider_capability: { enum: [AVAILABLE, UNAVAILABLE, UNKNOWN] }
+  mode: { enum: [NATIVE_IMMUTABLE, COMPENSATING_CONTROL, NONE] }
+  native_immutable: { type: boolean }
+  compensating_control: { $ref: 'urn:agentic-devops:release-compensating-control:3.0' }
+  result: { enum: [READY, BLOCKED] }
+  reason_code: { type: string, pattern: '^[A-Z][A-Z0-9_]{2,127}$' }
+  publish_authorized: { const: false }
+  checkpoint_required: { const: true }
+allOf:
+  - if: { required: [mode], properties: { mode: { const: NATIVE_IMMUTABLE } } }
+    then:
+      properties:
+        provider_capability: { const: AVAILABLE }
+        native_immutable: { const: true }
+        result: { const: READY }
+  - if: { required: [mode], properties: { mode: { const: COMPENSATING_CONTROL } } }
+    then:
+      required: [compensating_control]
+      properties:
+        provider_capability: { const: UNAVAILABLE }
+        native_immutable: { const: false }
+        compensating_control: { $ref: 'urn:agentic-devops:release-compensating-control:3.0' }
+        result: { const: READY }
+  - if: { required: [mode], properties: { mode: { const: NONE } } }
+    then:
+      required: [reason_code]
+      properties:
+        native_immutable: { const: false }
+        result: { const: BLOCKED }
+        reason_code: { type: string, pattern: '^[A-Z][A-Z0-9_]{2,127}$' }

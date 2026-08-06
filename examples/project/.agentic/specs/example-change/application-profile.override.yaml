@@ -1,0 +1,7 @@
+scope: [example-change]
+rationale: Authorized bounded exception for the example delivery only.
+authorization_ref: EXAMPLE-AUTHORIZATION
+authorized_at: '2026-07-28T00:00:00Z'
+expires_at: '2099-12-31T23:59:59Z'
+base_profile_hash: 8cb5f20ae25aed0fc1e4efdbff6f043b9162a4ce6f36e6a77d6898ceb8e54021
+source_evidence: [example-decision]

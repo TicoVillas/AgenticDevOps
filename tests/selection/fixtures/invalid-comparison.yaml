@@ -1,0 +1,6 @@
+version: 1
+selection_guidance:
+  recommended: { family: capability-family-a, model: capability-tier-a, effort: HIGH, agent_workflow: engineering, mode: agentic, rationale: Matches the authorized work. }
+  fallback_guidance: { family: capability-family-b, model: capability-tier-b, effort: HIGH, condition: Use if the recommendation is unavailable. }
+effective_selection: { family: user-family, model: user-tier, effort: MEDIUM, agent_workflow: engineering, mode: interactive, alternative_used: true, fallback_used: false, recorded_before_preflight: true }
+comparison_result: MATCH

@@ -1,0 +1,5 @@
+version: 1
+selection_guidance:
+  recommended: { family: capability-family-a, model: capability-tier-a, effort: HIGH, agent_workflow: engineering, mode: agentic, rationale: Matches the authorized work., provider: forbidden-extra-field }
+  fallback_guidance: { family: capability-family-b, model: capability-tier-b, effort: HIGH, condition: Use if the recommendation is unavailable. }
+comparison_result: NOT_REPORTED

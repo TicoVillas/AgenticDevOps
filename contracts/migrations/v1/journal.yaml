@@ -1,0 +1,11 @@
+id: journal-v1-durability
+target_schema: urn:agentic-devops:installation-journal:3.0
+from_version: 1
+to_version: 1
+required_context: [plan_sha256]
+operations:
+  - { op: copy_context, field: plan_sha256 }
+  - { op: set_if_absent, field: durable_sequence, value: 0 }
+  - op: set_if_absent
+    field: fsync_evidence
+    value: { intent_fsynced_through: 0, journal_fsynced: false }

@@ -1,0 +1,39 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:lifecycle-event-log:3.0
+$comment: schema-version-3.1.0; sanitized deterministic lifecycle event envelope
+type: object
+additionalProperties: false
+required: [schema_version, operation_id, operation_class, sanitized, events, operations_not_authorized]
+properties:
+  schema_version: { const: 1 }
+  operation_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+  operation_class: { enum: [INSTALL, UPDATE, RECONCILE, RESUME, ROLLBACK, UNINSTALL] }
+  sanitized: { const: true }
+  events:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [sequence, event_id, timestamp, type, status, reason_code, causal_event_id, artifact_hashes]
+      properties:
+        sequence: { type: integer, minimum: 1 }
+        event_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+        timestamp: { type: string, format: date-time }
+        type: { enum: [PLAN, AUTHORIZATION, LOCK, INTENT, WRITE, SYNC, RENAME, VERIFY, RECEIPT, RECONCILE, ROLLBACK, UNINSTALL, SELF_UPDATE, STOP] }
+        status: { enum: [PLANNED, PASS, BLOCKED, NO_EFFECT, PARTIAL_KNOWN, PARTIAL, UNKNOWN, COMPLETED] }
+        reason_code: { type: [string, 'null'], pattern: '^[A-Z][A-Z0-9_]*$' }
+        causal_event_id: { type: [string, 'null'], pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+        artifact_hashes:
+          type: object
+          additionalProperties: { type: string, pattern: '^[a-f0-9]{64}$' }
+        logical_path: { type: [string, 'null'], minLength: 1, maxLength: 256 }
+        hash_prefix: { type: [string, 'null'], pattern: '^[a-f0-9]{12}$' }
+  limitations:
+    type: array
+    items: { type: string, minLength: 1 }
+  operations_not_authorized:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items: { type: string, pattern: '^[A-Z][A-Z0-9_]*$' }

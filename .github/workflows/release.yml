@@ -1,0 +1,198 @@
+name: Protected release pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: Exact protected 40-hex commit
+        required: true
+        type: string
+      release_tag:
+        description: Exact immutable SemVer tag
+        required: true
+        type: string
+      provider_capability:
+        description: AVAILABLE or UNAVAILABLE
+        required: true
+        type: choice
+        options: [AVAILABLE, UNAVAILABLE]
+      native_immutable:
+        description: Native immutable release observed
+        required: true
+        type: boolean
+      compensating_control_json:
+        description: Explicit separately approved control when native immutability is unavailable
+        required: false
+        type: string
+      compensating_control_authorization_sha256:
+        description: Current separate authorization binding for a compensating control
+        required: false
+        type: string
+      checkpoint_evidence_sha256:
+        description: Independent checkpoint evidence hash
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  clean-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact protected commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.commit_sha }}
+          persist-credentials: false
+      - name: Use Node.js 24
+        uses: actions/setup-node@1e60f620b9541d7c243d3c1eeda18facf4b3d8ab
+        with:
+          node-version: 24
+          cache: npm
+      - name: Verify exact commit and tag shape
+        env:
+          EXPECTED_COMMIT: ${{ inputs.commit_sha }}
+          EXPECTED_TAG: ${{ inputs.release_tag }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_COMMIT" && printf '%s' "$EXPECTED_COMMIT" | grep -Eq '^[a-f0-9]{40}$' && printf '%s' "$EXPECTED_TAG" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'
+      - name: Locked clean validation
+        run: npm ci --ignore-scripts && npm run validate && npm test
+      - name: Require generated and lock diff zero
+        run: npm run generate:reports && npm run generate:sources && npm run lock && git diff --exit-code
+      - name: Package allowlist and sensitive scan
+        run: npm pack --dry-run --ignore-scripts --json > "$RUNNER_TEMP/npm-pack.json" && node tools/validate-m8-ci.mjs --package-report "$RUNNER_TEMP/npm-pack.json" && node tools/scan-release-sensitive.mjs
+      - name: Dual build package
+        run: mkdir -p "$RUNNER_TEMP/build-a" "$RUNNER_TEMP/build-b" && npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/build-a" >/dev/null && npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/build-b" >/dev/null && cmp "$RUNNER_TEMP/build-a/agentic-devops-framework-v3-3.0.0.tgz" "$RUNNER_TEMP/build-b/agentic-devops-framework-v3-3.0.0.tgz"
+      - name: Upload unsigned build inputs
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808
+        with:
+          name: unsigned-release-inputs
+          path: |
+            ${{ runner.temp }}/build-a/agentic-devops-framework-v3-3.0.0.tgz
+            framework.lock
+            package-lock.json
+          if-no-files-found: error
+          retention-days: 1
+
+  protected-signing:
+    needs: clean-build
+    runs-on: ubuntu-24.04
+    environment: release-signing
+    permissions:
+      contents: read
+    steps:
+      - name: Download unsigned inputs
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
+        with:
+          name: unsigned-release-inputs
+          path: unsigned
+      - name: M12 protected Ed25519 signer hard stop
+        run: echo 'M12 protected signer integration is not authorized or configured by M8' >&2; exit 1
+
+  draft:
+    needs: protected-signing
+    runs-on: ubuntu-24.04
+    environment: release-draft
+    permissions:
+      contents: write
+    steps:
+      - name: Download signed release assets
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
+        with:
+          name: signed-release-assets
+          path: signed
+      - name: Create draft only
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: gh release create "$RELEASE_TAG" signed/* --draft --verify-tag
+
+  draft-redownload-reverify:
+    needs: draft
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout verifier
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.commit_sha }}
+          persist-credentials: false
+      - name: Redownload draft assets
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: mkdir draft-assets && gh release download "$RELEASE_TAG" --dir draft-assets
+      - name: Reverify manifest signatures checksums sizes and bindings
+        run: npm ci --ignore-scripts && npm run validate:m4 && npm run validate:m8
+
+  immutability-gate:
+    needs: draft-redownload-reverify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      decision_sha256: ${{ steps.evaluate.outputs.decision_sha256 }}
+    steps:
+      - name: Checkout gate implementation
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.commit_sha }}
+          persist-credentials: false
+      - name: Evaluate reused immutable or compensating-control gate
+        id: evaluate
+        env:
+          RELEASE_ID: ${{ inputs.release_tag }}
+          PROVIDER_CAPABILITY: ${{ inputs.provider_capability }}
+          NATIVE_IMMUTABLE: ${{ inputs.native_immutable }}
+          COMPENSATING_CONTROL_JSON: ${{ inputs.compensating_control_json }}
+          CONTROL_AUTHORIZATION_SHA256: ${{ inputs.compensating_control_authorization_sha256 }}
+        run: |
+          observed_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          node tools/evaluate-m8-release-gate.mjs --release-id "$RELEASE_ID" --observed-at "$observed_at" --provider-capability "$PROVIDER_CAPABILITY" --native-immutable "$NATIVE_IMMUTABLE" --compensating-control-json "${COMPENSATING_CONTROL_JSON:-}" --expected-authorization-sha256 "${CONTROL_AUTHORIZATION_SHA256:-}" > immutability-decision.json
+          decision_sha256="$(sha256sum immutability-decision.json | cut -d' ' -f1)"
+          printf 'decision_sha256=%s\n' "$decision_sha256" >> "$GITHUB_OUTPUT"
+
+  independent-checkpoint:
+    needs: immutability-gate
+    runs-on: ubuntu-24.04
+    environment: release-publish-checkpoint
+    permissions:
+      contents: read
+    steps:
+      - name: Require independent checkpoint evidence bound after READY decision
+        env:
+          IMMUTABILITY_DECISION_SHA256: ${{ needs.immutability-gate.outputs.decision_sha256 }}
+          CHECKPOINT_EVIDENCE_SHA256: ${{ inputs.checkpoint_evidence_sha256 }}
+        run: printf '%s\n%s\n' "$IMMUTABILITY_DECISION_SHA256" "$CHECKPOINT_EVIDENCE_SHA256" | grep -Ecx '[a-f0-9]{64}' | grep -qx '2'
+
+  publish:
+    needs: independent-checkpoint
+    runs-on: ubuntu-24.04
+    environment: release-publish
+    permissions:
+      contents: write
+    steps:
+      - name: Publish only after immutable READY and independent checkpoint
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: gh release edit "$RELEASE_TAG" --draft=false
+
+  external-redownload-reverify:
+    needs: publish
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout independent verifier
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.commit_sha }}
+          persist-credentials: false
+      - name: External redownload
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: mkdir published-assets && gh release download "$RELEASE_TAG" --dir published-assets
+      - name: External reverify and sanitized evidence index
+        run: npm ci --ignore-scripts && npm run validate:m4 && npm run validate:m8 && npm run generate:m8-report

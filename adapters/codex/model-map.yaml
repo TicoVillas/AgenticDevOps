@@ -1,0 +1,13 @@
+version: 1
+adapter: Codex
+mappings:
+  - capability: complex_agentic_engineering
+    minimum_capabilities: [long_horizon_reasoning, tool_use, multi_file_execution]
+    effort: HIGH
+    preferred_model: GPT-5.6 Sol
+    fallback_model: GPT-5.6 Terra
+  - capability: efficient_contract_execution
+    minimum_capabilities: [tool_use, deterministic_execution]
+    effort: MEDIUM
+    preferred_model: GPT-5.6 Terra
+    fallback_model: GPT-5.6 Luna

@@ -1,0 +1,362 @@
+{
+  "schema_version": 1,
+  "record_type": "M9_MIGRATION_MANIFEST",
+  "operation_id": "m9-new-checkout-r01-20260805-01",
+  "generated_at": "2026-08-05T00:00:00Z",
+  "result": "PREFLIGHT_READY_FOR_SUPERVISED_MATERIALIZATION",
+  "source": {
+    "workspace": "/home/villas/Projects/AgenticDevOps",
+    "framework": "/home/villas/Projects/AgenticDevOps/framework",
+    "framework_realpath": "/home/villas/Projects/AgenticDevOps/framework",
+    "file_count": 361,
+    "directory_count": 79,
+    "total_size": 1259699,
+    "inventory_sha256": "31e3818fb36cc20d8c3e540e04e7dcac0621c281bec2be186d8ed5327c17dbe5",
+    "protected_file_count": 33,
+    "protected_inventory_sha256": "7828fe75a240fa36a021ea04e8173761aa7449fb5d974e46c4285e461b15ed64",
+    "git_present": false,
+    "symlink_count": 0,
+    "special_type_count": 0,
+    "writer_count": 0
+  },
+  "destination": {
+    "path": "/home/villas/Projects/AgenticDevOps-Canonical",
+    "required_realpath": "/home/villas/Projects/AgenticDevOps-Canonical",
+    "observed_absent": true,
+    "required_initial_mode": "0700",
+    "required_owner_group": "villas:villas",
+    "git_authorized": false,
+    "intermediate_framework_directory_authorized": false
+  },
+  "entry_bindings": {
+    "authorization_execution_sha256": "fe9eccfce0b5e392eececa3144ae57b79e365791a9a4db9096168baa26d3081d",
+    "distribution_manifest_sha256": "ce3c5d76cef8df0571fa6249c219438d7ced7051f2418be4102fe9b2844edc91",
+    "framework_lock_sha256": "ae777deaf34428aa48934e8ba74ddd09ace18453fe9c0c3a429f19421e1bb932",
+    "package_json_sha256": "134cff442f8d764c9fdb07c0ad81e0ef95e2031e1e21350a412c8afcba44a86b",
+    "package_lock_sha256": "3a5a335b5c5250443608441eeb45353793e1a58393515e14e975d70de6e58846",
+    "pr_workflow_sha256": "9ad376ed1e7b1b86fe37f282a8393b52048595f80b8b791f08485bf3da04d6d2",
+    "release_workflow_sha256": "aa7db435cffb7915a2736f4c0e7e4dfabeadfae585b9b7bde5e38320fff1d7d1",
+    "m8_report_sha256": "a6f074cf04d1d26cd955d5aa5900aa51d83576bff13346515f30421087c710cd"
+  },
+  "spec_bindings": {
+    "discovery.md": "d9b40cdcab92dd01bea55918beff7ceb8e164a49b455471fa6a54f5d8ef0be77",
+    "requirements.md": "fe83db42aa19de992ceb90291d5db4caa69fcbf35e315e9d1fc1692ff4598aa2",
+    "design.md": "46532b9e7e43ff7626bbedc1e040dbf6af1e343502b99b5242d52e31146cd056",
+    "tasks.md": "3e18e3d22902bf96befa9440f354fd21690bb0828de4a9b69c9514db6b45797c",
+    "execution-brief.md": "a3a0381107a3b529e35948609ed2b47034f7c82330c826ba5e82d5acc1a21d95",
+    "contract-review.md": "8521e2d409bae8a0d8b10e2fce4c90d15fba0a9c413dba8dad7919ec6a894b57"
+  },
+  "archive_restore_gate": {
+    "result": "PASS_PRESERVED_AND_RESTORABLE",
+    "root": "/home/villas/Projects/AgenticDevOps-Archive-Restore/framework-governance-and-portability/archive-remote-r01-20260802-01-resume-02",
+    "root_mode": "0700",
+    "root_owner_group": "villas:villas",
+    "regular_files": 161,
+    "directories": 82,
+    "symlink_count": 0,
+    "special_type_count": 0,
+    "restore_inventory_sha256": "4c4f8182e0c9968634735cdf5d3293f85256114c6d103ffdaac69107f60cc6c7",
+    "restore_summary_sha256": "a704836c904e8b70cd0cdc083df073c184851d2ba171c4f38880e4c729aa4d2c",
+    "restore_evidence_index_sha256": "80c3b27ec528b9738b094e01b710f0a624c6fcc16d00b832e60d05a5ed53007f",
+    "m3_final_evidence_index_sha256": "2f94cba5fc3a784aabefaa79294c4251751381e37701566188807762b3be5876",
+    "bundle_restore_sha256": "ee5b20b3778a0ea31aca64675fa10cd003bb8f4c03b47e0f6bd6a1c4b220255c",
+    "snapshot_comparison_sha256": "4d8e3a216497c2ee893f9ac5c6b061547a590b49c124a70992821aa925d72c98",
+    "opaque_restore_sha256": "674194af8a9bb4acb7e51c3db738d3a1d7e006e2a904c3f9e44300c7407d675c"
+  },
+  "classes": [
+    {
+      "class": "RUNTIME_SOURCE",
+      "source": "framework/**",
+      "destination": "./**",
+      "action": "COPY_AND_REREAD_VERIFY",
+      "source_file_count": 360,
+      "preserve_bytes": true,
+      "preserve_modes": true,
+      "exceptions": [
+        "package.json",
+        "package-lock.json",
+        "adapters/kiro/distribution-manifest.yaml",
+        "framework.lock"
+      ]
+    },
+    {
+      "class": "HISTORY_EXCLUDED",
+      "source": "framework/agentic-devops-framework-v3-3.0.0.tgz",
+      "destination": null,
+      "action": "EXCLUDE",
+      "source_sha256": "d01e4c89ec081018eec5671b0ad725a1561e8c842b4e51042583c88ae068dca8",
+      "reason": "HISTORICAL_UNTRUSTED_EVIDENCE"
+    },
+    {
+      "class": "GOVERNANCE",
+      "source": "AGENTS.md",
+      "destination": "AGENTS.md",
+      "action": "COPY_THEN_AUTHORIZED_LAYOUT_AND_PRIVATE_METADATA_TRANSFORM",
+      "source_sha256": "7bbafdaa88c2073955759a7ad6bb09a84aad2debfabded6f3f4f8af39318ca32",
+      "package_included": false,
+      "runtime_asset_included": false
+    },
+    {
+      "class": "GOVERNANCE",
+      "source": ".agentic/application-profile.yaml",
+      "destination": ".agentic/application-profile.yaml",
+      "action": "COPY_AND_REREAD_VERIFY",
+      "source_sha256": "cf67b838689e14a799a82ef599f3acdb9fc7a06d37acb725e085c44edd00cce7",
+      "package_included": false,
+      "runtime_asset_included": false,
+      "operational_state": false
+    },
+    {
+      "class": "GOVERNANCE",
+      "source": ".kiro/specs/**",
+      "destination": ".kiro/specs/**",
+      "action": "COPY_AND_REREAD_VERIFY",
+      "pre_manifest_file_count": 28,
+      "pre_manifest_directory_count": 22,
+      "pre_manifest_total_size": 748189,
+      "pre_manifest_inventory_sha256": "bc202298085ff7e3be81e5f32f5f3f467125f584d534fd7e53c560144d3bdc35",
+      "manifest_self_excluded_from_pre_manifest_inventory": true,
+      "package_included": false,
+      "runtime_asset_included": false
+    },
+    {
+      "class": "PRIVATE_USE_POLICY",
+      "source": null,
+      "destination": "PRIVATE-USE-LICENSE.md",
+      "action": "CREATE_AUTHORIZED_POLICY",
+      "package_included": true,
+      "runtime_authority": false
+    }
+  ],
+  "authorized_transformations": [
+    {
+      "path": "package.json",
+      "changes": [
+        "version:3.1.0",
+        "license:SEE LICENSE IN PRIVATE-USE-LICENSE.md",
+        "private:true",
+        "repository:TicoVillas/AgenticDevOps",
+        "publishConfig.access:restricted",
+        "files:+PRIVATE-USE-LICENSE.md"
+      ]
+    },
+    {
+      "path": "package-lock.json",
+      "changes": [
+        "root version:3.1.0",
+        "root package version:3.1.0",
+        "root license:SEE LICENSE IN PRIVATE-USE-LICENSE.md"
+      ],
+      "dependency_changes": 0
+    },
+    {
+      "path": "AGENTS.md",
+      "changes": [
+        "canonical root layout",
+        "private internal visibility",
+        "canonical repository metadata",
+        "root-level npm commands"
+      ]
+    },
+    {
+      "path": "adapters/kiro/distribution-manifest.yaml",
+      "changes": [
+        "deterministic source catalog regeneration only"
+      ]
+    },
+    {
+      "path": "framework.lock",
+      "changes": [
+        "deterministic destination-root lock regeneration only"
+      ]
+    }
+  ],
+  "correction_rounds": [
+    {
+      "operation_id": "m9-new-checkout-r01-20260805-01-resume-01",
+      "finding": "M9.7_DIRECT_CANONICAL_VALIDATION_FAILED_HISTORICAL_BINDING_HARDCODE",
+      "status": "COMPLETED_AWAITING_NEW_CHECKOUT_APPROVAL",
+      "authorized_scope": "M5_M8_EXPLICIT_VERSIONED_VALIDATION_BINDINGS_ONLY",
+      "transformations": [
+        {
+          "path": "contracts/schemas/validation-binding-contract.schema.yaml",
+          "class": "VALIDATION_BINDING_CONTRACT",
+          "action": "CREATE",
+          "before_state": "ABSENT",
+          "after_sha256": "1f275da72cfac909eebaad9ab77bc7e0953fba509ce896aa5a87349e59ea2559",
+          "reason": "Strict versioned schema for explicit historical and canonical contexts"
+        },
+        {
+          "path": "contracts/validation-bindings.yaml",
+          "class": "VALIDATION_BINDING_CONTRACT",
+          "action": "CREATE",
+          "before_state": "ABSENT",
+          "after_sha256": "a2edd93ce76c9bf8c81b26b3c906cca14c1f23a278320c115f3b876e3b4c9597",
+          "reason": "Explicit active context, immutable historical hashes and canonical binding methods"
+        },
+        {
+          "path": "tools/lib/validation-bindings.mjs",
+          "class": "VALIDATOR_SHARED_IMPLEMENTATION",
+          "action": "CREATE",
+          "before_state": "ABSENT",
+          "after_sha256": "14b88e167f907b561d53cc19ee36d9aca6c534f095547c608229873a91f05b69",
+          "reason": "Single fail-closed implementation without path inference or silent fallback"
+        },
+        {
+          "path": "tests/contracts/validation-bindings.test.mjs",
+          "class": "NEGATIVE_REGRESSION_TEST",
+          "action": "CREATE",
+          "before_state": "ABSENT",
+          "after_sha256": "5057d3c7645499fc329343b61cc0c39549cfeb49c90244c5e36761385a1f3e58",
+          "reason": "Required cross-context, missing-context, hash, version and root negative coverage"
+        },
+        {
+          "path": "tools/validate-m5-lifecycle.mjs",
+          "class": "MILESTONE_VALIDATOR",
+          "action": "MODIFY",
+          "before_sha256": "d4c434aa25acb1940ef3e4bcf4aeac55ced4b0b3cb4d2131bdcb2dad699979d1",
+          "after_sha256": "473c231c6ca5b16f931071681d8216e50699daea3e2d758d2165d5609d7c1d11",
+          "reason": "Delegate M5 binding validation to the explicit shared contract"
+        },
+        {
+          "path": "tools/validate-m6-project-update.mjs",
+          "class": "MILESTONE_VALIDATOR",
+          "action": "MODIFY",
+          "before_sha256": "7bc4324d9f68b1736b393567954a3d75ab972209bd50f485f02b12993bc8305d",
+          "after_sha256": "c6e985320b8fe7c0d99d77676bb61a0c412a4090da9315dcd80faafb50e229cc",
+          "reason": "Delegate M6 binding validation to the explicit shared contract"
+        },
+        {
+          "path": "tools/validate-m7-installers.mjs",
+          "class": "MILESTONE_VALIDATOR",
+          "action": "MODIFY",
+          "before_sha256": "a10a447783bcbb958db9a77cfba91297129fdf6e5423e95d0bed159eb20862ba",
+          "after_sha256": "72d0d7da4a0ca383466fcd64cf50590e0ef36dc4f981e30f0093b30528069316",
+          "reason": "Delegate M7 binding validation to the explicit shared contract"
+        },
+        {
+          "path": "tools/validate-m8-ci.mjs",
+          "class": "MILESTONE_VALIDATOR",
+          "action": "MODIFY",
+          "before_sha256": "02411924338b6cf6247413a0cb8a90c9060bd71b68f9e756c7c562eed65322cf",
+          "after_sha256": "02413b72ee341aca11e5f186722551b9f6e1b0513d61c3252137559446e91a08",
+          "reason": "Delegate M8 binding validation to the explicit shared contract"
+        },
+        {
+          "path": "adapters/kiro/distribution-manifest.yaml",
+          "class": "GENERATED_SOURCE_CATALOG",
+          "action": "REGENERATE",
+          "before_sha256": "0a740793b24a0da3de9aa165fa590146c19e14c042aa981fe833567981fd0670",
+          "after_hash_mode": "POST_EVIDENCE_OBSERVATION",
+          "reason": "Catalog the bounded correction deterministically"
+        },
+        {
+          "path": "framework.lock",
+          "class": "GENERATED_INTEGRITY_LOCK",
+          "action": "REGENERATE",
+          "before_sha256": "b9aa21147afa444bf85768de21d5de742af6086239816e4ca66b23f0ab19403c",
+          "after_hash_mode": "POST_EVIDENCE_OBSERVATION",
+          "reason": "Bind the corrected canonical filesystem without recursive self-hash"
+        },
+        {
+          "path": ".kiro/specs/framework-governance-and-portability/EXECUTION.md",
+          "class": "CORRECTION_EVIDENCE",
+          "action": "APPEND_AND_FINAL_SYNC",
+          "before_sha256": "41d04fcdc087bbd89fa8e0407615c145a3fc1e4332c61a49cad6b829fc45b194",
+          "after_hash_mode": "POST_EVIDENCE_OBSERVATION",
+          "reason": "Record authorization, correction and direct final validation byte-identically"
+        }
+      ],
+      "reports_changed": [],
+      "reports_disposition": "Historical M5-M8 reports remain immutable and are verified through HISTORICAL_MILESTONE_BINDING",
+      "direct_validation": {
+        "package_lock_substitution": false,
+        "npm_run_validate": "PASS_21_OF_21",
+        "npm_test": "PASS_290_OF_290",
+        "validate_distribution": "PASS_395_OF_395",
+        "validate_m4": "PASS_ZERO_SENSITIVE_FINDINGS",
+        "exact_dependencies": [
+          "ajv@8.20.0",
+          "ajv-formats@3.0.1",
+          "yaml@2.9.0"
+        ],
+        "pack_dry_run": "PASS_274_ENTRIES_NO_GOVERNANCE_WORKFLOWS_TESTS_OR_TGZ"
+      },
+      "operations_not_authorized": [
+        "SOURCE_FRAMEWORK_WRITE",
+        "SIBLING_REMATERIALIZATION",
+        "PACKAGE_LOCK_SUBSTITUTION",
+        "GIT_OR_HOOKS",
+        "NETWORK_OR_CREDENTIALS",
+        "SIGNING_OR_RELEASE",
+        "GLOBAL_INSTALL_OR_CLEANUP",
+        "M10_THROUGH_M15",
+        "DELIVERY_VALIDATION"
+      ]
+    }
+  ],
+  "governance_classification": {
+    "AGENTS.md": "GOVERNANCE_ONLY",
+    ".agentic/application-profile.yaml": "GOVERNANCE_ONLY_PROFILE_NOT_OPERATIONAL_STATE",
+    ".kiro/specs/**": "GOVERNANCE_ONLY_SPEC_AND_EXECUTION_EVIDENCE",
+    "unknown_or_ambiguous_agentic_path_policy": "BLOCK"
+  },
+  "excluded_patterns": [
+    "node_modules/**",
+    "*.tgz",
+    "*.tar",
+    "*.tar.gz",
+    "*.bundle",
+    "**/.git/**",
+    "**/AgenticDevOps-History/**",
+    "**/receipts/**",
+    "**/journals/**",
+    "**/backups/**",
+    "**/tombstones/**",
+    "**/operation-lock*",
+    "**/state/**",
+    "**/cache/**",
+    "**/tmp/**",
+    "**/temp/**",
+    "**/*.swp",
+    "**/*.tmp",
+    "**/*.dump",
+    "**/*private-key*",
+    "**/*credential*",
+    "**/*secret*"
+  ],
+  "package_policy": {
+    "allowlist_source": "package.json#files",
+    "governance_excluded": [
+      "AGENTS.md",
+      ".agentic/**",
+      ".kiro/specs/**",
+      ".github/**",
+      "tests/**"
+    ],
+    "private_use_license_required": true,
+    "historical_content_allowed": false,
+    "operational_state_allowed": false
+  },
+  "copy_preconditions": [
+    "destination remains absent",
+    "source framework inventory remains 31e3818fb36cc20d8c3e540e04e7dcac0621c281bec2be186d8ed5327c17dbe5",
+    "entry and Spec bindings remain exact",
+    "ancestry remains symlink-free",
+    "no writable regular descriptor exists under source or destination",
+    "no source or destination Git metadata exists",
+    "supervised materialization approval is current"
+  ],
+  "operations_not_authorized": [
+    "SOURCE_MOVE_OR_DELETE",
+    "GIT_INIT_STAGE_COMMIT_HOOK_BRANCH_TAG_OR_REMOTE",
+    "GITHUB_OR_NETWORK",
+    "CREDENTIAL_OR_PRIVATE_KEY_ACCESS",
+    "SIGNING_DRAFT_RELEASE_OR_PUBLISH",
+    "GLOBAL_INSTALL_OR_REAL_PROJECT_UPDATE",
+    "ADDITIONAL_ARCHIVE_OR_RESTORE",
+    "M3_ROOT_REMOVAL",
+    "M10_THROUGH_M15",
+    "DELIVERY_VALIDATION"
+  ]
+}

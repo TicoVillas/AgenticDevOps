@@ -1,0 +1,20 @@
+schema_version: 1
+authorization_id: authorization-test-only-001
+operation_id: install-test-only-001
+operation_class: INSTALL
+issued_at: '2026-08-05T00:00:00Z'
+expires_at: '2026-08-05T01:00:00Z'
+status: EXPLICITLY_AUTHORIZED
+provenance: DIRECT_USER_AUTHORIZATION
+synthetic_only: true
+scope:
+  destination_root_id: SYNTHETIC_KIRO_ROOT
+  destination_root_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  state_root_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bindings:
+  plan_sha256: cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  snapshot_sha256: dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+  source_sha256: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+  manifest_sha256: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  lock_sha256: '1111111111111111111111111111111111111111111111111111111111111111'
+operations: [PLAN, APPLY]

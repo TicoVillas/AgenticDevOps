@@ -1,0 +1,24 @@
+version: 1
+canonical_project_root: .agentic
+compatibility_project_root: .kiro
+router:
+  canonical: ../../core/WorkflowRouter.md
+  alias: generated/DiscoveryRouter.md
+  generated: true
+versions:
+  "3.0":
+    alias_state: ACTIVE_WITH_WARNING
+    new_consumer_policy: WARN
+    migration_required: false
+    removal_allowed: false
+  "3.1":
+    alias_state: MIGRATION_REQUIRED
+    new_consumer_policy: REJECT
+    migration_required: true
+    removal_allowed: false
+  "3.2":
+    alias_state: REMOVAL_ELIGIBLE_IF_UNUSED
+    new_consumer_policy: REJECT
+    migration_required: true
+    removal_allowed: true
+    requires_zero_consumers: true

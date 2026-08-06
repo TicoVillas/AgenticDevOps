@@ -1,0 +1,7 @@
+schema_version: 1
+release_id: release-3.1.0
+algorithm: SHA-256
+serialization: LOWERCASE_HEX_TWO_SPACES_NAME_LF
+assets:
+  - { name: agentic-devops-framework-v3-3.1.0.tgz, sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, size: 1 }
+serialized_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb

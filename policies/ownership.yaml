@@ -1,0 +1,14 @@
+version: 1
+domains:
+  workflow-state: core/workflow.yaml
+  role-and-session: core/roles.yaml
+  canonical-status: core/statuses.yaml
+  capability-selection: policies/CapabilitySelectionPolicy.md
+  progressive-context: policies/ContextPolicy.md
+  execution-environment: policies/ExecutionEnvironmentPolicy.md
+  git-safety: policies/GitSafetyPolicy.md
+  secure-development: policies/SecureDevelopmentPolicy.md
+  high-risk: policies/HighRiskOverlay.md
+  operational-retention: policies/OperationalRetentionPolicy.md
+  artifact-structure: contracts/ArtifactContract.md
+  evidence-and-feedback: contracts/EvidenceAndFeedbackContract.md

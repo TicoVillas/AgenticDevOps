@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "milestone": "M5.7",
+  "result": "PASS",
+  "normative_source": "policies/OperationalRetentionPolicy.md",
+  "consumer": "tools/lib/lifecycle/retention-planner.mjs",
+  "duplicated_values": false,
+  "destructive_action_authorized": false,
+  "validator": "npm run validate:retention"
+}

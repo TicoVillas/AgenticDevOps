@@ -1,0 +1,12 @@
+id: receipt-v1-finalization-bindings
+target_schema: urn:agentic-devops:installation-receipt:3.0
+from_version: 1
+to_version: 1
+required_context: [release_binding, plan_sha256, journal_sha256, platform]
+operations:
+  - { op: copy_context, field: release_binding }
+  - { op: copy_context, field: plan_sha256 }
+  - { op: copy_context, field: journal_sha256 }
+  - { op: copy_context, field: platform }
+  - { op: set_if_absent, field: finalization_stage, value: PRE_RESTART }
+  - { op: set_if_absent, field: predecessor_receipt_sha256, value: null }

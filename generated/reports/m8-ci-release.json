@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "milestone": "M8.1-M8.9",
+  "result": "PASS",
+  "workflow_activation": false,
+  "network_access_authorized": false,
+  "credential_access_authorized": false,
+  "signing_authorized": false,
+  "release_operation_authorized": false,
+  "package_lock_unchanged": true,
+  "dependencies_added": 0,
+  "pr_permissions": "CONTENTS_READ",
+  "untrusted_pr_signing_access": false,
+  "actions_pinned_to_full_commit": true,
+  "draft_and_publish_separated": true,
+  "immutable_gate_reused": "release-security.evaluateImmutabilityGate",
+  "independent_checkpoint_required": true,
+  "draft_authorization_granted": false,
+  "review_authorization_granted": false,
+  "evidence_sanitized": true,
+  "workflows": [
+    ".github/workflows/pr.yml",
+    ".github/workflows/release.yml"
+  ],
+  "tests": [
+    "tests/ci/workflows.test.mjs",
+    "tests/ci/package-policy.test.mjs",
+    "tests/ci/release-gates.test.mjs"
+  ],
+  "tested_scope": "local workflow parsing and synthetic in-memory fixtures only"
+}

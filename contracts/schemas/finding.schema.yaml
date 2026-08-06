@@ -1,0 +1,18 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:finding:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [id, kind, severity, materiality, requirement, expected, observed, evidence, impact, recommendation, state]
+properties:
+  id: { type: string, pattern: '^[A-Z]+-[0-9]{3}$' }
+  kind: { enum: [FINDING, WARNING] }
+  severity: { enum: [CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL] }
+  materiality: { enum: [MATERIAL, NON_MATERIAL] }
+  requirement: { type: string, minLength: 1 }
+  expected: { type: string, minLength: 1 }
+  observed: { type: string, minLength: 1 }
+  evidence: { type: array, minItems: 1, items: { type: string } }
+  impact: { type: string, minLength: 1 }
+  recommendation: { type: string, minLength: 1 }
+  state: { enum: [OPEN, IN_PROGRESS, RESOLVED, ACCEPTED_WARNING, SUPERSEDED, BLOCKED] }

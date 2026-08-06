@@ -1,0 +1,8 @@
+id: transition-v1-selection-binding
+target_schema: urn:agentic-devops:transition-manifest:3.0
+from_version: 1
+to_version: 1
+required_context: [selection_ref]
+operations:
+  - { op: copy_context, field: selection_ref }
+  - { op: copy_context_if_present, field: operation_binding }

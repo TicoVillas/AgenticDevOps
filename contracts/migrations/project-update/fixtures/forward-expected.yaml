@@ -1,0 +1,6 @@
+version: 1
+controls:
+  baseline: [validate-boundaries]
+  contextual: []
+user_extension:
+  owner: synthetic-user

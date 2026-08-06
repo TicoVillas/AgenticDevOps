@@ -1,0 +1,16 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:statuses:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [version, statuses]
+properties:
+  version: { const: 3.0.0 }
+  statuses:
+    type: object
+    minProperties: 1
+    additionalProperties:
+      type: array
+      minItems: 1
+      uniqueItems: true
+      items: { type: string, pattern: '^[A-Z][A-Z0-9_]+$' }

@@ -1,0 +1,10 @@
+{
+  "profile": "HANDOFF",
+  "sections": {
+    "PREAMBLE": "The contract is final and implementation is authorized.\nUse the canonical artifacts and preserve all human checkpoints.",
+    "SELECTION_RECOMMENDATION": "Use the GPT-5.6 family, GPT-5.6 Terra model, HIGH effort, engineering execution workflow, and agentic mode.",
+    "SELECTION_RATIONALE": "This selection fits the authorized implementation scope while preserving execution continuity.",
+    "FALLBACK_GUIDANCE": "If the recommendation is unavailable, use GPT-5.6 Luna at HIGH effort as the suggested equivalent option.",
+    "INSTRUCTION": "Identify the current phase.\nRead the final execution brief.\nRead the authorized tasks.\nConfirm the canonical workflow source.\nConfirm the current role.\nConfirm the required session strategy.\nConfirm the authorized paths.\nConfirm prohibited operations.\nValidate the runtime.\nValidate the working state.\nPreserve existing changes.\nLoad only required context.\nExecute the smallest valid batch.\nRun targeted checks.\nRecord direct evidence.\nStop on material divergence.\nDo not infer authority.\nDo not bypass checkpoints.\nDo not alter the contract.\nDo not perform remote writes.\nReview changed paths.\nReport tests and exit codes.\nReport validations not executed.\nReport residual risks.\nCreate the execution evidence.\nKeep executor claims distinct from validation.\nSelect independent assurance.\nUse a new assurance session.\nName the next phase.\nStop before independent validation."
+  }
+}

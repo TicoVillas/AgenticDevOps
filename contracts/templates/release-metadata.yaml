@@ -1,0 +1,15 @@
+schema_version: 1
+release_manifest_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+commit_sha: '1111111111111111111111111111111111111111'
+lock_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+build:
+  workflow_id: release-contract-template
+  run_id: test-only-run-001
+  clean_runner: true
+  built_at: '2026-08-02T00:00:00Z'
+reproducibility:
+  status: NOT_RUN
+  logical_identity: null
+attestation:
+  status: NOT_PROVIDED
+  blocking: false

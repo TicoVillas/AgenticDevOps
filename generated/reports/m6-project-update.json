@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "milestone": "M6.1-M6.7",
+  "result": "PASS",
+  "validation_level": "SYNTHETICALLY_VALIDATED",
+  "tested_scope": "synthetic only",
+  "real_project_access_authorized": false,
+  "git_write_authorized": false,
+  "reconcile_read_only": true,
+  "receipt_namespaces_separate": true,
+  "planner_proposal_only": true,
+  "profile_policy": "USER_OWNED_FIELD_AWARE_MERGE",
+  "checkpoint_and_authorization_required": true,
+  "migration_catalog": "contracts/migrations/project-update/catalog.yaml",
+  "runtime_reuses_m5_primitives": [
+    "lifecycle/paths",
+    "lifecycle/authorization",
+    "lifecycle/state-store",
+    "lifecycle/atomic-writer",
+    "lifecycle/reconcile"
+  ],
+  "tests": [
+    "tests/project-update/paths-snapshot-planner.test.mjs",
+    "tests/project-update/authorization-apply.test.mjs",
+    "tests/project-update/migration-rollback-isolation.test.mjs"
+  ],
+  "operations_not_authorized": [
+    "GIT_INIT",
+    "GIT_STAGE",
+    "GIT_COMMIT",
+    "GIT_CHECKOUT",
+    "GIT_RESET",
+    "GIT_CLEAN",
+    "GIT_PUSH",
+    "GIT_BRANCH",
+    "GIT_TAG"
+  ]
+}

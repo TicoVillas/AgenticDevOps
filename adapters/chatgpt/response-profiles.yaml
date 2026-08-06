@@ -1,0 +1,24 @@
+version: 1
+default_profile: DELTA
+budget_tolerance_percent: 20
+profiles:
+  DELTA:
+    target_words: 300
+    max_words: 360
+    required_sections: [CHANGE, IMPACT, RECOMMENDATION, NEXT_PHASE, STATUS]
+  DECISION:
+    required_sections: [DECISION, ALTERNATIVES, IMPACTS, RECOMMENDATION]
+  HANDOFF:
+    max_preamble_lines: 4
+    target_instruction_lines: 30
+    max_instruction_lines: 36
+    required_sections: [PREAMBLE, SELECTION_RECOMMENDATION, SELECTION_RATIONALE, FALLBACK_GUIDANCE, INSTRUCTION]
+  REVIEW:
+    allowed_sections: [DECISION, FINDINGS, MISSING_EVIDENCE, NEXT_PHASE]
+    required_sections: [DECISION, FINDINGS, MISSING_EVIDENCE, NEXT_PHASE]
+  RESEARCH:
+    max_words: 2400
+    prohibit_duplicate_information: true
+  FULL_ARTIFACT:
+    explicit_request_required: true
+    prohibit_duplicate_information: true

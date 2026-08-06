@@ -1,0 +1,14 @@
+version: 1
+adapter: chatgpt
+surface: consulting
+core_semantics: PRESERVE
+workflow_source: ../../core/workflow.yaml
+selection_contract: ../../contracts/schemas/execution-selection.schema.yaml
+role_mapping:
+  - CONSULTING
+capabilities:
+  - product_alignment
+  - decision_coordination
+  - final_review
+instructions: ProjectInstructions.md
+response_profiles: response-profiles.yaml

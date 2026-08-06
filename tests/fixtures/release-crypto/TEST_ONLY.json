@@ -1,0 +1,10 @@
+{
+  "classification": "TEST_ONLY",
+  "synthetic": true,
+  "purpose": "M4 release contract fixtures",
+  "private_material_persisted": false,
+  "key_generation": "EPHEMERAL_IN_MEMORY_PER_TEST",
+  "usable_for_release": false,
+  "grants_signing_authority": false,
+  "grants_publish_authority": false
+}

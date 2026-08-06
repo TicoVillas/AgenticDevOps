@@ -1,0 +1,42 @@
+schema_version: 1
+adapter: BASH
+platform_validation: SYNTHETICALLY_VALIDATED
+status: READY_FOR_INSPECT_AND_PLAN
+release_identity:
+  release_id: release-310
+  version: 3.1.0
+  tag: v3.1.0
+  commit_sha: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  repository: TicoVillas/AgenticDevOps
+verification:
+  method: VERIFY_BEFORE_EXTRACT
+  release_identity_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  manifest_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  payload_root: /synthetic/source
+  file_count: 2
+  staging_root: /synthetic
+operation: install
+lifecycle:
+  cli: tools/lifecycle-cli.mjs
+  inspect_argv: [inspect-state, --source, /synthetic/source]
+  plan_argv: [install, --source, /synthetic/source]
+  apply_argv: null
+bindings:
+  release_identity_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  source: /synthetic/source
+  destination: /synthetic/destination
+  state: /synthetic/state
+  cache: /synthetic/cache
+  temp: /synthetic/temp
+  operation_id: install-synthetic-0001
+decisions:
+  exact_release: true
+  payload_verification_required: true
+  apply_authorized: false
+  wrapper_executes_apply: false
+  direct_global_write: false
+stops: [VERIFY_BEFORE_EXTRACT, LIFECYCLE_INSPECT, LIFECYCLE_PLAN, EXPLICIT_APPLY_AUTHORIZATION]
+receipt_semantics:
+  producer: tools/lifecycle-cli.mjs
+  namespace: GLOBAL_LIFECYCLE
+  finalization: LIFECYCLE_ENGINE_ONLY

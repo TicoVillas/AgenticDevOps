@@ -1,0 +1,72 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:installation-receipt:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, operation_id, manifest_sha256, lock_sha256, package_sha256, snapshot_sha256, status, pending_action, actions, actions_not_executed]
+properties:
+  schema_version: { const: 1 }
+  operation_id: { type: string, pattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]{7,127}$' }
+  manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  lock_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  package_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  release_binding:
+    type: object
+    additionalProperties: false
+    required: [release_id, version, tag, commit_sha, manifest_sha256]
+    properties:
+      release_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$' }
+      version: { type: string, pattern: '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' }
+      tag: { type: string, pattern: '^v(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' }
+      commit_sha: { type: string, pattern: '^[a-f0-9]{40}$' }
+      manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  plan_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  journal_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  platform:
+    type: object
+    additionalProperties: false
+    required: [platform_id, validation_status]
+    properties:
+      platform_id: { type: string, pattern: '^[a-z0-9]+-[a-z0-9-]+$' }
+      validation_status: { enum: [PROJECTED, SYNTHETICALLY_VALIDATED, VALIDATED_ON_HOST] }
+  finalization_stage: { enum: [PRE_RESTART, POST_RESTART_FINAL] }
+  predecessor_receipt_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+  status: { enum: [PRE_RESTART_PENDING, COMPLETED, NO_EFFECT, FAILED_KNOWN, PARTIAL_KNOWN, PARTIAL, UNKNOWN, ROLLED_BACK] }
+  pending_action: { type: [string, 'null'] }
+  actions:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [sequence, item_id, path, action, state, before_sha256, after_sha256, verified]
+      properties:
+        sequence: { type: integer, minimum: 1 }
+        item_id: { type: string, minLength: 1 }
+        path: { type: string, minLength: 1 }
+        action: { enum: [CREATE, BACKUP_UPDATE, BACKUP_RETIRE, SELF_UPDATE, RESTORE, REMOVE_CREATED] }
+        state: { enum: [EXECUTED, VERIFIED, NO_EFFECT, FAILED_KNOWN, PARTIAL_KNOWN, PARTIAL, UNKNOWN] }
+        before_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+        after_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+        verified: { type: boolean }
+  actions_not_executed:
+    type: array
+    uniqueItems: true
+    items: { type: string, minLength: 1 }
+allOf:
+  - if:
+      properties: { status: { const: PRE_RESTART_PENDING } }
+    then:
+      properties: { pending_action: { const: skill-bootstrap } }
+  - if:
+      properties: { status: { enum: [COMPLETED, ROLLED_BACK] } }
+    then:
+      properties: { pending_action: { type: 'null' } }
+  - if:
+      properties: { status: { const: PRE_RESTART_PENDING } }
+    then:
+      properties: { finalization_stage: { const: PRE_RESTART } }
+  - if:
+      properties: { status: { enum: [COMPLETED, ROLLED_BACK] } }
+    then:
+      properties: { finalization_stage: { const: POST_RESTART_FINAL } }

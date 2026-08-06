@@ -1,0 +1,12 @@
+schema_version: 1
+control_id: immutability-control-test-only-01
+release_id: release-3.1.0
+mechanism: TEST_ONLY independent immutable mirror and write-denial control.
+approval_status: EXPLICITLY_APPROVED
+approval_authority:
+  role: independent-release-approver
+  authorization_reference: test-only-authorization
+  authorization_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+approved_at: '2026-08-02T00:00:00Z'
+evidence_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+residual_risks: [TEST_ONLY template; not publication authority.]

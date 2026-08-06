@@ -1,0 +1,9 @@
+schema_version: 1
+target: MANIFEST
+target_name: release-manifest-v3.1.0.json
+target_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+algorithm: Ed25519
+key_id: release-test-only-01
+fingerprint_sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+encoding: base64
+signature: VEVTVF9PTkxZX05PVF9BX1NJR05BVFVSRQ==

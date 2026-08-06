@@ -1,0 +1,30 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:project-update-receipt:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, receipt_id, operation_id, manifest_sha256, plan_sha256, journal_sha256, project_snapshot_before_sha256, project_snapshot_after_sha256, status, actions]
+properties:
+  schema_version: { const: 1 }
+  receipt_id: { type: string, pattern: '^project-receipt-[A-Za-z0-9._-]{1,115}$' }
+  operation_id: { type: string, pattern: '^project-(?!(?:checkpoint|authorization|receipt)-)[A-Za-z0-9._-]{1,120}$' }
+  manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  plan_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  journal_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  project_root_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  project_snapshot_before_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  project_snapshot_after_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  checkpoint_id: { type: [string, 'null'], pattern: '^project-checkpoint-[A-Za-z0-9._-]{1,112}$' }
+  authorization_id: { type: string, pattern: '^project-authorization-[A-Za-z0-9._-]{1,109}$' }
+  status: { enum: [COMPLETED, NO_CHANGE, FAILED_KNOWN, PARTIAL, UNKNOWN, ROLLED_BACK] }
+  global_receipt_id: false
+  actions:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [sequence, path, result]
+      properties:
+        sequence: { type: integer, minimum: 1 }
+        path: { type: string, pattern: '^\.agentic/(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        result: { enum: [VERIFIED, PRESERVED, FAILED_KNOWN, PARTIAL_KNOWN, PARTIAL, UNKNOWN] }

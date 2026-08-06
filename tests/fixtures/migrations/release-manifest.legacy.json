@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "release_id": "release-310",
+  "version": "3.1.0",
+  "tag": "v3.1.0",
+  "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "repository": "TicoVillas/AgenticDevOps",
+  "assets": [{"name":"package.tgz","sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","size":1,"media_type":"application/gzip","class":"RUNTIME"}],
+  "lock_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "runtime": {"node_major":24,"package_manager":"npm"},
+  "platform_support": ["linux-x86-64"],
+  "build_identity": "build:release-310",
+  "validation_status": "DRAFT"
+}

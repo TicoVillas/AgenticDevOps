@@ -1,0 +1,16 @@
+version: 1
+adapter: kiro
+surface: ide
+core_semantics: PRESERVE
+workflow_source: ../../core/workflow.yaml
+selection_contract: ../../contracts/schemas/execution-selection.schema.yaml
+agent: Default
+skills_portable: true
+canonical_project_root: .agentic
+compatibility:
+  root: .kiro
+  normative: false
+capabilities:
+  - steering
+  - hooks
+  - local_tools

@@ -1,0 +1,11 @@
+id: VAL-001
+kind: FINDING
+severity: MEDIUM
+materiality: MATERIAL
+requirement: REQ-001
+expected: Expected observable result.
+observed: Observed divergent result.
+evidence: [evidence/validation/round-01/result.txt]
+impact: Explain the impact.
+recommendation: Define the bounded correction.
+state: OPEN

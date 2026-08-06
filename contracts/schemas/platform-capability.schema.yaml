@@ -1,0 +1,35 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:platform-capability:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, platform_id, os, architecture, capabilities, validation_status]
+properties:
+  schema_version: { const: 1 }
+  platform_id: { type: string, pattern: '^[a-z0-9]+-[a-z0-9-]+$' }
+  os: { enum: [linux, windows] }
+  architecture: { enum: [x86_64, arm64] }
+  runtime:
+    type: object
+    additionalProperties: false
+    required: [node_major]
+    properties:
+      node_major: { const: 24 }
+      shell: { type: string, minLength: 1 }
+  capabilities:
+    type: object
+    additionalProperties: false
+    required: [permissions, atomic_rename, case_folding, acl]
+    properties:
+      permissions: { enum: [POSIX_MODE, ACL, NOT_APPLICABLE] }
+      atomic_rename: { enum: [SUPPORTED, CONDITIONAL, UNSUPPORTED] }
+      case_folding: { enum: [SENSITIVE, INSENSITIVE, CONFIGURABLE] }
+      acl: { enum: [SUPPORTED, NOT_APPLICABLE, UNKNOWN] }
+  validation_status: { enum: [PROJECTED, SYNTHETICALLY_VALIDATED, VALIDATED_ON_HOST] }
+  evidence_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+allOf:
+  - if: { properties: { validation_status: { const: VALIDATED_ON_HOST } } }
+    then:
+      required: [evidence_sha256]
+      properties:
+        evidence_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }

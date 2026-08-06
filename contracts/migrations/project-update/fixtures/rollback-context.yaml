@@ -1,0 +1,3 @@
+migration_id: project-profile-v1-to-v2
+input_sha256: 9d465baefb5b5ffc8adcbc196ec1f624734021087cb65402ed3b16582c3f52f1
+added_fields: [controls.contextual]

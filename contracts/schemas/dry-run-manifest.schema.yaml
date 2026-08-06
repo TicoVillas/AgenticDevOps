@@ -1,0 +1,41 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:dry-run-manifest:3.0
+$comment: schema-version-3.0.0
+allOf:
+  - $ref: urn:agentic-devops:evidence-envelope:3.0
+  - type: object
+    required: [operation, target, environment, operational_scope, operation_class, risk, reversibility, ambiguity, blast_radius, data_classes, secrets_present, external_effect, authorization_current, scope_contained, snapshot_matches, mutation, determinism, idempotency, equivalence, partial_effect_state, preconditions, predicted_effects, limits, rollback, observability_available, interruption_criteria, evidence_complete, decision]
+    properties:
+      operation: { type: string, minLength: 1 }
+      target: { type: string, minLength: 1 }
+      environment: { enum: [LOCAL_ISOLATED, SHARED, STAGING, PRODUCTION] }
+      operational_scope:
+        type: object
+        required: [paths, snapshot_hash]
+        properties:
+          paths: { type: array, minItems: 1, uniqueItems: true, items: { type: string } }
+          snapshot_hash: { type: string, pattern: '^[a-f0-9]{64}$' }
+      operation_class: { enum: [READ_ONLY, LOCAL_WRITE, REMOTE_WRITE, DATA_SCHEMA, PERMISSION_SECURITY, INFRASTRUCTURE] }
+      risk: { enum: [LOW, MODERATE, HIGH, CRITICAL] }
+      reversibility: { enum: [HIGH, MEDIUM, LOW, NONE] }
+      ambiguity: { enum: [LOW, MEDIUM, HIGH] }
+      blast_radius: { enum: [LOCAL, BOUNDED, BROAD, UNKNOWN] }
+      data_classes: { type: array, uniqueItems: true, items: { type: string } }
+      secrets_present: { type: boolean }
+      external_effect: { type: boolean }
+      authorization_current: { type: boolean }
+      scope_contained: { type: boolean }
+      snapshot_matches: { type: boolean }
+      mutation: { enum: [NONE, REVERSIBLE, IRREVERSIBLE] }
+      determinism: { enum: [DETERMINISTIC, NON_DETERMINISTIC, UNKNOWN] }
+      idempotency: { enum: [IDEMPOTENT, REPEAT_BLOCKED, NON_IDEMPOTENT, UNKNOWN] }
+      equivalence: { enum: [VALIDATED, PARTIAL, NOT_VALIDATED] }
+      partial_effect_state: { enum: [NONE, KNOWN_RECOVERABLE, UNKNOWN] }
+      preconditions: { type: array, minItems: 1, items: { type: object, required: [name, passed], properties: { name: { type: string }, passed: { type: boolean } } } }
+      predicted_effects: { type: array, items: { type: string } }
+      limits: { type: object, minProperties: 1 }
+      rollback: { type: object, required: [available, plan], properties: { available: { type: boolean }, plan: { type: string } } }
+      observability_available: { type: boolean }
+      interruption_criteria: { type: array, minItems: 1, items: { type: string } }
+      evidence_complete: { type: boolean }
+      decision: { enum: [AUTO_APPLY_ELIGIBLE, CHECKPOINT_REQUIRED, BLOCKED] }

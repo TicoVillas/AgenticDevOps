@@ -1,0 +1,17 @@
+schema_version: 1
+catalog_version: 1
+id: project-profile-v1-to-v2
+from_version: 1
+to_version: 2
+document_path: .agentic/application-profile.yaml
+owned_fields: [controls.contextual]
+preconditions:
+  - root version is 1
+  - controls is an object
+implementation: tools/lib/project-update/migrations.mjs#forwardProjectProfileV1ToV2
+rollback_implementation: tools/lib/project-update/migrations.mjs#backProjectProfileV2ToV1
+reversible: true
+fixtures:
+  - fixtures/forward-input.yaml
+  - fixtures/forward-expected.yaml
+  - fixtures/rollback-context.yaml

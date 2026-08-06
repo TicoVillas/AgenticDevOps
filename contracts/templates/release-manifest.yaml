@@ -1,0 +1,32 @@
+schema_version: 1
+release_id: release-3.1.0
+version: 3.1.0
+tag: v3.1.0
+commit_sha: '1111111111111111111111111111111111111111'
+repository: TicoVillas/AgenticDevOps
+assets:
+  - { name: agentic-devops-framework-v3-3.1.0.tgz, sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, size: 1, media_type: application/gzip, class: RUNTIME }
+  - { name: sbom.spdx.json, sha256: dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd, size: 1, media_type: application/spdx+json, class: SBOM }
+asset_inventory_sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+checksums:
+  name: SHA256SUMS
+  sha256: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  algorithm: SHA-256
+  serialization: LOWERCASE_HEX_TWO_SPACES_NAME_LF
+signing:
+  algorithm: Ed25519
+  key_id: release-test-only-01
+  fingerprint_sha256: cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  manifest_signature: { name: release-manifest-v3.1.0.json.sig, encoding: base64 }
+  checksums_signature: { name: SHA256SUMS.sig, encoding: base64 }
+sbom:
+  schema_version: 1
+  name: sbom.spdx.json
+  format: SPDX_JSON
+  media_type: application/spdx+json
+  sha256: dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+lock_sha256: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+runtime: { node_major: 24, package_manager: npm }
+platform_support: [linux-x86-64]
+build_identity: build:release-3.1.0
+validation_status: DRAFT

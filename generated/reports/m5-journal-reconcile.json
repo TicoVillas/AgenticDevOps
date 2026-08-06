@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "milestone": "M5.8",
+  "result": "PASS",
+  "durable_intent_required": true,
+  "reconcile_read_only": true,
+  "blind_retry_authorized": false,
+  "uncertain_purge_authorized": false,
+  "uncertain_lock_release_authorized": false,
+  "tests": [
+    "tests/lifecycle/durability-reconcile.test.mjs",
+    "tests/lifecycle/engine-integration.test.mjs"
+  ]
+}

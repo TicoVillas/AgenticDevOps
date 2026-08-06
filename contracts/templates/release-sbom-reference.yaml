@@ -1,0 +1,5 @@
+schema_version: 1
+name: sbom.spdx.json
+format: SPDX_JSON
+media_type: application/spdx+json
+sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

@@ -1,0 +1,10 @@
+id: release-manifest-v1-bindings
+target_schema: urn:agentic-devops:release-manifest:3.0
+from_version: 1
+to_version: 1
+required_context: [asset_inventory_sha256, checksums, signing, sbom]
+operations:
+  - { op: copy_context, field: asset_inventory_sha256 }
+  - { op: copy_context, field: checksums }
+  - { op: copy_context, field: signing }
+  - { op: copy_context, field: sbom }

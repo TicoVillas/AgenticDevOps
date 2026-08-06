@@ -1,0 +1,20 @@
+version: 1
+normalization:
+  risk: [LOW, MODERATE, HIGH, CRITICAL]
+  reversibility: [HIGH, MEDIUM, LOW, NONE]
+  ambiguity: [LOW, MEDIUM, HIGH]
+  blast_radius: [LOCAL, BOUNDED, BROAD, UNKNOWN]
+blocked_guards:
+  - authorization_current
+  - scope_contained
+  - snapshot_matches
+  - evidence_complete
+  - observability_available
+checkpoint_triggers:
+  environments: [SHARED, STAGING, PRODUCTION]
+  operation_classes: [REMOTE_WRITE, DATA_SCHEMA, PERMISSION_SECURITY, INFRASTRUCTURE]
+  risk: [HIGH, CRITICAL]
+  reversibility: [LOW, NONE]
+  ambiguity: [HIGH]
+  blast_radius: [BROAD, UNKNOWN]
+  data_classes: [sensitive, regulated, credentials, confidential]

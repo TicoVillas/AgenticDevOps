@@ -1,0 +1,10 @@
+schema_version: 1
+command: inspect-state
+ok: true
+status: READY
+reason_code: null
+exit_code: 0
+operation_id: inspect-test-only-001
+result: { mode: READ_ONLY }
+errors: []
+sanitized: true

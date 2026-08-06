@@ -1,0 +1,39 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:artifact:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [version, type, status, metadata, sections]
+properties:
+  version: { const: 1 }
+  type: { enum: [REQUIREMENTS, DESIGN, TASKS, EXECUTION_BRIEF, CONTRACT_REVIEW, EVIDENCE] }
+  status: { type: string, pattern: '^[A-Z][A-Z0-9_]+$' }
+  metadata:
+    type: object
+    required: [project, slug, phase]
+    properties:
+      project: { type: string, minLength: 1 }
+      slug: { type: string, pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$' }
+      phase: { type: string, minLength: 1 }
+  selection_ref:
+    type: object
+    additionalProperties: false
+    required: [reference, sha256]
+    properties:
+      reference: { type: string, minLength: 1 }
+      sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  release_binding:
+    type: object
+    additionalProperties: false
+    required: [release_id, manifest_sha256]
+    properties:
+      release_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$' }
+      manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  operation_binding:
+    type: object
+    additionalProperties: false
+    required: [operation_id, scope_sha256]
+    properties:
+      operation_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+      scope_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  sections: { type: object, minProperties: 1 }

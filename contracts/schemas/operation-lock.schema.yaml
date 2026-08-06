@@ -1,0 +1,24 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:operation-lock:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, lock_id, operation_id, operation_class, destination_root_id, holder, acquired_at, state]
+properties:
+  schema_version: { const: 1 }
+  lock_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+  operation_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+  operation_class: { enum: [INSTALL, UPDATE, RECONCILE, RESUME, ROLLBACK, UNINSTALL, PROJECT_UPDATE] }
+  destination_root_id: { type: string, pattern: '^[A-Z][A-Z0-9_]*_ROOT$' }
+  holder:
+    type: object
+    additionalProperties: false
+    required: [process_id, session_id]
+    properties:
+      process_id: { type: integer, minimum: 1 }
+      session_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$' }
+  acquired_at: { type: string, format: date-time }
+  expires_at: { type: string, format: date-time }
+  heartbeat_at: { type: string, format: date-time }
+  state: { enum: [ACTIVE, STALE_OBSERVED, RELEASED] }
+  break_authorized: { const: false }

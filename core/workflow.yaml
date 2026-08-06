@@ -1,0 +1,81 @@
+version: 3.0.0
+principles:
+  authorization_is_per_operation: true
+  autopilot_default_without_human_intervention: true
+  artifact_precedes_memory: true
+  one_writer_per_worktree: true
+phases:
+  - id: workflow-bootstrap
+    role: ENGINEERING
+    skill: workflow-bootstrap
+  - id: discovery-high-level
+    role: CONSULTING
+    skill: null
+  - id: low-level-discovery
+    role: ENGINEERING
+    skill: low-level-discovery
+  - id: alignment
+    role: CONSULTING
+    skill: null
+  - id: quick-spec
+    role: ENGINEERING
+    skill: quick-spec
+  - id: spec
+    role: ENGINEERING
+    skill: spec
+  - id: bug-fix
+    role: ENGINEERING
+    skill: bug-fix
+  - id: contract-review
+    role: CONTRACT_ASSURANCE
+    skill: contract-review
+  - id: execute-contract
+    role: ENGINEERING
+    skill: execute-contract
+  - id: validate-delivery
+    role: DELIVERY_ASSURANCE
+    skill: validate-delivery
+  - id: correct-from-validation
+    role: ENGINEERING
+    skill: correct-from-validation
+  - id: final-review
+    role: CONSULTING
+    skill: null
+  - id: delivery-closeout
+    role: ENGINEERING
+    skill: delivery-closeout
+  - id: post-operation
+    role: ENGINEERING
+    skill: null
+automatic_transitions:
+  - { from: workflow-bootstrap, to: low-level-discovery, guard: framework_ready_and_high_level_approved }
+  - { from: low-level-discovery, to: quick-spec, guard: approved_for_spec_and_quick_spec_selected }
+  - { from: low-level-discovery, to: spec, guard: approved_for_spec_and_spec_selected }
+  - { from: low-level-discovery, to: bug-fix, guard: approved_for_spec_and_bug_fix_selected }
+  - { from: quick-spec, to: contract-review, guard: draft_ready }
+  - { from: spec, to: contract-review, guard: draft_ready }
+  - { from: bug-fix, to: contract-review, guard: draft_ready }
+  - { from: contract-review, to: execute-contract, guard: approved_and_execution_authorized }
+  - { from: contract-review, to: quick-spec, guard: rework_routes_to_original_author }
+  - { from: contract-review, to: spec, guard: rework_routes_to_original_author }
+  - { from: contract-review, to: bug-fix, guard: rework_routes_to_original_author }
+  - { from: execute-contract, to: validate-delivery, guard: completed_and_validation_authorized }
+  - { from: validate-delivery, to: correct-from-validation, guard: failed_with_authorized_correction_spec }
+  - { from: correct-from-validation, to: validate-delivery, guard: completed_routes_to_original_validator }
+human_transitions:
+  - { from: discovery-high-level, to: low-level-discovery, authorization: high_level_approved }
+  - { from: low-level-discovery, to: alignment, authorization: ready_for_confirmation }
+  - { from: alignment, to: low-level-discovery, authorization: alignment_decisions_for_finalization }
+  - { from: validate-delivery, to: final-review, authorization: validation_accepted }
+  - { from: final-review, to: delivery-closeout, authorization: explicit_closeout_authorization }
+  - { from: final-review, to: post-operation, authorization: technical_closure_without_closeout }
+  - { from: delivery-closeout, to: post-operation, authorization: separate_operation_authorization }
+session_rules:
+  contract-review:
+    initial: new_independent_session
+    follow_up: original_reviewer_session
+  validate-delivery:
+    initial: new_independent_session
+    revalidation: original_validator_session
+  engineering_rework: original_engineering_session
+  engineering_correction: original_executor_session

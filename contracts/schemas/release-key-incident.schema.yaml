@@ -1,0 +1,25 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:release-key-incident:3.0
+$comment: schema-version-3.1.0; compromised-key hard stop
+type: object
+additionalProperties: false
+required: [schema_version, incident_id, detected_at, affected_key_ids, affected_release_ids, hard_stop, publish_authorized, revocation_status, impact_assessment, replacement_status, communication_status, status]
+properties:
+  schema_version: { const: 1 }
+  incident_id: { type: string, pattern: '^release-key-incident-[A-Za-z0-9._-]{3,127}$' }
+  detected_at: { type: string, format: date-time }
+  affected_key_ids:
+    type: array
+    minItems: 1
+    items: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+  affected_release_ids:
+    type: array
+    items: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$' }
+  hard_stop: { const: true }
+  publish_authorized: { const: false }
+  revocation_status: { enum: [PENDING, AUTHENTICATED, PUBLISHED] }
+  impact_assessment: { enum: [PENDING, IN_PROGRESS, COMPLETE] }
+  replacement_status: { enum: [PENDING, GENERATED_PROTECTED, ACTIVATED] }
+  communication_status: { enum: [PENDING, DRAFTED, PUBLISHED] }
+  status: { enum: [OPEN, CONTAINED, CLOSED] }
+  evidence_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }

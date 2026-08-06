@@ -1,0 +1,28 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:project-update-checkpoint:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, checkpoint_id, operation_id, issued_at, expires_at, status, provenance, synthetic_only, bindings, operations]
+properties:
+  schema_version: { const: 1 }
+  checkpoint_id: { type: string, pattern: '^project-checkpoint-[A-Za-z0-9._-]{1,112}$' }
+  operation_id: { type: string, pattern: '^project-(?!(?:checkpoint|authorization|receipt)-)[A-Za-z0-9._-]{1,120}$' }
+  issued_at: { type: string, format: date-time }
+  expires_at: { type: string, format: date-time }
+  status: { const: EXPLICITLY_CHECKPOINTED }
+  provenance: { const: DIRECT_USER_CHECKPOINT }
+  synthetic_only: { const: true }
+  bindings:
+    type: object
+    additionalProperties: false
+    required: [plan_sha256, snapshot_sha256, project_root_sha256]
+    properties:
+      plan_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+      project_root_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  operations:
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items: { const: APPLY }

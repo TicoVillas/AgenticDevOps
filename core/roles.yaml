@@ -1,0 +1,28 @@
+version: 3.0.0
+roles:
+  CONSULTING:
+    responsibility: product coordination, alignment, final review and closure
+    continuity: same product conversation
+    cannot:
+      - modify repository
+      - independently validate delivery
+  ENGINEERING:
+    responsibility: technical discovery, contract authorship, implementation, correction and closeout
+    continuity: resume engineering author session
+    cannot:
+      - independently review own contract
+      - independently validate own delivery
+  CONTRACT_ASSURANCE:
+    responsibility: independent contract review and follow-up
+    independence:
+      initial: new_independent_session
+      follow_up: original_reviewer_session
+    cannot:
+      - implement application
+  DELIVERY_ASSURANCE:
+    responsibility: independent validation and revalidation
+    independence:
+      initial: new_independent_session
+      revalidation: original_validator_session
+    cannot:
+      - correct application

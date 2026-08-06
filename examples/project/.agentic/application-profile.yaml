@@ -1,0 +1,24 @@
+version: 1
+exposure: LOCAL_ISOLATED
+impact: LOW
+context:
+  environments: [local]
+  identities: []
+  data_classes: []
+  integrations: []
+  operational_dependencies: []
+controls:
+  baseline:
+    - validate-boundaries
+    - least-privilege
+    - protect-secrets
+    - safe-errors-and-defaults
+    - minimize-data
+    - review-dependencies
+    - sanitize-logs
+    - review-diff-and-scope
+    - applicable-negative-tests
+  contextual: []
+assurance_recommendation: LIGHT
+rationale: [Small isolated low-impact baseline profile.]
+source_evidence: [repository-state]

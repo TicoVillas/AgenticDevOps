@@ -1,0 +1,51 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:execution-selection:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [version, selection_guidance, comparison_result]
+properties:
+  version: { const: 1 }
+  selection_guidance:
+    type: object
+    additionalProperties: false
+    required: [recommended, fallback_guidance]
+    properties:
+      recommended: { $ref: '#/definitions/recommendedSelection' }
+      fallback_guidance: { $ref: '#/definitions/fallbackGuidance' }
+  effective_selection: { $ref: '#/definitions/effectiveSelection' }
+  comparison_result: { enum: [MATCH, USER_SELECTED_ALTERNATIVE, FALLBACK_USED, NOT_REPORTED] }
+definitions:
+  recommendedSelection:
+    type: object
+    additionalProperties: false
+    required: [family, model, effort, agent_workflow, mode, rationale]
+    properties:
+      family: { type: string, minLength: 1 }
+      model: { type: string, minLength: 1 }
+      effort: { enum: [LOW, MEDIUM, HIGH, XHIGH, MAX] }
+      agent_workflow: { type: string, minLength: 1 }
+      mode: { type: string, minLength: 1 }
+      rationale: { type: string, minLength: 1 }
+  fallbackGuidance:
+    type: object
+    additionalProperties: false
+    required: [family, model, effort, condition]
+    properties:
+      family: { type: string, minLength: 1 }
+      model: { type: string, minLength: 1 }
+      effort: { enum: [LOW, MEDIUM, HIGH, XHIGH, MAX] }
+      condition: { type: string, minLength: 1 }
+  effectiveSelection:
+    type: object
+    additionalProperties: false
+    required: [family, model, effort, agent_workflow, mode, alternative_used, fallback_used, recorded_before_preflight]
+    properties:
+      family: { type: string, minLength: 1 }
+      model: { type: string, minLength: 1 }
+      effort: { enum: [LOW, MEDIUM, HIGH, XHIGH, MAX] }
+      agent_workflow: { type: string, minLength: 1 }
+      mode: { type: string, minLength: 1 }
+      alternative_used: { type: boolean }
+      fallback_used: { type: boolean }
+      recorded_before_preflight: { const: true }

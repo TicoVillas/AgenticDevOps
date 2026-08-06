@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "milestone": "M5.3",
+  "result": "PASS",
+  "reason_code": "SNAPSHOT_DIVERGED",
+  "declared_artifact_overrides_observed_state": false,
+  "test": "tests/lifecycle/engine-integration.test.mjs",
+  "evidence_case": "artifact authorization cannot prevail over destination divergence"
+}

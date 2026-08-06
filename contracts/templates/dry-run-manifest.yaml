@@ -1,0 +1,43 @@
+version: 1
+origin: dry-run-validator
+executor_role: ENGINEERING
+phase: execute-contract
+authorization: { reference: local-execution, operations: [simulate] }
+scope: { resources: [framework] }
+timestamps: { created_at: '2026-07-28T12:00:00Z' }
+hashes: {}
+classification: CONFIRMED_DIRECTLY
+sanitization: { secrets_removed: true, personal_data_minimized: true }
+results: []
+limitations: []
+references: []
+operation: local-generation
+target: framework
+environment: LOCAL_ISOLATED
+operational_scope:
+  paths: [framework]
+  snapshot_hash: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+operation_class: LOCAL_WRITE
+risk: LOW
+reversibility: HIGH
+ambiguity: LOW
+blast_radius: LOCAL
+data_classes: []
+secrets_present: false
+external_effect: false
+authorization_current: true
+scope_contained: true
+snapshot_matches: true
+mutation: REVERSIBLE
+determinism: DETERMINISTIC
+idempotency: IDEMPOTENT
+equivalence: VALIDATED
+partial_effect_state: NONE
+preconditions: [{ name: scope-contained, passed: true }]
+predicted_effects: [create local files]
+limits: { max_files: 100 }
+rollback: { available: true, plan: remove only generated local files }
+observability_available: true
+interruption_criteria: [scope divergence]
+evidence_complete: true
+decision: AUTO_APPLY_ELIGIBLE

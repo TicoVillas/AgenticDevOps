@@ -1,0 +1,10 @@
+{
+  "profile": "DELTA",
+  "sections": {
+    "CHANGE": "The adapter contract now resolves response profiles without changing workflow semantics.",
+    "IMPACT": "Core phases, authority, and session topology remain unchanged.",
+    "RECOMMENDATION": "Use the configured default profile for concise coordination responses.",
+    "NEXT_PHASE": "Run adapter contract validation.",
+    "STATUS": "READY"
+  }
+}

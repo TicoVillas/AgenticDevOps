@@ -1,0 +1,22 @@
+version: 1
+outcomes:
+  boundary-integrity:
+    risks: [untrusted-input, prompt-injection, tool-injection, path-injection]
+    controls: [validate-at-boundary, separate-instructions-from-data, contain-paths]
+    evidence: [negative-test, rejected-input]
+  authority-integrity:
+    risks: [scope-escalation, unauthorized-write, cross-role-confusion]
+    controls: [least-privilege, explicit-authorization, deny-by-default]
+    evidence: [authorization-reference, blocked-attempt]
+  confidentiality:
+    risks: [secret-exposure, excessive-data-transfer, sensitive-log]
+    controls: [secret-store, data-minimization, log-sanitization]
+    evidence: [sanitized-scan, data-inventory]
+  execution-integrity:
+    risks: [untrusted-execution, uncertain-retry, supply-chain]
+    controls: [fixed-command, validate-tool-output, deterministic-lock]
+    evidence: [command-result, lock-verification, dependency-review]
+  recoverability:
+    risks: [partial-failure, irreversible-change, broad-blast-radius]
+    controls: [dry-run, idempotency, rollback, stop-criteria]
+    evidence: [simulation-result, recovery-check, checkpoint]

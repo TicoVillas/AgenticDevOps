@@ -1,0 +1,1 @@
+{"operation_id":"operation-001","scope_sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","cases":[{"source":"DRAFT","current":true,"authorization_granted":false},{"source":"CONTRACT_REVIEW","current":true,"authorization_granted":false},{"source":"USER_AUTHORIZATION","current":true,"authorization_granted":true}]}

@@ -1,0 +1,63 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:installation-journal:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, operation_id, manifest_sha256, snapshot_sha256, status, entries]
+properties:
+  schema_version: { const: 1 }
+  operation_id: { type: string, pattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]{7,127}$' }
+  manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  snapshot_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  plan_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  durable_sequence: { type: integer, minimum: 0 }
+  status: { enum: [PLANNED, BACKED_UP, APPLYING, APPLIED, VERIFIED, NO_EFFECT, FAILED_KNOWN, PARTIAL_KNOWN, PARTIAL, UNKNOWN] }
+  reconciliation:
+    type: object
+    additionalProperties: false
+    required: [status, observed_at]
+    properties:
+      status: { enum: [NOT_REQUIRED, UNRECONCILED, RECONCILED, BLOCKED] }
+      observed_at: { type: string, format: date-time }
+      evidence_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  fsync_evidence:
+    type: object
+    additionalProperties: false
+    required: [intent_fsynced_through, journal_fsynced]
+    properties:
+      intent_fsynced_through: { type: integer, minimum: 0 }
+      journal_fsynced: { type: boolean }
+  entries:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [sequence, item_id, path, action, state, intent_recorded_at]
+      properties:
+        sequence: { type: integer, minimum: 1 }
+        item_id: { type: string, minLength: 1 }
+        path: { type: string, minLength: 1 }
+        action: { enum: [CREATE, BACKUP_UPDATE, BACKUP_RETIRE, SELF_UPDATE] }
+        state: { enum: [PLANNED, BACKED_UP, APPLYING, APPLIED, VERIFIED, NO_EFFECT, FAILED_KNOWN, PARTIAL_KNOWN, PARTIAL, UNKNOWN] }
+        intent_recorded_at: { type: string, format: date-time }
+        intent_fsynced: { type: boolean }
+        completed_at: { type: string, format: date-time }
+        before_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+        after_sha256: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+        error_code: { type: [string, 'null'], pattern: '^[A-Z][A-Z0-9_]*$' }
+      allOf:
+        - if:
+            required: [intent_fsynced]
+            properties: { state: { enum: [APPLIED, VERIFIED] }, intent_fsynced: { type: boolean } }
+          then:
+            properties: { intent_fsynced: { const: true } }
+allOf:
+  - if:
+      required: [fsync_evidence]
+      properties: { status: { enum: [APPLIED, VERIFIED] }, fsync_evidence: { type: object } }
+    then:
+      properties:
+        fsync_evidence:
+          type: object
+          properties: { journal_fsynced: { const: true } }

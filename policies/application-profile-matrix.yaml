@@ -1,0 +1,42 @@
+version: 1
+baseline_controls:
+  - validate-boundaries
+  - least-privilege
+  - protect-secrets
+  - safe-errors-and-defaults
+  - minimize-data
+  - review-dependencies
+  - sanitize-logs
+  - review-diff-and-scope
+  - applicable-negative-tests
+matrix:
+  LOCAL_ISOLATED:
+    LOW: LIGHT
+    MODERATE: STANDARD
+    HIGH: HIGH_RISK
+    CRITICAL: HIGH_RISK
+  INTERNAL_RESTRICTED:
+    LOW: STANDARD
+    MODERATE: STANDARD
+    HIGH: HIGH_RISK
+    CRITICAL: HIGH_RISK
+  EXTERNAL_RESTRICTED:
+    LOW: STANDARD
+    MODERATE: HIGH_RISK
+    HIGH: HIGH_RISK
+    CRITICAL: HIGH_RISK
+  PUBLIC:
+    LOW: HIGH_RISK
+    MODERATE: HIGH_RISK
+    HIGH: HIGH_RISK
+    CRITICAL: HIGH_RISK
+high_risk_triggers:
+  data_classes: [sensitive, regulated, credentials, confidential]
+  integrations: [external-write, critical]
+  operational_dependencies: [production, irreversible, broad-blast-radius]
+light_eligibility:
+  spec_type: QUICK_SPEC
+  size: SMALL
+  locality: LOCAL
+  reversibility: HIGH
+  risk: LOW

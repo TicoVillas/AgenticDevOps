@@ -1,0 +1,7 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:review:3.0
+$comment: schema-version-3.0.0
+allOf:
+  - $ref: urn:agentic-devops:artifact:3.0
+  - type: object
+    properties: { type: { const: CONTRACT_REVIEW } }

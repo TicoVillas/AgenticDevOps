@@ -1,0 +1,19 @@
+version: 1
+origin: validator
+executor_role: DELIVERY_ASSURANCE
+phase: validate-delivery
+authorization:
+  reference: validation-authorization
+  operations: [validate]
+scope:
+  resources: [artifact]
+timestamps:
+  created_at: '2026-07-28T12:00:00Z'
+hashes: {}
+classification: CONFIRMED_DIRECTLY
+sanitization:
+  secrets_removed: true
+  personal_data_minimized: true
+results: []
+limitations: []
+references: []

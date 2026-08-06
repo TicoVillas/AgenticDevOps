@@ -1,0 +1,33 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:release-key-event:3.0
+$comment: schema-version-3.1.0; authenticated rotation and revocation metadata
+type: object
+additionalProperties: false
+required: [schema_version, event_id, event_type, effective_at, authorization_sha256, authenticated_metadata_sha256]
+properties:
+  schema_version: { const: 1 }
+  event_id: { type: string, pattern: '^key-event-[A-Za-z0-9._-]{3,127}$' }
+  event_type: { enum: [ROTATION, REVOCATION] }
+  effective_at: { type: string, format: date-time }
+  authorization_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  authenticated_metadata_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  previous_key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+  new_key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+  overlap_until: { type: string, format: date-time }
+  key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+  reason: { type: string, minLength: 1, maxLength: 512 }
+  replacement_key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+allOf:
+  - if: { required: [event_type], properties: { event_type: { const: ROTATION } } }
+    then:
+      required: [previous_key_id, new_key_id, overlap_until]
+      properties:
+        previous_key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+        new_key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+        overlap_until: { type: string, format: date-time }
+  - if: { required: [event_type], properties: { event_type: { const: REVOCATION } } }
+    then:
+      required: [key_id, reason]
+      properties:
+        key_id: { type: string, pattern: '^release-[a-z0-9][a-z0-9-]{2,63}$' }
+        reason: { type: string, minLength: 1, maxLength: 512 }

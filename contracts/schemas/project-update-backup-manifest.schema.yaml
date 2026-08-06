@@ -1,0 +1,24 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:project-update-backup-manifest:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, operation_id, project_root_sha256, plan_sha256, entries, verified]
+properties:
+  schema_version: { const: 1 }
+  operation_id: { type: string, pattern: '^project-(?!(?:checkpoint|authorization|receipt)-)[A-Za-z0-9._-]{1,120}$' }
+  project_root_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  plan_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  entries:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [path, backup_path, sha256, size, verified]
+      properties:
+        path: { type: string, pattern: '^\.agentic/(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        backup_path: { type: string, pattern: '^(?!/)(?!.*(?:^|/)\.\.(?:/|$)).+$' }
+        sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+        size: { type: integer, minimum: 0 }
+        verified: { const: true }
+  verified: { const: true }

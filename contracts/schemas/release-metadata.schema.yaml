@@ -1,0 +1,36 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:release-metadata:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [schema_version, release_manifest_sha256, commit_sha, lock_sha256, build, reproducibility, attestation]
+properties:
+  schema_version: { const: 1 }
+  release_manifest_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  commit_sha: { type: string, pattern: '^[a-f0-9]{40}$' }
+  lock_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  build:
+    type: object
+    additionalProperties: false
+    required: [workflow_id, run_id, clean_runner, built_at]
+    properties:
+      workflow_id: { type: string, minLength: 1 }
+      run_id: { type: string, pattern: '^[A-Za-z0-9][A-Za-z0-9._-]{1,127}$' }
+      clean_runner: { const: true }
+      built_at: { type: string, format: date-time }
+  reproducibility:
+    type: object
+    additionalProperties: false
+    required: [status, logical_identity]
+    properties:
+      status: { enum: [NOT_RUN, EQUIVALENT, DIVERGED, BLOCKED] }
+      logical_identity: { type: [string, 'null'], pattern: '^[a-f0-9]{64}$' }
+      comparison_evidence_sha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+  attestation:
+    type: object
+    additionalProperties: false
+    required: [status, blocking]
+    properties:
+      status: { enum: [NOT_PROVIDED, PROVIDED, INVALID] }
+      blocking: { const: false }
+      sha256: { type: string, pattern: '^[a-f0-9]{64}$' }

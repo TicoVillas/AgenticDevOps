@@ -1,0 +1,69 @@
+{
+  "name": "@agentic-devops/framework-v3",
+  "version": "3.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tool-neutral workflow framework with deterministic Node.js validators",
+  "license": "SEE LICENSE IN PRIVATE-USE-LICENSE.md",
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11"
+  },
+  "scripts": {
+    "validate": "node tools/validate-all.mjs",
+    "validate:adapters": "node tools/validate-adapters.mjs",
+    "validate:distribution": "node tools/validate-distribution.mjs",
+    "validate:handoff": "node tools/validate-handoff.mjs",
+    "validate:m2": "node tools/validate-m2-contracts.mjs",
+    "validate:m4": "node tools/validate-m4-release.mjs",
+    "validate:m5": "node tools/validate-m5-lifecycle.mjs",
+    "validate:m6": "node tools/validate-m6-project-update.mjs",
+    "validate:m7": "node tools/validate-m7-installers.mjs",
+    "validate:m8": "node tools/validate-m8-ci.mjs",
+    "validate:retention": "node tools/validate-retention.mjs",
+    "validate:selection-boundaries": "node tools/validate-selection-boundaries.mjs",
+    "validate:traceability": "node tools/validate-spec-traceability.mjs",
+    "generate:steering": "node tools/generate-agentic-workflow.mjs",
+    "generate:compatibility": "node tools/generate-compatibility.mjs",
+    "generate:reports": "node tools/generate-reports.mjs && node tools/generate-m5-reports.mjs && node tools/generate-m6-project-update-report.mjs && node tools/generate-m7-installers-report.mjs && node tools/generate-m8-ci-report.mjs",
+    "generate:m6-report": "node tools/generate-m6-project-update-report.mjs",
+    "generate:m7-report": "node tools/generate-m7-installers-report.mjs",
+    "generate:m8-report": "node tools/generate-m8-ci-report.mjs",
+    "generate:traceability": "node tools/generate-spec-traceability.mjs",
+    "generate:sources": "node tools/generate-source-catalog.mjs",
+    "archive:inventory": "node tools/archive-local.mjs inventory",
+    "archive:build": "node tools/archive-local.mjs build",
+    "archive:verify": "node tools/archive-local.mjs verify",
+    "archive:restore": "node tools/archive-restore.mjs execute",
+    "validate:reports": "node tools/validate-reports.mjs",
+    "test": "node --test",
+    "lock": "node tools/generate-lock.mjs",
+    "pack:local": "npm pack --ignore-scripts"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "yaml": "2.9.0"
+  },
+  "files": [
+    "adapters/",
+    "contracts/",
+    "core/",
+    "decisions/",
+    "examples/",
+    "generated/",
+    "installers/",
+    "policies/",
+    "skills/",
+    "tools/",
+    "framework.lock",
+    "PRIVATE-USE-LICENSE.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TicoVillas/AgenticDevOps.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

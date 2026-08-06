@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "incident_id": "release-key-incident-test-only-01",
+  "detected_at": "2026-08-02T00:00:00Z",
+  "affected_key_ids": ["release-test-only-01"],
+  "affected_release_ids": [],
+  "hard_stop": true,
+  "publish_authorized": false,
+  "revocation_status": "PENDING",
+  "impact_assessment": "PENDING",
+  "replacement_status": "PENDING",
+  "communication_status": "PENDING",
+  "status": "OPEN"
+}

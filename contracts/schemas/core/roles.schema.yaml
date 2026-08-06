@@ -1,0 +1,26 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: urn:agentic-devops:roles:3.0
+$comment: schema-version-3.0.0
+type: object
+additionalProperties: false
+required: [version, roles]
+properties:
+  version: { const: 3.0.0 }
+  roles:
+    type: object
+    additionalProperties: false
+    required: [CONSULTING, ENGINEERING, CONTRACT_ASSURANCE, DELIVERY_ASSURANCE]
+    properties:
+      CONSULTING: { $ref: '#/$defs/role' }
+      ENGINEERING: { $ref: '#/$defs/role' }
+      CONTRACT_ASSURANCE: { $ref: '#/$defs/role' }
+      DELIVERY_ASSURANCE: { $ref: '#/$defs/role' }
+$defs:
+  role:
+    type: object
+    required: [responsibility]
+    properties:
+      responsibility: { type: string, minLength: 1 }
+      continuity: { type: string }
+      independence: { type: object }
+      cannot: { type: array, items: { type: string } }
