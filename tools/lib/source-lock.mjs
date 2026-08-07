@@ -8,7 +8,7 @@ export function sha256(bytes) {
 }
 
 export async function buildFrameworkLock(root = frameworkRoot) {
-  const paths = await walk(root, { exclude: ['node_modules'] });
+  const paths = await walk(root, { exclude: ['node_modules', '.git'] });
   const files = {};
   for (const path of paths) {
     const rel = relative(root, path).split(sep).join('/');

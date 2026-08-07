@@ -22,21 +22,21 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 9ad376ed1e7b1b86fe37f282a8393b52048595f80b8b791f08485bf3da04d6d2
+    sha256: 2c72672073270b2636e327dc511b28f145dba03a9ebfb62cf1a7e70bfb238b70
   - id: source-github-workflows-release
     path: .github/workflows/release.yml
     version: 3.0.0
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: aa7db435cffb7915a2736f4c0e7e4dfabeadfae585b9b7bde5e38320fff1d7d1
+    sha256: 9f03303288c38499c1f3d0d0ec26a825848a9d9e3aa66b6bb2ad52bd3a0d1adb
   - id: source-kiro-specs-framework-governance-and-portability-execution
     path: .kiro/specs/framework-governance-and-portability/EXECUTION.md
     version: 3.0.0
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 3f0068f97d1a689a6c9314fee488d8d85a38d6a5384ff221a041362565235db4
+    sha256: 5767924be6fe8cdbb9802e7e4193f8d16ce27421871bc56a01b38a7f75097c40
   - id: source-kiro-specs-framework-governance-and-portability-contract-review
     path: .kiro/specs/framework-governance-and-portability/contract-review.md
     version: 3.0.0
@@ -1644,7 +1644,7 @@ source_catalog:
     class: BUILD_TEST_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: d8072790d81897e9f6e0a4dd699e82ed48703877b700047356c79a2a27e6e4ad
+    sha256: 360f23d3f1210b6ab52f0f28285d9d9745066fea9e0f860d03cf3e4a0e73f9e1
   - id: test-contracts-spec-traceability
     path: tests/contracts/spec-traceability.test.mjs
     version: 3.0.0
@@ -2239,7 +2239,7 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 39a445e3ee9dff7f33f6cee85e1eba36dc3210523829fe6abd5db2f30ec2dc65
+    sha256: a6b9d2cfc5dd005b48df8a7bd86013102487d7d3691373ccfc0eaf79960bbc7f
   - id: tool-generate-spec-traceability
     path: tools/generate-spec-traceability.mjs
     version: 3.0.0
@@ -2610,7 +2610,7 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 4bd9e12e06a160b32ce15b6ef2dcc55e8f17b569293575f92afff618076d5146
+    sha256: c31e14779771bacfc928417232f0f1aaf963e1be0229470f660e5e5931dbbf9e
   - id: tool-lib-sources
     path: tools/lib/sources.mjs
     version: 3.0.0

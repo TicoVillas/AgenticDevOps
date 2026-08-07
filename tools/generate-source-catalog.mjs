@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFile, writeFile } from 'node:fs/promises';
 import { relative, resolve, sep } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import YAML from 'yaml';
 import { frameworkRoot, walk } from './lib/io.mjs';
 import { DISTRIBUTION_MANIFEST } from './lib/distribution.mjs';
@@ -51,7 +52,7 @@ export async function generateSourceCatalog(root = frameworkRoot) {
   const document = YAML.parseDocument(text);
   const manifest = document.toJS();
   const existing = new Map((manifest.source_catalog ?? []).map((source) => [source.path, source]));
-  const files = (await walk(root, { exclude: ['node_modules'] }))
+  const files = (await walk(root, { exclude: ['node_modules', '.git'] }))
     .map((path) => slash(relative(root, path)))
     .filter((path) => path !== 'framework.lock' && !path.endsWith('.tgz'))
     .sort();
@@ -83,5 +84,8 @@ export async function generateSourceCatalog(root = frameworkRoot) {
   return { files: sourceCatalog.length, managed: manifest.managed_items?.length ?? 0 };
 }
 
-const result = await generateSourceCatalog();
-console.log(JSON.stringify({ status: 'GENERATED', ...result }));
+const invokedPath = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : '';
+if (import.meta.url === invokedPath) {
+  const result = await generateSourceCatalog();
+  console.log(JSON.stringify({ status: 'GENERATED', ...result }));
+}
