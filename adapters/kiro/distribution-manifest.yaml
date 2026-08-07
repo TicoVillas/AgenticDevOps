@@ -1002,7 +1002,7 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: universal
     hash_mode: LOCKED_SHA256
-    sha256: a2edd93ce76c9bf8c81b26b3c906cca14c1f23a278320c115f3b876e3b4c9597
+    sha256: d54175f09367557e949f9304f5c9ece07c607af0c0cbf2de0c3a171b32406639
   - id: core-workflow-router
     path: core/WorkflowRouter.md
     version: 3.0.0
@@ -1294,7 +1294,7 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 9a860bf5d476022d77d645c12423bcaae4e84772c1cca08a74fb6c60debe86d8
+    sha256: 1c8015f63735373c54293fb57a354ac561e737383cbe30b03af167f6501272be
   - id: package-manifest
     path: package.json
     version: 3.0.0

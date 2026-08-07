@@ -51,7 +51,7 @@ contexts:
       package_lock:
         path: package-lock.json
         hash_mode: FIXED_SHA256
-        sha256: 9a860bf5d476022d77d645c12423bcaae4e84772c1cca08a74fb6c60debe86d8
+        sha256: 1c8015f63735373c54293fb57a354ac561e737383cbe30b03af167f6501272be
       distribution_manifest:
         path: DISTRIBUTION_MANIFEST
         hash_mode: FRAMEWORK_LOCK_ENTRY
