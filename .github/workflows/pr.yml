@@ -41,4 +41,9 @@ jobs:
       - name: Secret and private-key scan
         run: node tools/scan-release-sensitive.mjs
       - name: Clean dual pack comparison
-        run: mkdir -p "$RUNNER_TEMP/pack-a" "$RUNNER_TEMP/pack-b" && npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/pack-a" >/dev/null && npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/pack-b" >/dev/null && cmp "$RUNNER_TEMP/pack-a/agentic-devops-framework-v3-3.0.0.tgz" "$RUNNER_TEMP/pack-b/agentic-devops-framework-v3-3.0.0.tgz"
+        run: |
+          mkdir -p "$RUNNER_TEMP/pack-a" "$RUNNER_TEMP/pack-b"
+          package_filename_a="$(npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/pack-a")"
+          package_filename_b="$(npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/pack-b")"
+          test "$package_filename_a" = "$package_filename_b"
+          cmp "$RUNNER_TEMP/pack-a/$package_filename_a" "$RUNNER_TEMP/pack-b/$package_filename_b"

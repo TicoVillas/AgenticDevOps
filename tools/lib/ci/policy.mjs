@@ -10,7 +10,12 @@ const RUNTIME_PREFIXES = Object.freeze([
   'adapters/', 'contracts/', 'core/', 'decisions/', 'examples/', 'generated/',
   'installers/', 'policies/', 'skills/', 'tools/',
 ]);
-const RUNTIME_FILES = new Set(['framework.lock', 'package.json']);
+const REQUIRED_PACKAGE_FILES = Object.freeze([
+  'package.json',
+  'framework.lock',
+  'PRIVATE-USE-LICENSE.md',
+]);
+const RUNTIME_FILES = new Set(REQUIRED_PACKAGE_FILES);
 const GOVERNANCE_PREFIXES = Object.freeze([
   '.agentic/', '.github/', '.kiro/', 'tests/', 'history/', 'histories/', 'state/',
   'receipts/', 'journals/', 'backups/',
@@ -51,7 +56,7 @@ export function validatePackageEntries(entries) {
     if (isGovernancePath(path)) errors.push(`GOVERNANCE_IN_PACKAGE:${path}`);
     else if (!isRuntimePath(path)) errors.push(`PACKAGE_PATH_OUTSIDE_ALLOWLIST:${path}`);
   }
-  for (const required of ['package.json', 'framework.lock']) if (!seen.has(required)) errors.push(`PACKAGE_REQUIRED_PATH_MISSING:${required}`);
+  for (const required of REQUIRED_PACKAGE_FILES) if (!seen.has(required)) errors.push(`PACKAGE_REQUIRED_PATH_MISSING:${required}`);
   return Object.freeze({ ok: errors.length === 0, errors, file_count: paths.length, paths: Object.freeze(paths.sort()), governance_excluded: !paths.some(isGovernancePath) });
 }
 

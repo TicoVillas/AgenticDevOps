@@ -22,14 +22,14 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 2c72672073270b2636e327dc511b28f145dba03a9ebfb62cf1a7e70bfb238b70
+    sha256: dc415a2798a10d934d3abe6bd16d7ab0962fd632613c737da5c661ec423a7363
   - id: source-github-workflows-release
     path: .github/workflows/release.yml
     version: 3.0.0
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 9f03303288c38499c1f3d0d0ec26a825848a9d9e3aa66b6bb2ad52bd3a0d1adb
+    sha256: e4e369b99d6e25c1e5c80b793fe1a793a9e674ee4b2188ebd447571780682619
   - id: source-kiro-specs-framework-governance-and-portability-execution
     path: .kiro/specs/framework-governance-and-portability/EXECUTION.md
     version: 3.0.0
@@ -1581,7 +1581,7 @@ source_catalog:
     class: BUILD_TEST_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 17715078097ab7823cbd8821b6221880ff5d2823f57e7ef7674a84b42a3ac400
+    sha256: 9440b236df00f64611ec65bc30c514fadd0e849584a4e56961fa15b080a84095
   - id: test-ci-release-gates
     path: tests/ci/release-gates.test.mjs
     version: 3.0.0
@@ -1595,7 +1595,7 @@ source_catalog:
     class: BUILD_TEST_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: e9bc04bfc8fe92712e31c62f3237f2b0743d493879bebef71d15e6cd9896a18f
+    sha256: 0f48b309dadb36c2f3d021abe1db77122c52a01aa807994c69cf54363ee3c446
   - id: test-compatibility
     path: tests/compatibility/compatibility.test.mjs
     version: 3.0.0
@@ -2302,7 +2302,7 @@ source_catalog:
     class: SOURCE_ONLY
     adapter_scope: none
     hash_mode: LOCKED_SHA256
-    sha256: 8b6492f14f54f22cdc61f3966772e00b423aff03124eb9bc9da994bee2de618e
+    sha256: 2baa6a9c7fd755fda58276dd9e650a6af03aa16caa5609086cb21327e280299c
   - id: tool-lib-compatibility
     path: tools/lib/compatibility.mjs
     version: 3.0.0

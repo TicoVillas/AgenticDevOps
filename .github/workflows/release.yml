@@ -65,13 +65,20 @@ jobs:
       - name: Package allowlist and sensitive scan
         run: npm pack --dry-run --ignore-scripts --json > "$RUNNER_TEMP/npm-pack.json" && node tools/validate-m8-ci.mjs --package-report "$RUNNER_TEMP/npm-pack.json" && node tools/scan-release-sensitive.mjs
       - name: Dual build package
-        run: mkdir -p "$RUNNER_TEMP/build-a" "$RUNNER_TEMP/build-b" && npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/build-a" >/dev/null && npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/build-b" >/dev/null && cmp "$RUNNER_TEMP/build-a/agentic-devops-framework-v3-3.0.0.tgz" "$RUNNER_TEMP/build-b/agentic-devops-framework-v3-3.0.0.tgz"
+        id: dual_build
+        run: |
+          mkdir -p "$RUNNER_TEMP/build-a" "$RUNNER_TEMP/build-b"
+          package_filename_a="$(npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/build-a")"
+          package_filename_b="$(npm pack --ignore-scripts --pack-destination "$RUNNER_TEMP/build-b")"
+          test "$package_filename_a" = "$package_filename_b"
+          cmp "$RUNNER_TEMP/build-a/$package_filename_a" "$RUNNER_TEMP/build-b/$package_filename_b"
+          printf 'package_filename=%s\n' "$package_filename_a" >> "$GITHUB_OUTPUT"
       - name: Upload unsigned build inputs
         uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808
         with:
           name: unsigned-release-inputs
           path: |
-            ${{ runner.temp }}/build-a/agentic-devops-framework-v3-3.0.0.tgz
+            ${{ runner.temp }}/build-a/${{ steps.dual_build.outputs.package_filename }}
             framework.lock
             package-lock.json
           if-no-files-found: error

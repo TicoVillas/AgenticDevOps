@@ -7,21 +7,50 @@ import {
   validatePackageEntries,
 } from '../../tools/lib/ci/policy.mjs';
 
-test('package allowlist accepts runtime content and excludes governance', () => {
-  const result = validatePackageEntries(['package.json', 'framework.lock', 'core/WorkflowRouter.md', 'tools/validate-all.mjs']);
+test('package allowlist accepts required metadata and runtime content', () => {
+  const result = validatePackageEntries([
+    'package.json',
+    'framework.lock',
+    'PRIVATE-USE-LICENSE.md',
+    'core/WorkflowRouter.md',
+    'tools/validate-all.mjs',
+  ]);
   assert.equal(result.ok, true);
   assert.equal(result.governance_excluded, true);
 });
 
-test('package allowlist rejects governance and unclassified content', () => {
-  const result = validatePackageEntries(['package.json', 'framework.lock', '.github/workflows/release.yml', 'tests/ci/workflows.test.mjs', 'README.private']);
+test('package allowlist requires the private license', () => {
+  const result = validatePackageEntries(['package.json', 'framework.lock', 'core/WorkflowRouter.md']);
   assert.equal(result.ok, false);
-  assert(result.errors.some((error) => error.startsWith('GOVERNANCE_IN_PACKAGE:')));
+  assert(result.errors.includes('PACKAGE_REQUIRED_PATH_MISSING:PRIVATE-USE-LICENSE.md'));
+});
+
+test('package allowlist rejects governance and unclassified content', () => {
+  const governance = [
+    '.github/workflows/release.yml',
+    '.kiro/specs/example/requirements.md',
+    '.agentic/application-profile.yaml',
+    'tests/ci/workflows.test.mjs',
+  ];
+  const result = validatePackageEntries([
+    'package.json',
+    'framework.lock',
+    'PRIVATE-USE-LICENSE.md',
+    ...governance,
+    'README.private',
+  ]);
+  assert.equal(result.ok, false);
+  for (const path of governance) assert(result.errors.includes(`GOVERNANCE_IN_PACKAGE:${path}`));
   assert(result.errors.includes('PACKAGE_PATH_OUTSIDE_ALLOWLIST:README.private'));
 });
 
 test('npm pack report is checked by the same package policy', () => {
-  const result = validateNpmPackReport([{ files: [{ path: 'package.json' }, { path: 'framework.lock' }, { path: 'contracts/templates/artifact.yaml' }] }]);
+  const result = validateNpmPackReport([{ files: [
+    { path: 'package.json' },
+    { path: 'framework.lock' },
+    { path: 'PRIVATE-USE-LICENSE.md' },
+    { path: 'contracts/templates/artifact.yaml' },
+  ] }]);
   assert.equal(result.ok, true);
 });
 

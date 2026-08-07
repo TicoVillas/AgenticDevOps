@@ -45,6 +45,22 @@ test('release workflow separates draft checkpoint publish and reverification', a
   assert(source.includes('compensating_control_authorization_sha256'));
 });
 
+test('dual-pack filenames are dynamic and version literals are absent', async () => {
+  const prSource = await readFile(resolve(frameworkRoot, '.github/workflows/pr.yml'), 'utf8');
+  const releaseSource = await readFile(resolve(frameworkRoot, '.github/workflows/release.yml'), 'utf8');
+  for (const source of [prSource, releaseSource]) {
+    assert.equal(source.includes('agentic-devops-framework-v3-3.0.0.tgz'), false);
+    assert.equal(source.includes('agentic-devops-framework-v3-3.1.0.tgz'), false);
+    assert(source.includes('package_filename_a="$(npm pack --ignore-scripts --pack-destination'));
+    assert(source.includes('package_filename_b="$(npm pack --ignore-scripts --pack-destination'));
+    assert(source.includes('test "$package_filename_a" = "$package_filename_b"'));
+  }
+  assert(prSource.includes('cmp "$RUNNER_TEMP/pack-a/$package_filename_a" "$RUNNER_TEMP/pack-b/$package_filename_b"'));
+  assert(releaseSource.includes('cmp "$RUNNER_TEMP/build-a/$package_filename_a" "$RUNNER_TEMP/build-b/$package_filename_b"'));
+  assert(releaseSource.includes("printf 'package_filename=%s\\n' \"$package_filename_a\" >> \"$GITHUB_OUTPUT\""));
+  assert(releaseSource.includes('${{ runner.temp }}/build-a/${{ steps.dual_build.outputs.package_filename }}'));
+});
+
 test('M8 validator accepts the inactive local workflows', async () => {
   const result = await validateM8Ci();
   assert.deepEqual(result.errors, []);
